@@ -534,8 +534,6 @@ ___________ ________________ ________
 ```
 
 ---
-[.code-highlight: 1-11]
-[.code-highlight: all]
 ```
 > select live_cats from boxes;
 
@@ -559,6 +557,8 @@ if all nulls, return null
 otherwise ignores nulls
 
 ---
+[.code-highlight: 1-11]
+[.code-highlight: all]
 ```
 > select live_cats from boxes;
 
@@ -743,6 +743,35 @@ ORA-00939: too many arguments for function
 | Number of Args | 2     | 2->65,535 |
 | Oracle Version | All | >= 9i |
 | Easy To Type   | ✅       | ❌    |
+
+---
+[.code-highlight: 1,10]
+[.code-highlight: 1-8,10]
+[.code-highlight: all]
+```
+> select id from boxes where id = coalesce(:id, id);
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+-----------------------------------
+| Id  | Operation        | Name   |
+-----------------------------------
+|   0 | SELECT STATEMENT |        |
+|*  1 |  INDEX FULL SCAN | BOX_ID |
+-----------------------------------
+
+> select id from boxes where id = nvl(:id, id)
+
+-----------------------------------------------
+| Id  | Operation           | Name            |
+-----------------------------------------------
+|   0 | SELECT STATEMENT    |                 |
+|   1 |  VIEW               | VW_ORE_2032B19C |
+|   2 |   UNION-ALL         |                 |
+|*  3 |    FILTER           |                 |
+|*  4 |     INDEX RANGE SCAN| BOX_ID          |
+|*  5 |    FILTER           |                 |
+|*  6 |     INDEX FULL SCAN | BOX_ID          |
+-----------------------------------------------
+```
 
 ---
 ![fit](images/evolution.png)
@@ -1083,6 +1112,21 @@ Franck    [i-value]
 Bailey    [a-value]     
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ```
+
+---
+![fit](images/manuela.jpeg) ![fit](images/franck.jpg) ![fit](images/bailey.jpg) 
+
+```
+> select name, owner from dogs;
+
+NAME      OWNER      
+_________ __________ 
+Nala      Manuela    
+Franck    [null]     
+Bailey    [null]     
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+```
+
 
 ---
 ![fit](images/unique.png)
@@ -1522,41 +1566,36 @@ Marnie    Full
 ```
 
 ---
-[.code-highlight: 1-12]
+[.code-highlight: 1-8]
 [.code-highlight: all]
 ```
-> create or replace function is_hungry (status varchar2) 
-return integer
-deterministic
-is
-begin
-  if status = 'Hungry' then
-    return 1;
-  else
-    return null;
-  end if;
-end;
-/
+> alter table dogs add is_hungry number generated always as (
+  2     case
+  3        when status = 'Hungry' then 1
+  4        else null
+  5     end
+  6*    ) virtual;
+
+Table DOGS altered.
+
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-> select name, status, is_hungry(status) from dogs;
+> select name, status, is_hungry from dogs;
 
-NAME      STATUS       IS_HUNGRY(STATUS) 
-_________ _________ ____________________ 
-Nala      Full                    [null] 
-Franck    Hungry                       1 
-Bailey    Full                    [null] 
-Doug      Full                    [null] 
-Marnie    Full                    [null] 
+NAME      STATUS       IS_HUNGRY
+_________ _________ ____________
+Nala      Full            [null]
+Franck    Hungry               1
+Bailey    Full            [null]
+Doug      Full            [null]
+Marnie    Full            [null]
 ```        
-
-^deterministic - only factors affecting result of function are the inputs
 
 ---
 [.code-highlight: 1-3]
 [.code-highlight: 1-9]
 [.code-highlight: all]
 ```
-> create index hungry_dogs on dogs(is_hungry(status));
+> create index hungry_dogs on dogs(is_hungry);
 
 Index HUNGRY_DOGS created.
 
@@ -1578,7 +1617,7 @@ PL/SQL procedure successfully completed.
 [.code-highlight: 1-5]
 [.code-highlight: all]
 ```
-> select name from dogs where is_hungry(status) = 1;
+> select name from dogs where is_hungry = 1;
 
 NAME      
 _________ 
@@ -1597,7 +1636,7 @@ Franck
 Predicate Information (identified by operation id):                               
 ---------------------------------------------------                               
                                                                                   
-   2 - access("DOGS"."SYS_NC00005$"=1)      
+   2 - access("IS_HUNGRY"=1)
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   
 ```
 

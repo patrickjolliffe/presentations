@@ -274,18 +274,14 @@ commit;
 
 select name, status from dogs;
 
-create or replace function is_hungry (status varchar2) 
-return integer
-deterministic
-is
-begin
-  if status = 'Hungry' then
-    return 1;
-  else
-    return null;
-  end if;
-end;
-/
+ALTER TABLE dogs 
+ADD is_hungry NUMBER 
+    GENERATED ALWAYS AS (
+        CASE 
+            WHEN status = 'Hungry' THEN 1 
+            ELSE NULL 
+        END
+    ) VIRTUAL;
 
 select name, status, is_hungry(status) from dogs;
 

@@ -72,3 +72,11 @@ select live_cats from boxes order by live_cats desc nulls last;
 select live_cats, nvl(live_cats, 0), coalesce(live_cats, 0) from boxes;
 
 select live_cats, id, coalesce(live_cats, id, 0) from boxes;
+
+variable id number 
+
+exec :id := null
+
+select id from boxes where id = nvl(:id, id)
+
+select id from boxes where id = coalesce(:id, id)
