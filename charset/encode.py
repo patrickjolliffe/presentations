@@ -14,26 +14,32 @@ def check_encoding(entries, encodings, filter_language=None):
                 encoded = word.encode(encoding)
                 byte_count = len(encoded)
                 hex_bytes = " ".join(f"{b:02X}" for b in encoded)
-                print(f"In {encoding} {language} {word} is good:  {hex_bytes} ({byte_count} bytes)")
+                if filter_language:
+                    print(f"{language}({encoding}): Good {word} [{hex_bytes}] ({byte_count} bytes)")
                 total_bytes += byte_count
                 good_count += 1
             except UnicodeEncodeError:
-                print(f"In {encoding} {language} {word} is bad")
+                if filter_language:
+                    print(f"{language}({encoding}): Bad {word}")
                 bad_count += 1
 
         if not filter_language:
-            print(f"\n--- Summary for {encoding} ---")
-            print(f"Good dogs: {good_count} (total {total_bytes} bytes)")
-            print(f"Bad dogs: {bad_count}\n")
+            print(f"{encoding}: {good_count} good dogs ({total_bytes} bytes), {bad_count} bad dogs")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Check encoding compatibility of dog words.")
     parser.add_argument("filename", help="CSV file (language,word)")
-    parser.add_argument("encodings", nargs="+", help="One or more encodings to test")
     parser.add_argument("--language", help="Filter by language name")
     parser.add_argument("--all", action="store_true", help="Process all languages (default)")
 
-    args = parser.parse_args()
+    args, unknown = parser.parse_known_args()
+
+    # Assume positional encodings are the remaining unknown args
+    args.encodings = [arg for arg in unknown if not arg.startswith("-")]
+
+    if not args.encodings:
+        print("Error: Please provide at least one encoding to test.")
+        exit(1)
 
     try:
         with open(args.filename, "r", encoding="utf-8") as f:
