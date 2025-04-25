@@ -1,3 +1,37 @@
+![](images/dog.jpg)
+
+---
+![](images/dog.jpg)
+
+#dog
+
+---
+![](images/dog.jpg)
+
+#-..
+# \-\-\-
+# --.
+
+---
+![](images/dog.jpg)
+#. ....
+#... ....  
+#.. ..
+
+---
+![fit](images/tapcode.png)
+#. ....
+#... ....  
+#.. ..
+
+---
+#1964
+
+---
+![fit](images/ascii.jpg)
+
+---
+
 #Character Set Fundamentals
 
 ---
