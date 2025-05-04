@@ -138,11 +138,9 @@ guj,કૂતરો
 tlh,targh
 ```
 
----
-#1964
 
 ---
-####ASCII
+####US7ASCII
 
 |     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `A` | `B` | `C` | `D` | `E` | `F` |
 |-----|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
@@ -154,14 +152,7 @@ tlh,targh
 | `5x` | `P` | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | `[` | `\` | `]` | `^` | `_` |
 | `6x` | `` ` `` | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
 | `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | `{` | `\|` | `}` | `~` | `<del>` |
-| `8x` |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| `9x` |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| `Ax` |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| `Bx` |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| `Cx` |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| `Dx` |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| `Ex` |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| `Fx` |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
 
 ---
 
@@ -219,6 +210,24 @@ tlh,targh
 | `Dx`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
 | `Ex`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
 | `Fx`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
+
+---
+#Oracle 6
+
+First support for user-selectable character sets
+
+* US7ASCII
+* WE8DEC
+* WE8ISO8859P1
+* WE8MSWIN1252
+
+
+---
+
+<language_prefix><width><standard>
+<US><7><ASCII>
+
+
 
 ---
 #### ISO 8859-1 (Latin-1) Character Set
@@ -290,8 +299,13 @@ Portuguese(ascii): Bad cão
 ```
 
 ---
-#GBK
 
+#Oracle 7 
+##New CharacterSet Encodings
+
+* JA16SJIS,JA16EUC,ZHT16BIG5, ZHS16CGB231280, KO16KSC5601
+
+##NLS framework introduced
 
 ---
 ```
@@ -321,6 +335,13 @@ The repertoire may be closed, meaning that no additions are allowed without crea
 
 Code Point:           The unique numeric value assigned to each character
 Encoding Scheme:      How each character is converted to bytes for storage
+
+---
+#Oracle 8.0
+
+New Characterset UTF8 (CESU-8)
+
+
 
 ---
 #Unicode
@@ -405,6 +426,13 @@ UCS-2 was one of the first Unicode encoding forms. It uses a fixed-length of 2 b
 
 
 ^
+
+
+
+---
+#Oracle 8i
+
+New Characterset UTF8 (CESU-8)
 
 ---
 ```
@@ -598,6 +626,13 @@ Basic Multilingual Plane
 
 #Character Set In Oracle
 
+
+---
+
+Oracle 11g WE8MSWIN1252 
+Oracle 12c+ AL32UTF8
+
+
 Unicode
 ---
 UTF8 (Not to be confused with UTF-8) actually UTFE
@@ -694,6 +729,14 @@ Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 data
 ^
 Oracle strongly recommends that you do NOT set the NLS_LENGTH_SEMANTICS parameter to CHAR in the instance or server parameter file. This may cause many existing installation scripts to unexpectedly create columns with character length semantics, resulting in run-time errors, including buffer overflows. 
 
+
+---
+
+NLS_LANG
+
+
+---
+Upgrade
 
 
 ---
