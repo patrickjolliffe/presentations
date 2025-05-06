@@ -44,106 +44,123 @@
 ---
 [.column]
 ```
-eng,dog
-por,cão
-spa,perro
-fra,chien
-deu,Hund
-zho,狗
-jpn,犬
-ara,كلب
-heb,כלב
-rus,собака
-hin,कुत्ता
-kor,개
-swa,mbwa
-tur,köpek
-ell,σκύλος
-pol,pies
-nld,hond
-ron,câine
-hun,kutya
-vie,chó
+Hund
+abwo
+alabai
+anjing
+ashun
+aso
+cane
+cão
+câin
+câine
+câini
+chien
+chó
+cyn
+dog
+emba
+ghaddu
+gom
+hond
+hondur
 ```
-
 [.column]
 ```
-tha,หมา
-ind,anjing
-fin,koira
-est,koer
-lav,suns
-lit,šuo
-bel,сабака
-ukr,собака
-srp,куче
-ces,pes
-slk,pes
-isl,hundur
-nor,hund
-swe,hund
-cym,ci
-mlt,kelb
-sqi,qen
-zul,inja
-xho,ukudla
-sna,imbwa
+hualp
+huan
+hund
+imba
+imbua
+imbwa
+imbwe
+inu
+it
+jindo
+kelb
+khuy
+klèb
+koer
+koira
+kotta
+køter
+kutya
+kutta
+köpek
 ```
-
 [.column]
 ```
-lug,mbwa
-kik,njau
-bod,ཁྱི
-aze,it
-kaz,ит
-tat,эт
-nah,xolo
-quc,tzʼiʼ
-tgl,aso
-hat,chen
-uzb,it
-nya,galu
-fij,koli
-kur,se
-kat,ძაღლი
-ber,ayt
-scn,gaddu
-nya,njoka
-cja,chó
-ton,mbwene
-xog,mbuli
+köpeği
+mbula
+mbwa
+mbwagh
+mbwá
+mbwene
+mbʉ
+njau
+njoka
+pa
+perro
+pes
+pies
+qen
+qeni
+sag
+sagol
+sobaka
+suns
+szczeniak
 ```
-
 [.column]
 ```
-dua,mbʉ
-bem,imbwe
-amh,ashun
-pan,ਕੁੱਤਾ
-luo,mbwá
-uig,it
-ain,inu
-hyr,𓃥
-emo,🐶
-san,शुनकः
-tam,நாய்
-ben,কুকুর
-sin,බල්ලා
-ori,କୁକୁର
-kan,ನಾಯಿ
-tel,కుక్క
-mar,कुत्रा
-guj,કૂતરો
-tlh,targh
+tz’i’
+ukudla
+welpe
+xolo
+zwin
+āso
+āšun
+šuo
+אבו
+כּלב
+كلب
+कुत्ता
+ฆ่า
+犬
+狗
+ⴽⵍⴱ
+łééchąą’í
+𐀠
+𓃥
+🐶
 ```
+---
+
+| Year | Charset      |Oracle Release |
+| ---  | ---          | ---           |
+| 1968 | ASCII        |               |
+| 1980 | GB2312-80    |               |
+| 1988 |              | 6             |  
+| 1990 | Windows-1252 |               |
+| 1991 | Unicode 1.0  |               |  
+| 1992 |              | 7             |
+| 1996 | Unicode 2.0  |              |  
+| 1997 |              | 8             |  
+| 1999 |              | 8i            |  
+| 2001 |              | 10g           |  
+| 2001 |              | 10g           |  
+| 2013 |              | 12c           |  
 
 
 ---
-####US7ASCII
+#Oracle Pre-6
+
+---
+#ASCII (1968)
+
 
 |     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `A` | `B` | `C` | `D` | `E` | `F` |
-|-----|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+| :---: | :---: | :---: |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
 | `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
 | `2x` |  | `!` | `"` | `#` | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
@@ -153,107 +170,88 @@ tlh,targh
 | `6x` | `` ` `` | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
 | `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | `{` | `\|` | `}` | `~` | `<del>` |
 
-
----
-
-```
-> encode.py -t dog ascii
-"dog" encoded in ascii is [64 6F 67]
-```
-
----
-####ASCII
-
-|     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `A` | `B` | `C` | `D` | `E` | `F` |
-|-----|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
-| `2x` |  | `!` | `"` | **`#`** | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
-| `3x` | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
-| `4x` | `@` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
-| `5x` | `P` | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | **`[`** | **`\`** | **`]`** | **`^`** | **`_`** |
-| `6x` | **`` ` ``** | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
-| `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | **`{`** | **`¦`** | | **`}`** | **`~`** | `<del>` |
+^
+7-bit
 
 ---
 #### Code Page 353 (BCDIC-A)
 
 |     | `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
-|----- |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+|----- | :---: | :---: | :---: |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | `0x` |        | `1`    | `2`    | `3`    | `4`    | `5`    | `6`    | `7`    | `8`    | `9`    | `0`    | `#`    | `@`    | `:`    | `>`    | `√`    |
 | `1x` | `␢`    | `/`    | `S`    | `T`    | `U`    | `V`    | `W`    | `X`    | `Y`    | `Z`    | `⧧`    | `,`    | `%`    | `γ`    | `\`    | `⧻`    |
 | `2x` | `-`    | `J`    | `K`    | `L`    | `M`    | `N`    | `O`    | `P`    | `Q`    | `R`    | `!`    | `#`    | `*`    | `]`    | `;`    | `Δ`    |
 | `3x` | `&`    | `A`    | `B`    | `C`    | `D`    | `E`    | `F`    | `G`    | `H`    | `I`    | `?`    | `.`    | `⌑`    | `[`    | `<`    | `⯒`    |
-|      |        |   |   |  |  |  | |  | |  |  | | | ||| |
-|      |        |   |   |  |  |  | |  | |  |  | | | ||| |
-|      |        |   |   |  |  |  | |  | |  |  | | | ||| |
-|      |        |   |   |  |  |  | |  | |  |  | | | ||| |
+
+
 
 ---
-####ASCII
+####US7ASCII
 
 |     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `A` | `B` | `C` | `D` | `E` | `F` |
-|-----|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+| :---: | :---: | :---: |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
 | `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
-| `2x` |  | `!` | `"` | **`#`** | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
+| `2x` |  | `!` | `"` | `#` | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
 | `3x` | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
 | `4x` | `@` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
-| `5x` | `P` | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | **`[`** | **`\`** | **`]`** | **`^`** | **`_`** |
-| `6x` | **`` ` ``** | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
-| `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | **`{`** | `¦` | | **`}`** | **`~`** | `<del>` |
-| `8x`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
-| `9x` |        |   |   |  |  |  | |  | |  |  | | | ||| |
-| `Ax`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
-| `Bx`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
-| `Cx`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
-| `Dx`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
-| `Ex`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
-| `Fx`     |        |   |   |  |  |  | |  | |  |  | | | ||| |
+| `5x` | `P` | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | `[` | `\` | `]` | `^` | `_` |
+| `6x` | `` ` `` | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
+| `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | `{` | `\|` | `}` | `~` | `<del>` |
 
 ---
-#Oracle 6
 
-First support for user-selectable character sets
+```
+./encode.py --binary -t DOG,dog ascii
+"DOG" encoded in ascii is [01000100 01001111 01000111]
+"dog" encoded in ascii is [01100100 01101111 01100111]
+```
 
-* US7ASCII
-* WE8DEC
-* WE8ISO8859P1
-* WE8MSWIN1252
+---
 
+```
+~ encode.py --language English dogs.csv ascii
+English(ascii): Good dog [64 6F 67] (3 bytes)
+~ encode.py --language Portuguese dogs.csv ascii
+Portuguese(ascii): Bad cão
+```
+
+---
+
+```
+ ./encode.py --f dogs.txt ascii
+Summary of encoding with ascii
+✅  53 good dogs (237 chars) in 237 bytes
+Average: 4.5 bytes per dog, 1.0 bytes per char
+❌  27 bad dogs:
+  cão  câin  câine  câini  chó  klèb  køter  köpek  köpeği  mbwá
+  mbʉ  tz’i’  āso  āšun  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
+  犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
+```
+
+---
+#Oracle 6 (1988)
+
+* New CharacterSet Encodings
+ * WE8DEC
+ * WE8ISO8859P1
+ * WE8MSWIN1252
+
+^
+User-selectable charsets
+Addition to ASCII
 
 ---
 
 <language_prefix><width><standard>
 <US><7><ASCII>
 
-
-
----
-#### ISO 8859-1 (Latin-1) Character Set
-
-|     | `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
-|-----|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
-| `2x` | ` `     | `!`     | `"`     | `#`     | `$`     | `%`     | `&`     | `'`     | `(`     | `)`     | `*`     | `+`     | `,`     | `-`     | `.`     | `/`     |
-| `3x` | `0`     | `1`     | `2`     | `3`     | `4`     | `5`     | `6`     | `7`     | `8`     | `9`     | `:`     | `;`     | `<`     | `=`     | `>`     | `?`     |
-| `4x` | `@`     | `A`     | `B`     | `C`     | `D`     | `E`     | `F`     | `G`     | `H`     | `I`     | `J`     | `K`     | `L`     | `M`     | `N`     | `O`     |
-| `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
-| `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
-| `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `¦`     | `}`     | `~`     | `<del>` |
-| `8x` | ` `     | `¡`     | `¢`     | `£`     | `¤`     | `¥`     | `¦`     | `§`     | `¨`     | `©`     | `ª`     | `«`     | `¬`     | `­`     | `®`     | `¯`     |
-| `9x` | `°`     | `±`     | `²`     | `³`     | `´`     | `µ`     | `¶`     | `·`     | `¸`     | `¹`     | `º`     | `»`     | `¼`     | `½`     | `¾`     | `¿`     |
-| `Ax` | `À`     | `Á`     | `Â`     | `Ã`     | `Ä`     | `Å`     | `Æ`     | `Ç`     | `È`     | `É`     | `Ê`     | `Ë`     | `Ì`     | `Í`     | `Î`     | `Ï`     |
-| `Bx` | `Ð`     | `Ñ`     | `Ò`     | `Ó`     | `Ô`     | `Õ`     | `Ö`     | `×`     | `Ø`     | `Ù`     | `Ú`     | `Û`     | `Ü`     | `Ý`     | `Þ`     | `ß`     |
-| `Cx` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
-| `Dx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
-| `Ex` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
-| `Fx` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
-
 ---
 
-#### Windows-1252 (CP1252) Character Set
+#1990
+## Windows-1252
+
+---
 
 |     | `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
 |-----|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
@@ -275,37 +273,55 @@ First support for user-selectable character sets
 | `Fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
 
 ---
+```
+➜ ./encode.py --f dogs.txt windows-1252
+Summary of encoding with windows-1252
+✅  64 good dogs (283 chars) in 283 bytes
+Average: 4.4 bytes per dog, 1.0 bytes per char
+❌  16 bad dogs:
+  köpeği  mbʉ  āso  āšun  אבו  כּלב  كلب  कुत्ता  ฆ่า  犬
+  狗  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
+```
 
-
-
+---
 #GB2312
 
+---
+#Unicode 1.0 (1990)
 
-CP1252
-
-![fit](images/bcdic.jpg)
-
+Unicode, formally The Unicode Standard, is a character encoding standard maintained by the Unicode Consortium designed to support the use of text in all of the world's writing systems that can be digitized.
 
 ---
-![fit](images/ascii-binary.png)
+#Unicode 1.0 (1990)
+At the most abstract level, Unicode assigns a unique number called a code point to each character. 
+`U+0000–U+FFFF`
+
+---
+###Unicode U+0000 to U+007F 
+
+|     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `A` | `B` | `C` | `D` | `E` | `F` |
+|-----|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
+| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
+| `2x` |         | `!` | `"` | **`#`** | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
+| `3x` | `0`     | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
+| `4x` | `@`     | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
+| `5x` | `P`     | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | **`[`** | **`\`** | **`]`** | **`^`** | **`_`** |
+| `6x` | **`` ` ``** | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
+| `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | **`{`** | `¦` | | **`}`** | **`~`** | `<del>` |
 
 ---
 
-```
-~ encode.py --language English dogs.csv ascii
-English(ascii): Good dog [64 6F 67] (3 bytes)
-~ encode.py --language Portuguese dogs.csv ascii
-Portuguese(ascii): Bad cão
-```
+#Oracle 7 (1992)
 
----
+* NLS framework introduced
+* New CharacterSet Encodings
+  * `JA16SJIS`
+  * `JA16EUC`
+  * `ZHT16BIG5`
+  * `ZHS16CGB231280`
+  * `KO16KSC5601`
 
-#Oracle 7 
-##New CharacterSet Encodings
-
-* JA16SJIS,JA16EUC,ZHT16BIG5, ZHS16CGB231280, KO16KSC5601
-
-##NLS framework introduced
 
 ---
 ```
@@ -336,49 +352,25 @@ The repertoire may be closed, meaning that no additions are allowed without crea
 Code Point:           The unique numeric value assigned to each character
 Encoding Scheme:      How each character is converted to bytes for storage
 
+
 ---
-#Oracle 8.0
+
+#Oracle 8.0 (1997)
 
 New Characterset UTF8 (CESU-8)
 
-
-
----
-#Unicode
-
-Unicode, formally The Unicode Standard, is a character encoding standard maintained by the Unicode Consortium designed to support the use of text in all of the world's writing systems that can be digitized.
-
----
-#
-At the most abstract level, Unicode assigns a unique number called a code point to each character. 
-`U+0000–U+10FFFF`
-
----
-###Unicode U+0000 to U+007F 
-
-|     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `A` | `B` | `C` | `D` | `E` | `F` |
-|-----|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
-| `2x` |  | `!` | `"` | **`#`** | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
-| `3x` | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
-| `4x` | `@` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
-| `5x` | `P` | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | **`[`** | **`\`** | **`]`** | **`^`** | **`_`** |
-| `6x` | **`` ` ``** | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
-| `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | **`{`** | `¦` | | **`}`** | **`~`** | `<del>` |
-
 ---
 
-| Plane   |  Range            | Name                                 |Abbr.| 
-|:---     |:---       | :---                                  |--   |
-| `0`     | `U+0000–U+FFFF`     | Basic Multilingual Plane            |BMP|
-| `1`     | `U+10000–U+1FFFF`   | Supplementary Multilingual Plane    |SMP|
-| `2`     | `U+20000–U+2FFFF`   | Supplementary Ideographic Plane     |SIP|
-| `3`     | `U+30000–U+3FFFF`   | Tertiary Ideographic Plane          |TIP| 
-| `4–13`  | `U+40000–U+DFFFF`   | Reserved                            |   |
-| `14`    | `U+E0000–U+EFFFF`   | Supplementary Special-purpose Plane |SSP|
-| `15`    | `U+F0000–U+FFFFF`   | Private Use Area A                  |   |
-| `16`    | `U+100000–U+10FFFF` | Private Use Area B                  |   |
+| Plane   |  Range              | Name                                | Abbr. | 
+|:---     |:---                 | :---                                | :--   |
+| `0`     | `U+0000–U+FFFF`     | Basic Multilingual Plane            |BMP    |
+| `1`     | `U+10000–U+1FFFF`   | Supplementary Multilingual Plane    |SMP    |
+| `2`     | `U+20000–U+2FFFF`   | Supplementary Ideographic Plane     |SIP    |
+| `3`     | `U+30000–U+3FFFF`   | Tertiary Ideographic Plane          |TIP    | 
+| `4–13`  | `U+40000–U+DFFFF`   | Reserved                            |       |
+| `14`    | `U+E0000–U+EFFFF`   | Supplementary Special-purpose Plane |SSP    |
+| `15`    | `U+F0000–U+FFFFF`   | Private Use Area A                  |       |
+| `16`    | `U+100000–U+10FFFF` | Private Use Area B                  |       |
 
 
 ^
@@ -391,7 +383,7 @@ SSP Special-purpose codes for language tagging and fine-tuning character display
 Reserved space  custom characters used in fonts, software, or private systems”
  
 ---
-#Basic Multilingual Plane (BMP)
+#Unicode 1.0
 
 | Range           | Block Group                 |
 | :---            | :---                        |
@@ -422,21 +414,19 @@ Latin Ext. A & B - Rest of European and African
 ---
 #UCS-2
 
+
+^
 UCS-2 was one of the first Unicode encoding forms. It uses a fixed-length of 2 bytes (16 bits) per character, allowing direct encoding of all code points in the Basic Multilingual Plane (BMP), which includes U+0000 to U+FFFF.
 
 
-^
-
-
 
 ---
-#Oracle 8i
+#Oracle 8i (1999)
 
-New Characterset UTF8 (CESU-8)
+New Characterset AL16UTF16 (UCS-2)
 
 ---
 ```
-
 ➜ encode.py  -t dog  ucs-2
 "dog" encoded in ucs-2 is [64 00 6F 00 67 00]
 
@@ -447,8 +437,6 @@ Summary of encoding with ucs-2
 Average: 8.6 bytes per dog, 2.0 bytes per char
 ❌  3 bad dogs:
   𐀠  𓃥  🐶
-
-
 ```
 
 ---

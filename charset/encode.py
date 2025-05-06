@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/opt/homebrew/bin/python3
 import sys
 import os
 import argparse
@@ -108,7 +108,7 @@ def main():
         dog_count = len(good_dogs)
         avg_bytes_per_dog = total_bytes / dog_count if dog_count else 0
         avg_bytes_per_char = total_bytes / char_count if char_count else 0
-        print(f"\nSummary of encoding with {args.encoding}")
+        print(f"Summary of encoding with {args.encoding}")
         print(f"✅  {dog_count} good dogs ({char_count} chars) in {total_bytes} bytes")
         print(f"Average: {avg_bytes_per_dog:.1f} bytes per dog, {avg_bytes_per_char:.1f} bytes per char")
         if bad_dogs:
