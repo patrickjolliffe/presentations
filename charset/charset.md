@@ -39,6 +39,10 @@
 #`... ....`  
 #`.. ..`
 
+---
+
+####`dog`->`0xff 0xff 0xff ...`
+
 
 
 ---
@@ -139,7 +143,7 @@ zwin
 | Year | Charset      |Oracle Release |
 | ---  | ---          | ---           |
 | 1968 | ASCII        |               |
-| 1980 | GB2312-80    |               |
+| 1980 | GB2312       |               |
 | 1988 |              | 6             |  
 | 1990 | Windows-1252 |               |
 | 1991 | Unicode 1.0  |               |  
@@ -151,13 +155,11 @@ zwin
 | 2001 |              | 10g           |  
 | 2013 |              | 12c           |  
 
+---
+#1968 ASCII
 
 ---
-#Oracle Pre-6
-
----
-#ASCII (1968)
-
+###ASCII
 
 |     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `A` | `B` | `C` | `D` | `E` | `F` |
 | :---: | :---: | :---: |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -186,7 +188,7 @@ zwin
 
 
 ---
-####US7ASCII
+###ASCII
 
 |     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `A` | `B` | `C` | `D` | `E` | `F` |
 | :---: | :---: | :---: |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -199,6 +201,7 @@ zwin
 | `6x` | `` ` `` | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
 | `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | `{` | `\|` | `}` | `~` | `<del>` |
 
+
 ---
 
 ```
@@ -210,16 +213,15 @@ zwin
 ---
 
 ```
-~ encode.py --language English dogs.csv ascii
-English(ascii): Good dog [64 6F 67] (3 bytes)
-~ encode.py --language Portuguese dogs.csv ascii
-Portuguese(ascii): Bad cão
+➜ encode.py --t dog,cão ascii
+Good dog [64 6f 67] (3 bytes)
+Bad cão
 ```
 
 ---
 
 ```
- ./encode.py --f dogs.txt ascii
+➜ encode.py -f dogs.txt ascii
 Summary of encoding with ascii
 ✅  53 good dogs (237 chars) in 237 bytes
 Average: 4.5 bytes per dog, 1.0 bytes per char
@@ -229,29 +231,84 @@ Average: 4.5 bytes per dog, 1.0 bytes per char
   犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
 ```
 
----
-#Oracle 6 (1988)
-
-* New CharacterSet Encodings
- * WE8DEC
- * WE8ISO8859P1
- * WE8MSWIN1252
-
-^
-User-selectable charsets
-Addition to ASCII
 
 ---
+#Oracle Pre-6
 
-<language_prefix><width><standard>
-<US><7><ASCII>
+* Single CharacterSet Encoding - ASCII
+
+---
+###1987
+###ISO 8859-1 (latin1)
+
+---
+#ISO-8859-1 (latin1)
+
+|     | `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
+|-----|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
+| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
+| `2x` | ` `     | `!`     | `"`     | `#`     | `$`     | `%`     | `&`     | `'`     | `(`     | `)`     | `*`     | `+`     | `,`     | `-`     | `.`     | `/`     |
+| `3x` | `0`     | `1`     | `2`     | `3`     | `4`     | `5`     | `6`     | `7`     | `8`     | `9`     | `:`     | `;`     | `<`     | `=`     | `>`     | `?`     |
+| `4x` | `@`     | `A`     | `B`     | `C`     | `D`     | `E`     | `F`     | `G`     | `H`     | `I`     | `J`     | `K`     | `L`     | `M`     | `N`     | `O`     |
+| `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
+| `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
+| `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
+| `8x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| `9x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| `Ax` | `¡`     | `¢`     | `£`     | `¤`     | `¥`     | `¦`     | `§`     | `¨`     | `©`     | `ª`     | `«`     | `¬`     | `­`     | `®`     | `¯`     | `°`     |
+| `Bx` | `±`     | `²`     | `³`     | `´`     | `µ`     | `¶`     | `·`     | `¸`     | `¹`     | `º`     | `»`     | `¼`     | `½`     | `¾`     | `¿`     |        |
+| `Cx` | `À`     | `Á`     | `Â`     | `Ã`     | `Ä`     | `Å`     | `Æ`     | `Ç`     | `È`     | `É`     | `Ê`     | `Ë`     | `Ì`     | `Í`     | `Î`     | `Ï`     |
+| `Dx` | `Ð`     | `Ñ`     | `Ò`     | `Ó`     | `Ô`     | `Õ`     | `Ö`     | `×`     | `Ø`     | `Ù`     | `Ú`     | `Û`     | `Ü`     | `Ý`     | `Þ`     | `ß`     |
+| `Ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
+| `Fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
 
 ---
 
-#1990
-## Windows-1252
+```
+➜ encode.py -t cão,câin,klèb,köpek latin1
+Good cão [63 e3 6f] (3 bytes)
+Good câin [63 e2 69 6e] (4 bytes)
+Good klèb [6b 6c e8 62] (4 bytes)
+Good köpek [6b f6 70 65 6b] (5 bytes)
+```
 
 ---
+| Standard     | Name     | Region               | Year  | Oracle Charset           | Oracle Version |
+|--------------|----------|----------------------|-------|--------------------------|---------------|
+| ISO-8859-1   | Latin-1  | W. Europe            | 1987  | WE8ISO8859P1             | Oracle 6      |
+| ISO-8859-2   | Latin-2  | Cent. & East. Europe | 1987  | EE8ISO8859P2             | Oracle 7      |
+| ISO-8859-3   | Latin-3  | S. Europe            | 1988  | SE8ISO8859P3             | Oracle 7      |
+| ISO-8859-4   | Latin-4  | N. Europe            | 1988  | NE8ISO8859P4             | Oracle 7      |
+| ISO-8859-5   | Cyrillic | Cyrillic             | 1988  | CL8ISO8859P5             | Oracle 7      |
+| ISO-8859-6   | Arabic   | Arabic               | 1987  | AR8ISO8859P6             | Oracle 7      |
+| ISO-8859-7   | Greek    | Greek                | 1987  | EL8ISO8859P7             | Oracle 7      |
+| ISO-8859-8   | Hebrew   | Hebrew               | 1988  | IW8ISO8859P8             | Oracle 7      |
+| ISO-8859-9   | Latin-5  | Turkish              | 1989  | WE8ISO8859P9             | Oracle 7.1    |
+| ISO-8859-10  | Latin-6  | Nordic               | 1992  | N/A                      | N/A           |
+| ISO-8859-11  | Thai     | Thai                 | 2001  | TH8TISASCII              | Oracle 8.1.7  |
+| ISO-8859-13  | Latin-7  | Baltic Rim           | 1998  | BLT8ISO8859P13           | Oracle 9i     |
+| ISO-8859-14  | Latin-8  | Celtic               | 1998  | CEL8ISO8859P14           | Oracle 9i     |
+| ISO-8859-15  | Latin-9  | Western Europe       | 1999  | WE8ISO8859P15            | Oracle 8i     |
+| ISO-8859-16  | Latin-10 | South-East. Europe   | 2001  | SEE8ISO8859P16           | Oracle 9i     |
+---
+
+```
+➜ encode.py -f dogs.txt latin1
+Summary of encoding with latin1
+✅  62 good dogs (275 chars) in 275 bytes
+Average: 4.4 bytes per dog, 1.0 bytes per char
+❌  18 bad dogs:
+  köpeği  mbʉ  tz’i’  āso  āšun  šuo  אבו  כּלב  كلب  कुत्ता
+  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
+```
+
+---
+#1986
+##Windows-1252
+
+---
+#Windows-1252 
 
 |     | `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
 |-----|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
@@ -272,6 +329,14 @@ Addition to ASCII
 | `Ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
 | `Fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
 
+
+---
+```
+➜ encode.py --details -t tz’i’,šuo windows-1252
+Good tz’i’ [74 7a 92 69 92] (5 bytes)
+Good šuo [9a 75 6f] (3 bytes)
+```
+
 ---
 ```
 ➜ ./encode.py --f dogs.txt windows-1252
@@ -284,7 +349,45 @@ Average: 4.4 bytes per dog, 1.0 bytes per char
 ```
 
 ---
+#Oracle 6 (1988)
+
+* New CharacterSet Encodings
+ * WE8DEC
+ * WE8ISO8859P1
+ * WE8MSWIN1252
+
+^
+User-selectable charsets
+Addition to ASCII
+
+---
+WE8ISO8859P1
+
+<language_prefix><width><standard>
+<US><7><ASCII>
+
+---
+
 #GB2312
+---
+```
+ charset git:(master) ✗ python3 encode.py -t dog,狗,cão gbk
+"dog" encoded in gbk is [64 6F 67]
+"狗" encoded in gbk is [B9 B7]
+gbk: Unable to encode "cão"
+```
+---
+
+---
+```
+ ... ... 41 B8 41 ...
+
+ 
+ ```
+
+ *0x 
+
+
 
 ---
 #Unicode 1.0 (1990)
@@ -323,23 +426,6 @@ At the most abstract level, Unicode assigns a unique number called a code point 
   * `KO16KSC5601`
 
 
----
-```
- charset git:(master) ✗ python3 encode.py -t dog,狗,cão gbk
-"dog" encoded in gbk is [64 6F 67]
-"狗" encoded in gbk is [B9 B7]
-gbk: Unable to encode "cão"
-```
----
-
----
-```
- ... ... 41 B8 41 ...
-
- 
- ```
-
- *0x 
 
 
 

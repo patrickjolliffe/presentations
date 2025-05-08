@@ -3,47 +3,38 @@ import sys
 import os
 import argparse
 
-def try_encode(text, encoding):
-    try:
-        if encoding.lower() == 'ucs-2':
-            # Simulate UCS-2: encode as UTF-16-LE, but reject characters outside BMP.
-            # Any UnicodeEncodeError (including for characters > U+FFFF) should cause this word to be marked as a bad dog.
-            encoded_bytes = text.encode('utf-16-le')
-            for ch in text:
-                if ord(ch) > 0xFFFF:
-                    # UCS-2 cannot encode characters outside the BMP (U+0000 to U+FFFF)
-                    raise UnicodeEncodeError("ucs-2", ch, -1, -1, "character outside BMP")
-            return True, encoded_bytes
+def try_encode(text, encoding, binary=False, show_details=False):    
+    encoded_bytes = text.encode(encoding)
+    if show_details:
+        if binary:
+            bin_string = ' '.join(f"{b:08b}" for b in encoded_bytes)
+            print(f"Good {text} [{bin_string}] ({len(encoded_bytes)} bytes)")
         else:
-            encoded_bytes = text.encode(encoding)
-            return True, encoded_bytes
-    except UnicodeEncodeError:
-        return False, None
+            hex_string = ' '.join(f"{b:02X}" for b in encoded_bytes)
+            print(f"Good {text} [{hex_string.lower()}] ({len(encoded_bytes)} bytes)")
 
-def process_lines(lines, encoding, filter_language=None, binary=False, show_details=False):
-    good_dogs = []
-    bad_dogs = []
-    total_bytes = 0
+    return encoded_bytes
+    
 
-    for dog in (line.strip() for line in lines if line.strip()):
-        success, encoded = try_encode(dog, encoding)
-        if success:
-            byte_count = len(encoded)
-            if show_details:
-                if binary:
-                    bin_string = ' '.join(f"{b:08b}" for b in encoded)
-                    print(f"Good {dog} [{bin_string}] ({byte_count} bytes)")
-                else:
-                    hex_string = ' '.join(f"{b:02X}" for b in encoded)
-                    print(f"Good {dog} [{hex_string.lower()}] ({byte_count} bytes)")
-            good_dogs.append((dog, encoded))
-            total_bytes += byte_count
-        else:
+def process_dogs(dogs, encoding, binary=False, show_details=False):
+    good_byte_count = 0
+    good_dog_count = 0
+    good_char_count = 0
+    bad_dogs = []    
+    good_dogs = []    
+    
+    for dog in dogs:
+        try:
+            encoded_dog = try_encode(dog, encoding, binary, show_details)   
+            good_byte_count += len(encoded_dog)
+            good_char_count += len(dog)
+            good_dog_count += 1
+        except UnicodeEncodeError:
             if show_details:
                 print(f"Bad {dog}")
             bad_dogs.append(dog)
 
-    return good_dogs, bad_dogs, total_bytes
+    return good_dog_count, bad_dogs, good_char_count, good_byte_count
 
 def main():
     parser = argparse.ArgumentParser(description="Check if text can be encoded with a given encoding, and report good and bad dogs.")
@@ -63,53 +54,37 @@ def main():
             print(f"File not found: {args.file}")
             sys.exit(1)
         with open(args.file, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
+            dogs = f.readlines()
     elif args.text:
-        pieces = [piece.strip() for piece in args.text.split(',')]
-        good = []
-        bad = []
+        dogs = [dog.strip() for dog in args.text.split(',')]
+        
 
-        for piece in pieces:
-            if not piece:
-                continue
-            success, encoded = try_encode(piece, args.encoding)
-            if success:
-                if args.binary:
-                    bin_string = ' '.join(f"{b:08b}" for b in encoded)
-                    print(f'"{piece}" encoded in {args.encoding} is [{bin_string}]')
-                else:
-                    hex_string = ' '.join(f"{b:02X}" for b in encoded)
-                    print(f'"{piece}" encoded in {args.encoding} is [{hex_string}]')
-                good.append(piece)
-            else:
-                print(f'{args.encoding}: Unable to encode "{piece}"')
-                bad.append(piece)
 
-        if args.list and (good or bad):
-            print()
-            if good:
-                print("Encoded:")
-                for item in good:
-                    print(f"  {item}")
-            if bad:
-                print("Unencoded:")
-                for item in bad:
-                    print(f"  {item}")
-
-        sys.exit(0)
     else:
         print("Either --file or --text must be provided.")
         sys.exit(1)
+        
+    good = []
+    bad = []        
+    good_dog_count, bad_dogs, good_char_count, good_byte_count = process_dogs(dogs, args.encoding, args.binary, args.details)
 
-    good_dogs, bad_dogs, total_bytes = process_lines(lines, args.encoding, None, args.binary, args.details)
+    if args.list and (good or bad):
+        print()
+        if good:
+            print("Encoded:")
+            for item in good:
+                print(f"  {item}")
+        if bad:
+            print("Unencoded:")
+            for item in bad:
+                print(f"  {item}")
 
-    if not args.list and not args.details:
-        char_count = sum(len(dog) for dog, _ in good_dogs)
-        dog_count = len(good_dogs)
-        avg_bytes_per_dog = total_bytes / dog_count if dog_count else 0
-        avg_bytes_per_char = total_bytes / char_count if char_count else 0
+
+    if not args.list and not args.details:               
+        avg_bytes_per_dog = good_byte_count / good_dog_count if good_dog_count else 0
+        avg_bytes_per_char = good_byte_count / good_char_count if good_char_count else 0
         print(f"Summary of encoding with {args.encoding}")
-        print(f"✅  {dog_count} good dogs ({char_count} chars) in {total_bytes} bytes")
+        print(f"✅  {good_dog_count} good dogs ({good_char_count} chars) in {good_byte_count} bytes")
         print(f"Average: {avg_bytes_per_dog:.1f} bytes per dog, {avg_bytes_per_char:.1f} bytes per char")
         if bad_dogs:
             print(f"❌  {len(bad_dogs)} bad dogs:")
