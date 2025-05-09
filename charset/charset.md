@@ -41,7 +41,7 @@
 
 ---
 
-####`dog`->`0xff 0xff 0xff ...`
+####`"dog"`->`0xff 0xff 0xff ...`
 
 
 
@@ -140,20 +140,21 @@ zwin
 ```
 ---
 
-| Year | Charset      |Oracle Release |
-| ---  | ---          | ---           |
-| 1968 | ASCII        |               |
-| 1980 | GB2312       |               |
-| 1988 |              | 6             |  
-| 1990 | Windows-1252 |               |
-| 1991 | Unicode 1.0  |               |  
-| 1992 |              | 7             |
-| 1996 | Unicode 2.0  |              |  
-| 1997 |              | 8             |  
-| 1999 |              | 8i            |  
-| 2001 |              | 10g           |  
-| 2001 |              | 10g           |  
-| 2013 |              | 12c           |  
+| Year | Charset        |Oracle Release |
+| ---  | ---            |    ---           |
+| 1968 | ASCII          |               |
+| 1980 | GB2312         |               |
+| 1985->2001 | ISO-8859 |               |
+| 1988 |                | 6             |  
+| 1990 | Windows-1252   |               |
+| 1991 | Unicode 1.0    |               |  
+| 1992 |                | 7             |
+| 1996 | Unicode 2.0    |              |  
+| 1997 |                | 8             |  
+| 1999 |                | 8i            |  
+| 2001 |                | 10g           |  
+| 2001 |                | 10g           |  
+| 2013 |                | 12c           |  
 
 ---
 #1968 ASCII
@@ -236,6 +237,48 @@ Average: 4.5 bytes per dog, 1.0 bytes per char
 #Oracle Pre-6
 
 * Single CharacterSet Encoding - ASCII
+
+---
+###1980
+###GB2312 (Character Set)
+####EUC-CN (Encoding)
+
+---
+
+```
+➜ encode.py --detail -t 犬,狗 gb2312
+gb2312:          Good 犬 [c8 ae] (2 bytes)
+gb2312:          Good 狗 [b9 b7] (2 bytes)
+
+➜ encode.py --detail -t dog ascii,gb2312
+Good ascii            dog [64 6f 67] (3 bytes)
+Good gb2312           dog [64 6f 67] (3 bytes)
+
+
+➜ encode.py --detail -t dog ascii
+Good dog [64 6f 67] (3 bytes)
+```
+
+---
+```
+ charset git:(master) ✗ python3 encode.py -t dog,狗,cão gbk
+"dog" encoded in gbk is [64 6F 67]
+"狗" encoded in gbk is [B9 B7]
+gbk: Unable to encode "cão"
+```
+---
+
+---
+```
+ ... ... 41 B8 41 ...
+
+ 
+ ```
+
+ *0x 
+
+
+
 
 ---
 ###1987
@@ -367,27 +410,6 @@ WE8ISO8859P1
 <US><7><ASCII>
 
 ---
-
-#GB2312
----
-```
- charset git:(master) ✗ python3 encode.py -t dog,狗,cão gbk
-"dog" encoded in gbk is [64 6F 67]
-"狗" encoded in gbk is [B9 B7]
-gbk: Unable to encode "cão"
-```
----
-
----
-```
- ... ... 41 B8 41 ...
-
- 
- ```
-
- *0x 
-
-
 
 ---
 #Unicode 1.0 (1990)
