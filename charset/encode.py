@@ -3,37 +3,39 @@ import sys
 import os
 import argparse
 
-def try_encode(text, encoding, binary=False, show_details=False):    
-    encoded_bytes = text.encode(encoding)
-    if show_details:
-        if binary:
-            bin_string = ' '.join(f"{b:08b}" for b in encoded_bytes)
-            print(f"{encoding + ':':<16} Good {text} [{bin_string}] ({len(encoded_bytes)} bytes)")
-        else:
-            hex_string = ' '.join(f"{b:02X}" for b in encoded_bytes)
-            print(f"{encoding + ':':<16} Good {text} [{hex_string.lower()}] ({len(encoded_bytes)} bytes)")
-
-    return encoded_bytes
-    
-
-def process_dog(dogs, encoding, binary=False, show_details=False):
-    good_byte_count = 0
-    good_dog_count = 0
-    good_char_count = 0
-    bad_dogs = []    
-    good_dogs = []    
-    
-    try:
-        encoded_dog = try_encode(dog, encoding, binary, show_details)   
-        good_byte_count += len(encoded_dog)
-        good_char_count += len(dog)
-        good_dog_count += 1
-        except UnicodeEncodeError:
+def process_dogs(dogs, encoding, binary=False, show_details=False):    
+    good_dogs = []     
+    bad_dogs = []     
+    char_count = 0  
+    byte_count = 0
+    for dog in dogs:        
+        try:
+            encoded_dog = dog.encode(encoding)
+            good_dogs.append(dog)
             if show_details:
-                print(f"Bad {dog}")
-            bad_dogs.append(dog)
+                if binary:
+                    bin_string = ' '.join(f"{b:08b}" for b in encoded_dog)
+                    print(f"✅ {encoding + ':':<8} Good {dog} [{bin_string}] ({len(encoded_dog)} bytes)")
+                else:
+                    hex_string = ' '.join(f"{b:02X}" for b in encoded_dog)
+                    print(f"✅ {encoding + ':':<8} Good {dog} [{hex_string.lower()}] ({len(encoded_dog)} bytes)")
 
-    return good_dog_count, bad_dogs, good_char_count, good_byte_count
+            byte_count += len(encoded_dog)
+            char_count += len(dog)
+        except UnicodeEncodeError:
+            bad_dogs.append(dog)
+            if show_details:                
+                print(f"❌ {encoding + ':':<16} Bad {dog}")                    
+
+    if  not show_details:   
+        bytes_per_char = byte_count / char_count if char_count else 0        
+        print(f"✅ {encoding}: {len(good_dogs)} good dogs, {char_count} chars in {byte_count} bytes, {bytes_per_char:.1f} bytes per char")        
+        if bad_dogs:
+            print(f"❌ {encoding}: {len(bad_dogs)} bad dogs")
+            for i in range(0, len(bad_dogs), 10):
+                print(f"❌ {encoding}: " + '  '.join(bad_dogs[i:i+10]))
+        else:
+            print("✅  No bad dogs")
 
 def main():
     parser = argparse.ArgumentParser(description="Check if text can be encoded with a given encoding, and report good and bad dogs.")
@@ -49,48 +51,21 @@ def main():
     args = parser.parse_args()
 
     if args.file:
+        show_details = False
         if not os.path.isfile(args.file):
             print(f"File not found: {args.file}")
             sys.exit(1)
-        with open(args.file, 'r', encoding='utf-8') as f:
-            dogs = f.readlines()
+        with open(args.file, 'r', encoding='utf-8') as f:            
+            dogs = [line.strip() for line in f]
     elif args.text:
-        dogs = [dog.strip() for dog in args.text.split(',')]
-        
-
-
+        dogs = [dog.strip() for dog in args.text.split(',')]        
+        show_details = True
     else:
         print("Either --file or --text must be provided.")
         sys.exit(1)
 
-    if args.text:
-        for dog in args.text.split(','):
-            for encoding in args.encodings.split(','):
-                process_dog(dog, encoding, args.binary, args.details)
-
-        if args.list and (good or bad):        
-            if good:
-                print("Encoded:")
-                for item in good:
-                    print(f"  {item}")
-            if bad:
-                print("Unencoded:")
-                for item in bad:
-                    print(f"  {item}")
-
-
-        if not args.list and not args.details:               
-            avg_bytes_per_dog = good_byte_count / good_dog_count if good_dog_count else 0
-            avg_bytes_per_char = good_byte_count / good_char_count if good_char_count else 0
-            print(f"Summary of encoding with {encoding}")
-            print(f"✅  {good_dog_count} good dogs ({good_char_count} chars) in {good_byte_count} bytes")
-            print(f"Average: {avg_bytes_per_dog:.1f} bytes per dog, {avg_bytes_per_char:.1f} bytes per char")
-            if bad_dogs:
-                print(f"❌  {len(bad_dogs)} bad dogs:")
-                for i in range(0, len(bad_dogs), 10):
-                    print('  ' + '  '.join(bad_dogs[i:i+10]))
-            else:
-                print("✅  0 bad dogs")
+    for encoding in args.encodings.split(','):
+        process_dogs(dogs, encoding, args.binary, show_details)
 
 if __name__ == "__main__":
     main()

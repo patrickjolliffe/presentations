@@ -41,7 +41,7 @@
 
 ---
 
-####`"dog"`->`0xff 0xff 0xff ...`
+####`"dog"`->`64 6f 67`
 
 
 
@@ -157,7 +157,8 @@ zwin
 | 2013 |                | 12c           |  
 
 ---
-#1968 ASCII
+##1968
+##ASCII
 
 ---
 ###ASCII
@@ -246,38 +247,48 @@ Average: 4.5 bytes per dog, 1.0 bytes per char
 ---
 
 ```
-➜ encode.py --detail -t 犬,狗 gb2312
-gb2312:          Good 犬 [c8 ae] (2 bytes)
-gb2312:          Good 狗 [b9 b7] (2 bytes)
+➜ encode.py -t dog ascii,gb2312
+✅ ascii:   Good dog [64 6f 67] (3 bytes)
+✅ gb2312:  Good dog [64 6f 67] (3 bytes)
 
-➜ encode.py --detail -t dog ascii,gb2312
-Good ascii            dog [64 6f 67] (3 bytes)
-Good gb2312           dog [64 6f 67] (3 bytes)
+➜ encode.py -t 犬,狗 gb2312
+✅ gb2312:  Good 犬 [c8 ae] (2 bytes)
+✅ gb2312:  Good 狗 [b9 b7] (2 bytes)
 
-
-➜ encode.py --detail -t dog ascii
-Good dog [64 6f 67] (3 bytes)
+➜ encode.py -t cão gb2312
+❌ gb2312:          Bad cão
 ```
 
 ---
 ```
- charset git:(master) ✗ python3 encode.py -t dog,狗,cão gbk
-"dog" encoded in gbk is [64 6F 67]
-"狗" encoded in gbk is [B9 B7]
-gbk: Unable to encode "cão"
+➜ encode.py -f dogs.txt gb2312
+✅ gb2312: 60 good dogs, 258 chars in 266 bytes, 1.0 bytes per char
+❌ gb2312: 20 bad dogs
+❌ gb2312: cão  câin  câine  câini  køter  köpek  köpeği  mbʉ  āšun  šuo
+❌ gb2312: אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
 ```
 ---
 
 ---
+#gb2312
 ```
- ... ... 41 B8 41 ...
 
- 
+
  ```
 
- *0x 
 
 
+---
+```
+[00-7F]: [64 6f 67]='dog'
+[A1–F7] [A1–FE]: [c8 ae]='犬'
+
+➜ encode.py -t dog狗 gb2312
+✅ gb2312:  Good dog狗 [64 6f 67 b9 b7] (5 bytes)
+ 
+➜ encode.py -t dirty_hair肮发  gb2312
+✅ gb2312:  Good dirty_hair肮发 [64 69 72 74 79 5f 68 61 69 72 b0 b9 b7 a2] (14 bytes)
+```
 
 
 ---
@@ -436,6 +447,54 @@ At the most abstract level, Unicode assigns a unique number called a code point 
 | `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | **`{`** | `¦` | | **`}`** | **`~`** | `<del>` |
 
 ---
+#Unicode 1.0
+
+| Range           | Block Group                 |
+| :---            | :---                        |
+| `U+0000–U+007F` | Basic Latin (ASCII)         |
+| `U+0080–U+00FF` | Latin Supplement            |
+| `U+0100–U+024F` | Latin Extended (A & B)      |
+| `U+0250–U+02FF` | Phonetic Symbols            |
+| `U+0300–U+05FF` | Greek, Cyrillic, Hebrew     |
+| `U+0600–U+0FFF` | Arabic & Indian             |
+| `U+1000–U+17FF` | S & SE Asian                |
+| `U+1800–U+24FF` | E Asian                     |
+| `U+2000–U+27FF` | Symbols & Punctuation       |
+| `U+2800–U+28FF` | Braille & Basic Shapes      |
+| `U+2E80–U+9FFF` | Chinese                     |
+| `U+AC00–U+D7AF` | Korean                      |
+| `U+D800–U+DBFF` | High Surrogates             |
+| `U+DC00–U+DFFF` | Low Surrogates              |
+| `U+E000–U+F8FF` | Private Use                 |
+
+^
+Latin1 - Western European
+Latin Ext. A & B - Rest of European and African
+
+
+---
+##Unicode 1.0 Encodings
+#UCS-2
+
+
+^
+UCS-2 was one of the first Unicode encoding forms. fixed-length of 2 bytes (16 bits) per character, allowing direct encoding of all code points in the BMP, which includes U+0000 to U+FFFF.
+
+
+
+---
+
+```
+➜  ~ echo -n "dog" | iconv -f UTF-8 -t UCS-2 | hexdump -C
+00000000  00 64 00 6f 00 67                                 |.d.o.g|
+00000006
+
+➜  ~ echo -n "犬" | iconv -f UTF-8 -t UCS-2 | hexdump -C
+00000000  72 ac                                             |r.|
+00000002
+```
+
+---
 
 #Oracle 7 (1992)
 
@@ -462,12 +521,12 @@ Encoding Scheme:      How each character is converted to bytes for storage
 
 
 ---
-
-#Oracle 8.0 (1997)
-
-New Characterset UTF8 (CESU-8)
+###1990 Unicode 1.0 `U+0000–U+FFFF`
+###1996 Unicode 2.0 `U+0000–U+10FFFF`
 
 ---
+
+
 
 | Plane   |  Range              | Name                                | Abbr. | 
 |:---     |:---                 | :---                                | :--   |
@@ -487,86 +546,88 @@ SMP - Ancient languages, emoji, music notation, and special symbols.
 SIP - Rare and historic Chinese characters
 TIP - Extremely rare Chinese characters
 Reserved for future use
-SSP Special-purpose codes for language tagging and fine-tuning character display
-Reserved space  custom characters used in fonts, software, or private systems”
- 
+SSP - Special-purpose codes for language tagging and fine-tuning character display
+Reserved - custom characters used in fonts, software, or private systems”
+
 ---
-#Unicode 1.0
-
-| Range           | Block Group                 |
-| :---            | :---                        |
-| `U+0000–U+007F` | Basic Latin                 |
-| `U+0080–U+00FF` | Latin Supplement            |
-| `U+0100–U+024F` | Latin Extended (A & B)      |
-| `U+0250–U+02FF` | Phonetic Symbols            |
-| `U+0300–U+05FF` | Greek, Cyrillic, Hebrew     |
-| `U+0600–U+0FFF` | Arabic & Indian             |
-| `U+1000–U+17FF` | S & SE Asian                |
-| `U+1800–U+24FF` | E Asian                     |
-| `U+2000–U+27FF` | Symbols & Punctuation       |
-| `U+2800–U+28FF` | Braille & Basic Shapes      |
-| `U+2E80–U+9FFF` | Chinese                     |
-| `U+AC00–U+D7AF` | Korean                      |
-| `U+D800–U+DBFF` | High Surrogates             |
-| `U+DC00–U+DFFF` | Low Surrogates              |
-| `U+E000–U+F8FF` | Private Use                 |
-
-^
-Latin1 - Western European
-Latin Ext. A & B - Rest of European and African
+#Unicode 2.0
 
 ---
 
-#Encodings
+#Oracle 8.0 (1997)
+
+New Characterset UTF8 (CESU-8)
 
 ---
-#UCS-2
+#Unicode 3.0 
+#Encodings UTF-8
 
-
-^
-UCS-2 was one of the first Unicode encoding forms. It uses a fixed-length of 2 bytes (16 bits) per character, allowing direct encoding of all code points in the Basic Multilingual Plane (BMP), which includes U+0000 to U+FFFF.
-
-
-
----
-#Oracle 8i (1999)
-
-New Characterset AL16UTF16 (UCS-2)
-
----
-```
-➜ encode.py  -t dog  ucs-2
-"dog" encoded in ucs-2 is [64 00 6F 00 67 00]
-
-➜ encode.py -f dogs.txt ucs-2
-
-Summary of encoding with ucs-2
-✅  77 good dogs (332 chars) in 664 bytes
-Average: 8.6 bytes per dog, 2.0 bytes per char
-❌  3 bad dogs:
-  𐀠  𓃥  🐶
-```
 
 ---
 #UTF-8
 
+---
+```
+U+0000 – U+007F                     (7 bits)
+0xxxxxxx                            (1 byte)
 
-U+0000 – U+007F
-BMP (Basic Multilingual Plane)
-0xxxxxxx
-ASCII letters, digits
+U+0080 – U+07FF                     (11 bits)
+110xxxxx 10xxxxxx                   (2 bytes)
 
-U+0080 – U+07FF
-BMP
-110xxxxx 10xxxxxx
-Latin-1, Greek, Hebrew
-U+0800 – U+FFFF
-BMP
-1110xxxx 10xxxxxx 10xxxxxx
-Arabic, CJK, basic emoji
-U+10000 – U+10FFFF
-SMP, SIP, TIP, SSP, PUA-A/B
-11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+U+0800 – U+FFFF                     (16 bits)
+1110xxxx 10xxxxxx 10xxxxxx          (3 bytes)
+
+U+10000 – U+10FFFF                  (21 bits)
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx (4 bytes)
+```
+
+^
+ASCII
+
+---
+#D
+
+```
+U+0000 – U+007F                     (7 bits)
+0xxxxxxx                            (1 byte)
+
+U+0064
+   =01100100
+    0xxxxxxx
+   =01100100
+   =[64]
+
+```
+
+---
+#`U+00E3 "ã"`
+
+```
+U+00E3
+   =00000000 11100011
+   =   00011   100011
+    110xxxxx 10xxxxxx   
+   =11000011 10100011   
+   =[C3 A3]
+
+```
+
+
+---
+
+```
+0xxxxxxx                            (1 byte)
+
+110xxxxx 10xxxxxx                   (2 bytes)
+
+1110xxxx 10xxxxxx 10xxxxxx          (3 bytes)
+
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx (4 bytes)
+
+0x
+
+10100011 10100011 11000011 10100011   
+```
 
 
 
@@ -609,6 +670,32 @@ SMP, SIP, TIP, SSP, PUA-A/B
 U+1F436 = 0001 1111 0100 0011 0110
 
 ---
+
+---
+#Oracle 8i (1999)
+
+New Characterset AL16UTF16 (UCS-2)
+
+---
+```
+➜ encode.py  -t dog  ucs-2
+"dog" encoded in ucs-2 is [64 00 6F 00 67 00]
+
+➜ encode.py -f dogs.txt ucs-2
+
+Summary of encoding with ucs-2
+✅  77 good dogs (332 chars) in 664 bytes
+Average: 8.6 bytes per dog, 2.0 bytes per char
+❌  3 bad dogs:
+  𐀠  𓃥  🐶
+```
+
+^
+Mycenaean Greek
+Hyroglyphic
+Emoji
+
+
 
 
 | Code Point Range    | UTF-8 Pattern                         |
