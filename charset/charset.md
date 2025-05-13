@@ -140,21 +140,21 @@ zwin
 ```
 ---
 
-| Year | Charset        |Oracle Release |
-| ---  | ---            |    ---           |
-| 1968 | ASCII          |               |
-| 1980 | GB2312         |               |
-| 1985->2001 | ISO-8859 |               |
-| 1988 |                | 6             |  
-| 1990 | Windows-1252   |               |
-| 1991 | Unicode 1.0    |               |  
-| 1992 |                | 7             |
-| 1996 | Unicode 2.0    |              |  
-| 1997 |                | 8             |  
-| 1999 |                | 8i            |  
-| 2001 |                | 10g           |  
-| 2001 |                | 10g           |  
-| 2013 |                | 12c           |  
+| Year       | Charset        |Oracle Release |
+| ---        | ---            |---            |
+| 1968       | ASCII          |               |
+| 1985->2001 | ISO-8859       |               |
+| 1990       | Windows-1252   |               |
+| 1988       |                | 6             |  
+| 1980       | GB2312         |               |
+| 1991       | Unicode 1.0    |               |  
+| 1992       |                | 7             |
+| 1996       | Unicode 2.0    |               |  
+| 1997       |                | 8             |  
+| 1999       |                | 8i            |  
+| 2001       |                | 10g           |  
+| 2001       |                | 10g           |  
+| 2013       |                | 12c           |  
 
 ---
 ##1968
@@ -213,83 +213,34 @@ zwin
 ```
 
 ---
-
 ```
-➜ encode.py --t dog,cão ascii
-Good dog [64 6f 67] (3 bytes)
-Bad cão
+➜ encode.py -t Hund,pies,dog ascii
+✅ ascii:   Good Hund [48 75 6e 64] (4 bytes)
+✅ ascii:   Good pies [70 69 65 73] (4 bytes)
+✅ ascii:   Good dog [64 6f 67] (3 bytes)
+
+➜ encode.py -t cão ascii
+❌ ascii:           Bad cão
 ```
 
 ---
 
 ```
 ➜ encode.py -f dogs.txt ascii
-Summary of encoding with ascii
-✅  53 good dogs (237 chars) in 237 bytes
-Average: 4.5 bytes per dog, 1.0 bytes per char
-❌  27 bad dogs:
-  cão  câin  câine  câini  chó  klèb  køter  köpek  köpeği  mbwá
-  mbʉ  tz’i’  āso  āšun  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
-  犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
+✅ ascii: 53 good dogs
+✅ ascii: Encoded 237 chars in 237 bytes, 1.0 bytes per char
+❌ ascii: 27 bad dogs
+❌ ascii: cão  câin  câine  câini  chó  klèb  køter  köpek
+❌ ascii: köpeği  mbwá  mbʉ  tz’i’  āso  āšun  šuo  אבו
+❌ ascii: כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í
+❌ ascii: 𐀠  𓃥  🐶
 ```
 
 
 ---
 #Oracle Pre-6
 
-* Single CharacterSet Encoding - ASCII
-
----
-###1980
-###GB2312 (Character Set)
-####EUC-CN (Encoding)
-
----
-
-```
-➜ encode.py -t dog ascii,gb2312
-✅ ascii:   Good dog [64 6f 67] (3 bytes)
-✅ gb2312:  Good dog [64 6f 67] (3 bytes)
-
-➜ encode.py -t 犬,狗 gb2312
-✅ gb2312:  Good 犬 [c8 ae] (2 bytes)
-✅ gb2312:  Good 狗 [b9 b7] (2 bytes)
-
-➜ encode.py -t cão gb2312
-❌ gb2312:          Bad cão
-```
-
----
-```
-➜ encode.py -f dogs.txt gb2312
-✅ gb2312: 60 good dogs, 258 chars in 266 bytes, 1.0 bytes per char
-❌ gb2312: 20 bad dogs
-❌ gb2312: cão  câin  câine  câini  køter  köpek  köpeği  mbʉ  āšun  šuo
-❌ gb2312: אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
-```
----
-
----
-#gb2312
-```
-
-
- ```
-
-
-
----
-```
-[00-7F]: [64 6f 67]='dog'
-[A1–F7] [A1–FE]: [c8 ae]='犬'
-
-➜ encode.py -t dog狗 gb2312
-✅ gb2312:  Good dog狗 [64 6f 67 b9 b7] (5 bytes)
- 
-➜ encode.py -t dirty_hair肮发  gb2312
-✅ gb2312:  Good dirty_hair肮发 [64 69 72 74 79 5f 68 61 69 72 b0 b9 b7 a2] (14 bytes)
-```
-
+* Single CharSet Encoding - ASCII
 
 ---
 ###1987
@@ -403,9 +354,9 @@ Average: 4.4 bytes per dog, 1.0 bytes per char
 ```
 
 ---
-#Oracle 6 (1988)
+#1988 - Oracle 6
 
-* New CharacterSet Encodings
+* Configurable charset
  * WE8DEC
  * WE8ISO8859P1
  * WE8MSWIN1252
@@ -415,20 +366,72 @@ User-selectable charsets
 Addition to ASCII
 
 ---
-WE8ISO8859P1
 
-<language_prefix><width><standard>
-<US><7><ASCII>
+# ` WE  8  ISO8859P1`
+
+^
+  AL=All Languages
+  WE=Western European 
+  ZHS=Simplified Chinese
+
+---
+#1980
+#GB2312 (Character Set)
+#EUC-CN (Encoding)
+
 
 ---
 
----
-#Unicode 1.0 (1990)
+|Char Type|Example|Encoding        |Example|
+|---      |---    |---             |---    |
+|ASCII    |`d`    |`[00→7F]`       |`[64]` |
+|Chinese  |`狗`   |`[A1→F7][A1→FE]`|`[b9 b7]`|
 
-Unicode, formally The Unicode Standard, is a character encoding standard maintained by the Unicode Consortium designed to support the use of text in all of the world's writing systems that can be digitized.
+
 
 ---
-#Unicode 1.0 (1990)
+
+```
+➜ encode.py -t dog ascii,gb2312
+✅ ascii:   Good dog [64 6f 67] (3 bytes)
+✅ gb2312:  Good dog [64 6f 67] (3 bytes)
+
+➜ encode.py -t 犬,狗 gb2312
+✅ gb2312:  Good 犬 [c8 ae] (2 bytes)
+✅ gb2312:  Good 狗 [b9 b7] (2 bytes)
+
+➜ encode.py -t cão gb2312
+❌ gb2312:          Bad cão
+```
+
+---
+```
+➜ encode.py -f dogs.txt gb2312
+✅ gb2312: 60 good dogs
+✅ gb2312: Encoded 258 chars in 266 bytes, 1.0 bytes per char
+❌ gb2312: 20 bad dogs
+❌ gb2312: cão  câin  câine  câini  køter  köpek  köpeği  mbʉ
+❌ gb2312: āšun  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ
+❌ gb2312: łééchąą’í  𐀠  𓃥  🐶
+```
+
+---
+```
+➜ encode.py -t dog狗 gb2312
+✅ gb2312:  "dog狗"=[64 6f 67 b9 b7]
+ 
+➜ encode.py -t dirtyhair肮发  gb2312
+✅ gb2312:  "dirtyhair肮发"=[64 69 72 74 79 68 61 69 72 b0 b9 b7 a2]
+```
+
+
+---
+#1990 - Unicode 1.0
+
+^
+The Unicode Standard is a fixed-width, uniform character encoding form, intended to support the interchange, processing, and display of written texts in the major languages of the modern world.
+
+
 At the most abstract level, Unicode assigns a unique number called a code point to each character. 
 `U+0000–U+FFFF`
 
@@ -553,10 +556,10 @@ Reserved - custom characters used in fonts, software, or private systems”
 #Unicode 2.0
 
 ---
+#1997
+#Oracle 8.0
 
-#Oracle 8.0 (1997)
-
-New Characterset UTF8 (CESU-8)
+New Characterset `UTF8` (CESU-8)
 
 ---
 #Unicode 3.0 
@@ -671,10 +674,41 @@ U+1F436 = 0001 1111 0100 0011 0110
 
 ---
 
----
-#Oracle 8i (1999)
+#1999 
+#Oracle 8i
 
-New Characterset AL16UTF16 (UCS-2)
+* National Character Set
+* New Charactersets
+  * AL16UTF16 (UCS-2)
+
+
+---
+#National Character Set
+
+
+Choose AL16UTF16 as the national character set
+
+
+alternative .. unicode character data ... database that does not have a Unicode database character set.
+
+ Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
+
+
+* AL16UTF16 Recommended
+* UTF-8 (Deprecated)
+
+* NCHAR
+* NVARCHAR2
+* NCLOB
+
+^
+An alternative character set that enables you to store Unicode character data in a database that does not have a Unicode database character set. Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
+
+ Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
+
+Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 database to store Unicode character data. SQL NCHAR, NVARCHAR2, and NCLOB data types are not supported by some database features. Most notably, Oracle Text and XML DB do not support these data types. 
+
+
 
 ---
 ```
@@ -874,34 +908,6 @@ Oracle Database uses the following naming convention for its character set names
 ---
 
 Oracle implements two deprecated Unicode compatibility encoding forms: CESU-8 through the UTF8 character set and UTF-EBCDIC through the UTFE character set. The UTF8 and UTFE character sets are not guaranteed to include updates to the Unicode standard beyond version 3.0. UTF8 is valid as the client and database character set on ASCII-based platforms and as the national (NCHAR) character set on all platforms. UTFE is valid as the database character set on EBCDIC-based platforms. 
-
----
-
-#National Character Set
-
-* Introduced in 8i (1999)
-
-Choose AL16UTF16 as the national character set
-
-
-alternative .. unicode character data ... database that does not have a Unicode database character set.
-
- Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
-
-
-* AL16UTF16 Recommended
-* UTF-8 (Deprecated)
-
-* NCHAR
-* NVARCHAR2
-* NCLOB
-
-^
-An alternative character set that enables you to store Unicode character data in a database that does not have a Unicode database character set. Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
-
- Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
-
-Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 database to store Unicode character data. SQL NCHAR, NVARCHAR2, and NCLOB data types are not supported by some database features. Most notably, Oracle Text and XML DB do not support these data types. 
 
 
 ---
