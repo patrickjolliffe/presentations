@@ -20,39 +20,25 @@
 #`--·`
 
 ---
-![](images/morse.jpg)
-
-#`-··` 
-#`---` 
-#`--·`
+##`-···  ··  -  -·-·   ····`
 
 
 ---
-![](images/franck.jpg)
-#`. ....`
-#`... ....`  
-#`.. ..`
+###`[ff ff ff]`
+
 
 ---
-![fit](images/tapcode.png)
-#`. ....`
-#`... ....`  
-#`.. ..`
-
-
+###`[64 6f 67]`
+###`⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`
 ---
 
 ###`[64 6f 67]`
-
----
-
-###`[64 6f 67]`
-###` d  o  g`
+###`'d  o  g'`
 
 
 
 ---
-###`🐈 🐶🐕.txt (cat dogs.txt)` 
+###`🐈 dogs.txt` 
 [.column]
 ```
 Hund
@@ -232,7 +218,7 @@ zwin
 
 ---
 ```
-➜ encode.py ascii -b -t WOOF,woof
+➜ encode.py ascii WOOF,woof -b
 ✅ ascii:   "WOOF"=[01010111 01001111 01001111 01000110]
 ✅ ascii:   "woof"=[01110111 01101111 01101111 01100110]
 ```
@@ -263,6 +249,8 @@ zwin
 ❌ ascii: 𐀠  𓃥  🐶
 ```
 
+---
+![inline](images/chatgpt.png)
 
 ---
 #Oracle Pre-6
@@ -274,7 +262,6 @@ zwin
 ###ISO 8859-1 (latin1)
 
 ---
-
 |`ISO8859-1`| ` 0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
 |-----|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
@@ -316,23 +303,23 @@ zwin
 ```
 
 ---
-| ISO Standard  | Name     | Region                 | Year |
-|---------------|----------|------------------------|------|
-| ISO-8859-1    | latin1   | W. Europe              | 1987 |
-| ISO-8859-2    | latin2   | Cent. & East. Europe   | 1987 |
-| ISO-8859-3    | latin3   | S. Europe              | 1988 |
-| ISO-8859-4    | latin4   | N. Europe              | 1988 |
-| ISO-8859-5    | cyrillic | Cyrillic               | 1988 |
-| ISO-8859-6    | arabic   | Arabic                 | 1987 |
-| ISO-8859-7    | greek    | Greek                  | 1987 |
-| ISO-8859-8    | hebrew   | Hebrew                 | 1988 |
-| ISO-8859-9    | latin5   | Turkish                | 1989 |
-| ISO-8859-10   | latin6   | Nordic                 | 1992 |
-| ISO-8859-11   | thai     | Thai                   | 2001 |
-| ISO-8859-13   | latin7   | Baltic Rim             | 1998 |
-| ISO-8859-14   | latin8   | Celtic                 | 1998 |
-| ISO-8859-15   | latin9   | Western Europe         | 1999 |
-| ISO-8859-16   | latin10  | South-East. Europe     | 2001 |
+| Standard      | Name     | Region                 | Year |
+|:--            |----------|------------------------|------|
+| `iso-8859-1`    | `latin1`   | W. Europe              | 1987 |
+| `iso-8859-2`    | `latin2`   | Cent. & East. Europe   | 1987 |
+| `iso-8859-3`    | `latin3`   | S. Europe              | 1988 |
+| `iso-8859-4`    | `latin4`   | N. Europe              | 1988 |
+| `iso-8859-5`    | `cyrillic` | Cyrillic               | 1988 |
+| `iso-8859-6`    | `arabic`   | Arabic                 | 1987 |
+| `iso-8859-7`    | `greek`    | Greek                  | 1987 |
+| `iso-8859-8`    | `hebrew`   | Hebrew                 | 1988 |
+| `iso-8859-9`    | `latin5`   | Turkish                | 1989 |
+| `iso-8859-10`   | `latin6`   | Nordic                 | 1992 |
+| `iso-8859-11`   | `thai`     | Thai                 | 2001 |
+| `iso-8859-13`   | `latin7`   | Baltics              | 1998 |
+| `iso-8859-14`   | `latin8`   | Celtic               | 1998 |
+| `iso-8859-15`   | `latin9`   | W. Europe++          | 1999 |
+| `iso-8859-16`   | `latin10`  | South-East. Europe     | 2001 |
 ---
 #1986
 ##Windows-1252
@@ -374,6 +361,23 @@ zwin
 ❌ windows-1252: köpeği  mbʉ  āso  āšun  אבו  כּלב  كلب  कुत्ता
 ❌ windows-1252: ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
 ```
+
+---
+
+| ISO Standard   | ISO Name    | Windows Equivalent     |
+|----------------|-------------|------------------------|
+| ISO-8859-1     | Latin-1     | Windows-1252           |
+| ISO-8859-2     | Latin-2     | Windows-1250           |
+| ISO-8859-5     | Cyrillic    | Windows-1251           |
+| ISO-8859-6     | Arabic      | Windows-1256           |
+| ISO-8859-7     | Greek       | Windows-1253           |
+| ISO-8859-8     | Hebrew      | Windows-1255           |
+| ISO-8859-9     | Latin-5     | Windows-1254           |
+| ISO-8859-11    | Thai        | Windows-874            |
+| ISO-8859-13    | Latin-7     | Windows-1257 (approx.) |
+| ISO-8859-14    | Latin-8     |                        |
+| ISO-8859-15    | Latin-9     | Windows-1252 (approx.) |
+| ISO-8859-16    | Latin-10    |                        |
 
 ---
 #1988 - Oracle 6
@@ -440,11 +444,13 @@ Addition to ASCII
 ```
 
 ---
+[.code-highlight: 1-2]
+[.code-highlight: all]
 ```
-➜ encode.py -t dog狗 gb2312
+➜ encode.py gb2312 dog狗
 ✅ gb2312:  "dog狗"=[64 6f 67 b9 b7]
- 
-➜ encode.py -t dirtyhair肮发  gb2312
+
+➜ encode.py gb2312 dirtyhair肮发
 ✅ gb2312:  "dirtyhair肮发"=[64 69 72 74 79 68 61 69 72 b0 b9 b7 a2]
 ```
 
@@ -591,22 +597,45 @@ Reserved - custom characters used in fonts, software, or private systems”
 #UTF-8
 
 ---
+[.code-highlight: 1-2]
+[.code-highlight: 1-5]
+[.code-highlight: 1-8]
+[.code-highlight: all]
 ```
-U+0000→U+007F                       (7 bits)
-0xxxxxxx                            (1 byte)
+U+0000→U+007F              
+[0xxxxxxx]
 
-U+0080→U+07FF                       (11 bits)
-110xxxxx 10xxxxxx                   (2 bytes)
+U+0080→U+07FF                       
+[110xxxxx 10xxxxxx]
 
-U+0800→U+FFFF                       (16 bits)
-1110xxxx 10xxxxxx 10xxxxxx          (3 bytes)
+U+0800→U+FFFF                      
+[1110xxxx 10xxxxxx 10xxxxxx]
 
-U+10000→U+10FFFF                    (21 bits)
-11110xxx 10xxxxxx 10xxxxxx 10xxxxxx (4 bytes)
+U+10000→U+10FFFF
+[11110xxx 10xxxxxx 10xxxxxx 10xxxxxx]
 ```
 
 ^
-ASCII
+ASCII=7 bit->1 byte
+Eur & Mid. East=11 bit->2 byte
+BMP - 16 bit->3 byte
+Rest - 21 bit->4 bytes
+
+---
+```
+U+0000→U+007F  "dog" = [64 6f 67]              
+[0xxxxxxx]     
+
+U+0080→U+07FF  "cão" = [63 c3 a3 6f]                     
+[110xxxxx 10xxxxxx]
+
+U+0800→U+FFFF   "狗" = [e7 8b 97]
+[1110xxxx 10xxxxxx 10xxxxxx]
+
+U+10000→U+10FFFF "🐶"=[f0 9f 90 b6]
+[11110xxx 10xxxxxx 10xxxxxx 10xxxxxx]
+```
+
 
 ---
 #`U+0000→U+007F` in `UTF-8` 
@@ -624,20 +653,24 @@ U+0000 – U+007F                     (7 bits)
 ```
 
 ---
-#`U+0080→U+07FF` in `UTF-8`
-
+#`U+0080→U+07FF`
+[.code-highlight: 4]
+[.code-highlight: 1,4]
+[.code-highlight: 1-2,4]
+[.code-highlight: 1-4]
+[.code-highlight: 1-5]
+[.code-highlight: 1-6]
+[.code-highlight: all]
 ```
-' ك' = U+0643
-     = 0000001010000011
-    = 00000000 11100011 (11 bits)
-      110xxxxx 10xxxxxx (5+6 bits)    
-    =    00011   100011
+'Ł' = U+0142    
+     =      001 0100 0010
+     =     00101   000010
+       [110xxxxx 10xxxxxx]
+     = [11000101 10000010]
+     = [c5       82] 
 
-    →   00011   100011
-    
-   =11000011 10100011   
-   =[C3 A3]
-
+➜ encode.py utf-8 Ł
+utf-8:   "Ł"=[c5 81]     
 ```
 
 
@@ -690,6 +723,14 @@ U+0000 – U+007F                     (7 bits)
 `E7 8A AC`
 
 `"犬" encoded in utf-8 is [E7 8A AC]`
+
+```
+SQL> select dump('犬', 16) encoded from dual;
+
+ENCODED
+_________________________
+Typ=96 Len=3: e7,8a,ac
+```
 
 ---
 
@@ -962,3 +1003,92 @@ Upgrade
 
 ---
 https://blogs.oracle.com/timesten/post/why-databasecharacterset-matters
+
+
+---
+```
+SQL> select rpad(name, 8), dump(name, 16) from dogs order by name;
+
+RPAD(NAME,8)    DUMP(NAME,16)
+_______________ ______________________________________________________________________
+Hund            Typ=1 Len=4: 48,75,6e,64
+abwo            Typ=1 Len=4: 61,62,77,6f
+alabai          Typ=1 Len=6: 61,6c,61,62,61,69
+anjing          Typ=1 Len=6: 61,6e,6a,69,6e,67
+ashun           Typ=1 Len=5: 61,73,68,75,6e
+aso             Typ=1 Len=3: 61,73,6f
+cane            Typ=1 Len=4: 63,61,6e,65
+chien           Typ=1 Len=5: 63,68,69,65,6e
+chó             Typ=1 Len=4: 63,68,c3,b3
+cyn             Typ=1 Len=3: 63,79,6e
+câin            Typ=1 Len=5: 63,c3,a2,69,6e
+câine           Typ=1 Len=6: 63,c3,a2,69,6e,65
+câini           Typ=1 Len=6: 63,c3,a2,69,6e,69
+cão             Typ=1 Len=4: 63,c3,a3,6f
+dog             Typ=1 Len=3: 64,6f,67
+emba            Typ=1 Len=4: 65,6d,62,61
+ghaddu          Typ=1 Len=6: 67,68,61,64,64,75
+gom             Typ=1 Len=3: 67,6f,6d
+hond            Typ=1 Len=4: 68,6f,6e,64
+hondur          Typ=1 Len=6: 68,6f,6e,64,75,72
+hualp           Typ=1 Len=5: 68,75,61,6c,70
+huan            Typ=1 Len=4: 68,75,61,6e
+hund            Typ=1 Len=4: 68,75,6e,64
+imba            Typ=1 Len=4: 69,6d,62,61
+imbua           Typ=1 Len=5: 69,6d,62,75,61
+imbwa           Typ=1 Len=5: 69,6d,62,77,61
+imbwe           Typ=1 Len=5: 69,6d,62,77,65
+inu             Typ=1 Len=3: 69,6e,75
+it              Typ=1 Len=2: 69,74
+jindo           Typ=1 Len=5: 6a,69,6e,64,6f
+kelb            Typ=1 Len=4: 6b,65,6c,62
+khuy            Typ=1 Len=4: 6b,68,75,79
+klèb            Typ=1 Len=5: 6b,6c,c3,a8,62
+koer            Typ=1 Len=4: 6b,6f,65,72
+koira           Typ=1 Len=5: 6b,6f,69,72,61
+kotta           Typ=1 Len=5: 6b,6f,74,74,61
+kutta           Typ=1 Len=5: 6b,75,74,74,61
+kutya           Typ=1 Len=5: 6b,75,74,79,61
+köpek           Typ=1 Len=6: 6b,c3,b6,70,65,6b
+köpeği          Typ=1 Len=8: 6b,c3,b6,70,65,c4,9f,69
+køter           Typ=1 Len=6: 6b,c3,b8,74,65,72
+mbula           Typ=1 Len=5: 6d,62,75,6c,61
+mbwa            Typ=1 Len=4: 6d,62,77,61
+mbwagh          Typ=1 Len=6: 6d,62,77,61,67,68
+mbwene          Typ=1 Len=6: 6d,62,77,65,6e,65
+mbwá            Typ=1 Len=5: 6d,62,77,c3,a1
+mbʉ             Typ=1 Len=4: 6d,62,ca,89
+njau            Typ=1 Len=4: 6e,6a,61,75
+njoka           Typ=1 Len=5: 6e,6a,6f,6b,61
+pa              Typ=1 Len=2: 70,61
+perro           Typ=1 Len=5: 70,65,72,72,6f
+pes             Typ=1 Len=3: 70,65,73
+pies            Typ=1 Len=4: 70,69,65,73
+qen             Typ=1 Len=3: 71,65,6e
+qeni            Typ=1 Len=4: 71,65,6e,69
+sag             Typ=1 Len=3: 73,61,67
+sagol           Typ=1 Len=5: 73,61,67,6f,6c
+sobaka          Typ=1 Len=6: 73,6f,62,61,6b,61
+suns            Typ=1 Len=4: 73,75,6e,73
+szczenia        Typ=1 Len=9: 73,7a,63,7a,65,6e,69,61,6b
+tz’i’           Typ=1 Len=9: 74,7a,e2,80,99,69,e2,80,99
+ukudla          Typ=1 Len=6: 75,6b,75,64,6c,61
+welpe           Typ=1 Len=5: 77,65,6c,70,65
+xolo            Typ=1 Len=4: 78,6f,6c,6f
+zwin            Typ=1 Len=4: 7a,77,69,6e
+āso             Typ=1 Len=4: c4,81,73,6f
+āšun            Typ=1 Len=6: c4,81,c5,a1,75,6e
+łééchąą’        Typ=1 Len=17: c5,82,c3,a9,c3,a9,63,68,c4,85,c4,85,e2,80,99,c3,ad
+šuo             Typ=1 Len=4: c5,a1,75,6f
+אבו             Typ=1 Len=6: d7,90,d7,91,d7,95
+כּלב            Typ=1 Len=8: d7,9b,d6,bc,d7,9c,d7,91
+كلب             Typ=1 Len=6: d9,83,d9,84,d8,a8
+कुत्ता          Typ=1 Len=18: e0,a4,95,e0,a5,81,e0,a4,a4,e0,a5,8d,e0,a4,a4,e0,a4,be
+ฆ่า             Typ=1 Len=9: e0,b8,86,e0,b9,88,e0,b8,b2
+ⴽⵍⴱ             Typ=1 Len=9: e2,b4,bd,e2,b5,8d,e2,b4,b1
+犬               Typ=1 Len=3: e7,8a,ac
+狗               Typ=1 Len=3: e7,8b,97
+𐀠              Typ=1 Len=4: f0,90,80,a0
+𓃥              Typ=1 Len=4: f0,93,83,a5
+🐶              Typ=1 Len=4: f0,9f,90,b6
+```

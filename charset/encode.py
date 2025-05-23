@@ -86,13 +86,13 @@ def process_text(texts, encodings, binary=False):
 
 def main():
     parser = argparse.ArgumentParser(description="Check if text can be encoded with a given encoding, and report good and bad dogs.")
-    parser.add_argument("encodings", help="Comma-separated of encodings (e.g., ascii, utf-8, utf-16)")
+    parser.add_argument("encodings", help="Comma-separated of encodings (e.g., ascii,utf-8,utf-16)")
+    parser.add_argument("text", nargs="?", help="Comma-separated of text to encode (e.g., WOOF,woof)")
     parser.add_argument("--list", action="store_true", help="List good and bad dogs after encoding")
     parser.add_argument("--details", action="store_true", help="Show hex or binary output for each encoded dog")
 
     parser.add_argument("-f", "--file", action="store_true", help="Process dogs.txt")
     parser.add_argument("-d", "--dogs", help="Comma-separated dogs to process")   
-    parser.add_argument("-t", "--text", help="Text to process")    
 
     parser.add_argument("-b", "--binary", action="store_true", help="Output in binary instead of hexadecimal")
 
