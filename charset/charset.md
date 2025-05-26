@@ -1,3 +1,5 @@
+slidenumbers: true
+ slidecount: true 
 ![](images/franck.jpg)
 
 ---
@@ -511,8 +513,9 @@ EUC-CN (Encoding)
 
 ---
 #1990 - Unicode 1.0
+##Codepoint
 
-`U+0000➜U+FFFF`
+`'?' = U+0000➜U+FFFF`
 
 ^
 The Unicode Standard is a fixed-width, uniform character encoding form, intended to support the interchange, processing, and display of written texts in the major languages of the modern world.
@@ -521,37 +524,38 @@ At the most abstract level, Unicode assigns a unique number called a code point 
 
 --- 
 | `U+`     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
-|-----|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
-| `2x` |         | `!` | `"` | **`#`** | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
-| `3x` | `0`     | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
-| `4x` | `@`     | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
-| `5x` | `P`     | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | **`[`** | **`\`** | **`]`** | **`^`** | **`_`** |
-| `6x` | **`` ` ``** | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
-| `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | **`{`** | `¦` | | **`}`** | **`~`** | `<del>` |
+| :--: | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| `000x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
+| `001x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
+| `002x` |         | `!` | `"` | **`#`** | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
+| `003x` | `0`     | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
+| `004x` | `@`     | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
+| `005x` | `P`     | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | **`[`** | **`\`** | **`]`** | **`^`** | **`_`** |
+| `006x` | **`` ` ``** | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
+| `007x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | **`{`** | `¦` | | **`}`** | **`~`** | `<del>` |
 
 ^
 ###Unicode U+0000 to U+007f
 
 ---
+
 | Range           | Block Group                 |
 | :---            | :---                        |
-| `U+0000–U+007F` | ASCII (Basic Latin)         |
-| `U+0080–U+00FF` | Latin Supplement            |
-| `U+0100–U+024F` | Latin Extended (A & B)      |
-| `U+0250–U+02FF` | Phonetic Symbols            |
-| `U+0300–U+05FF` | Greek, Cyrillic, Hebrew     |
-| `U+0600–U+0FFF` | Arabic & Indian             |
-| `U+1000–U+17FF` | S & SE Asian                |
-| `U+1800–U+24FF` | E Asian                     |
-| `U+2000–U+27FF` | Symbols & Punctuation       |
-| `U+2800–U+28FF` | Braille & Basic Shapes      |
-| `U+2E80–U+9FFF` | Chinese                     |
-| `U+AC00–U+D7AF` | Korean                      |
-| `U+D800–U+DBFF` | High Surrogates             |
-| `U+DC00–U+DFFF` | Low Surrogates              |
-| `U+E000–U+F8FF` | Private Use                 |
+| `U+0000➜U+007F` | ASCII (Basic Latin)         |
+| `U+0080➜U+00FF` | Latin Supplement            |
+| `U+0100➜U+024F` | Latin Extended (A & B)      |
+| `U+0250➜U+02FF` | Phonetic Symbols            |
+| `U+0300➜U+05FF` | Greek, Cyrillic, Hebrew     |
+| `U+0600➜U+0FFF` | Arabic & Indian             |
+| `U+1000➜U+17FF` | S & SE Asian                |
+| `U+1800➜U+24FF` | E Asian                     |
+| `U+2000➜U+27FF` | Symbols & Punctuation       |
+| `U+2800➜U+28FF` | Braille & Basic Shapes      |
+| `U+2E80➜U+9FFF` | Chinese                     |
+| `U+AC00➜U+D7AF` | Korean                      |
+| `U+D800➜U+DBFF` | High Surrogates             |
+| `U+DC00➜U+DFFF` | Low Surrogates              |
+| `U+E000➜U+F8FF` | Private Use                 |
 
 ^
 Latin1 - Western European
@@ -559,14 +563,12 @@ Latin Ext. A & B - Rest of European and African
 
 
 ---
-##Unicode 1.0 Encodings
-#UCS-2
+#1990 - Unicode 1.0
+#Encoding: UCS-2
 
 
 ^
 UCS-2 was one of the first Unicode encoding forms. fixed-length of 2 bytes (16 bits) per character, allowing direct encoding of all code points in the BMP, which includes U+0000 to U+FFFF.
-
-
 
 ---
 
@@ -595,18 +597,11 @@ UCS-2 was one of the first Unicode encoding forms. fixed-length of 2 bytes (16 b
 ```
 
 ---
-Character Repertoire: The complete set of distinct characters that a character set can represent
-A character repertoire is the set of characters that can be represented by a particular coded character set. 
-The repertoire may be closed, meaning that no additions are allowed without creating a new standard (as is the case with ASCII and most of the ISO-8859 series); or it may beopen, allowing additions (as is the case with Unicode and to a limited extent Windows code pages).
-
-
-Code Point:           The unique numeric value assigned to each character
-Encoding Scheme:      How each character is converted to bytes for storage
-
+#1990 Unicode 1.0 `U+0000➜U+FFFF`
 
 ---
-###1990 Unicode 1.0 `U+0000–U+FFFF`
-###1996 Unicode 2.0 `U+0000–U+10FFFF`
+#1996 Unicode 2.0 `U+0000➜U+10FFFF`
+
 
 ---
 
@@ -614,14 +609,14 @@ Encoding Scheme:      How each character is converted to bytes for storage
 
 | Plane   |  Range              | Name                                | Abbr. | 
 |:---     |:---                 | :---                                | :--   |
-| `0`     | `U+0000–U+FFFF`     | Basic Multilingual Plane            |BMP    |
-| `1`     | `U+10000–U+1FFFF`   | Supplementary Multilingual Plane    |SMP    |
-| `2`     | `U+20000–U+2FFFF`   | Supplementary Ideographic Plane     |SIP    |
-| `3`     | `U+30000–U+3FFFF`   | Tertiary Ideographic Plane          |TIP    | 
-| `4–13`  | `U+40000–U+DFFFF`   | Reserved                            |       |
-| `14`    | `U+E0000–U+EFFFF`   | Supplementary Special-purpose Plane |SSP    |
-| `15`    | `U+F0000–U+FFFFF`   | Private Use Area A                  |       |
-| `16`    | `U+100000–U+10FFFF` | Private Use Area B                  |       |
+| `0`     | `U+0000➜U+FFFF`     | Basic Multilingual Plane            |BMP    |
+| `1`     | `U+10000➜U+1FFFF`   | Supplementary Multilingual Plane    |SMP    |
+| `2`     | `U+20000➜U+2FFFF`   | Supplementary Ideographic Plane     |SIP    |
+| `3`     | `U+30000➜U+3FFFF`   | Tertiary Ideographic Plane          |TIP    | 
+| `4➜13`  | `U+40000➜U+DFFFF`   | Reserved                            |       |
+| `14`    | `U+E0000➜U+EFFFF`   | Supplementary Special-purpose Plane |SSP    |
+| `15`    | `U+F0000➜U+FFFFF`   | Private Use Area A                  |       |
+| `16`    | `U+100000➜U+10FFFF` | Private Use Area B                  |       |
 
 
 ^
@@ -634,15 +629,8 @@ SSP - Special-purpose codes for language tagging and fine-tuning character displ
 Reserved - custom characters used in fonts, software, or private systems”
 
 ---
-#Unicode 2.0
-
----
 #Unicode 3.0 
 #Encodings UTF-8
-
-
----
-#UTF-8
 
 ---
 [.code-highlight: 1-2]
@@ -684,22 +672,6 @@ U+10000→U+10FFFF "🐶"=[f0 9f 90 b6]
 [11110xxx 10xxxxxx 10xxxxxx 10xxxxxx]
 ```
 
-
----
-#`U+0000→U+007F` in `UTF-8` 
-
-```
-U+0000 – U+007F                     (7 bits)
-0xxxxxxx                            (1 byte)
-
-'d' = U+0064 
-    = 01100100 (7 bits)
-      0xxxxxxx (7 bits)
-    = 01100100
-    = [64]
-
-```
-
 ---
 #`U+0080→U+07FF`
 [.code-highlight: 4]
@@ -710,12 +682,12 @@ U+0000 – U+007F                     (7 bits)
 [.code-highlight: 1-6]
 [.code-highlight: all]
 ```
-'Ł' = U+0142    
-     =      001 0100 0010
-     =     00101   000010
+'Ł' = U+0141
+     =      001 0100 0001
+     =     00101   000001
        [110xxxxx 10xxxxxx]
-     = [11000101 10000010]
-     = [c5       82] 
+     = [11000101 10000001]
+     = [c5       81] 
 
 ➜ encode.py utf-8 Ł
 utf-8:   "Ł"=[c5 81]     
@@ -725,17 +697,15 @@ utf-8:   "Ł"=[c5 81]
 ---
 
 ```
-0xxxxxxx                            (1 byte)
+0xxxxxxx                            
 
-110xxxxx 10xxxxxx                   (2 bytes)
+110xxxxx 10xxxxxx                   
 
-1110xxxx 10xxxxxx 10xxxxxx          (3 bytes)
+1110xxxx 10xxxxxx 10xxxxxx          
 
-11110xxx 10xxxxxx 10xxxxxx 10xxxxxx (4 bytes)
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx 
 
-0x
-
-10100011 10100011 11000011 10100011   
+... 10100011 10100011 11000011 10100011 ...
 ```
 
 
