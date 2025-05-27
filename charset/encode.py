@@ -21,7 +21,7 @@ def encode_ucs2 (text, encoding):
     }
     return text.encode(encoding_map[encoding])
 
-def process_dogs(dogs, encodings, binary=False, show_details=False):    
+def encode_dogs(dogs, encodings):    
     for encoding in encodings:       
         good_dogs = []     
         bad_dogs = []     
@@ -45,21 +45,37 @@ def process_dogs(dogs, encodings, binary=False, show_details=False):
 
                 byte_count += len(encoded_dog)
                 char_count += len(dog)
-            except UnicodeEncodeError:
-                bad_dogs.append(dog)
-                if show_details:                
-                    print(f"❌ {encoding + ':':<16} Bad {dog}")                    
+            except UnicodeEncodeError:                                
+                print(f"❌ {encoding + ':':<8} Bad {dog}")                            
 
-        if  not show_details:   
-            bytes_per_char = byte_count / char_count if char_count else 0        
-            print(f"✅ {encoding}: {len(good_dogs)} good dogs")        
-            print(f"✅ {encoding}: {char_count} chars encoded in {byte_count} bytes, {bytes_per_char:.1f} bytes per char")        
-            if bad_dogs:
-                print(f"❌ {encoding}: {len(bad_dogs)} bad dogs:")
-                for i in range(0, len(bad_dogs), 8):
-                    print(f"❌ {encoding}: " + '  '.join(bad_dogs[i:i+8]))
+
+def encode_all_dogs(dogs, encoding):    
+    good_dogs = []     
+    bad_dogs = []     
+    char_count = 0  
+    byte_count = 0
+    for dog in dogs:        
+        try:
+            if encoding == "ucs-2" or encoding == "ucs-2le" or encoding == "ucs-2be":
+                encoded_dog = encode_ucs2(dog, encoding)
             else:
-                print("✅  No bad dogs")
+                encoded_dog = dog.encode(encoding)                
+
+            good_dogs.append(dog)
+            byte_count += len(encoded_dog)
+            char_count += len(dog)
+        except UnicodeEncodeError:
+            bad_dogs.append(dog)
+
+    bytes_per_char = byte_count / char_count if char_count else 0        
+    print(f"✅ {encoding}: {len(good_dogs)} good dogs")        
+    print(f"✅ {encoding}: {char_count} chars encoded in {byte_count} bytes, {bytes_per_char:.1f} bytes per char")        
+    if bad_dogs:
+        print(f"❌ {encoding}: {len(bad_dogs)} bad dogs:")
+        for i in range(0, len(bad_dogs), 8):
+            print(f"❌ {encoding}: " + '  '.join(bad_dogs[i:i+8]))
+    else:
+        print("✅  No bad dogs")
 
 
 def process_text(texts, encodings, binary=False):    
@@ -105,17 +121,16 @@ def main():
         sys.exit(1)
     elif args.dogs:
         dogs = [dog.strip() for dog in args.dogs.split(',')]        
-        show_details = True
+        encode_dogs(dogs, encodings)
     elif not sys.stdin.isatty():
         # Reading from stdin (e.g., encode.py utf-8 < dogs.txt)
         dogs = [line.strip() for line in sys.stdin]
-        show_details = False
+        encode_all_dogs(dogs, encodings[0])
     else:
         print("Either --file, --dogs, --text, or piped input must be provided.")
         sys.exit(1)
 
 
-    process_dogs(dogs, encodings, args.binary, show_details)
 
 if __name__ == "__main__":
     main()
