@@ -122,20 +122,20 @@ zwin
 ---
 
 | Year       | Standard       |Database Release |
-| ---        | ---            |---            |
-| 1968       | ascii          |               |
-| 1985->2001 | iso-8859       |               |
-| 1990       | windows-1252   |               |
-| 1988       |                | 6             |  
-| 1980       | GB2312         |               |
-| 1991       | Unicode 1.0    |               |  
-| 1992       |                | 7             |
-| 1996       | Unicode 2.0    |               |  
-| 1997       |                | 8             |  
-| 1999       |                | 8i            |  
-| 2001       |                | 9i            |  
-| 2001       |                | 10g           |  
-| 2013       |                | 12c           |  
+| :---       | :---           |:---             |
+| 1968       | ascii          |                 |
+| 1985->2001 | iso-8859       |                 |
+| 1990       | windows-1252   |                 |
+| 1988       |                | 6               |  
+| 1980       | GB2312         |                 |
+| 1991       | Unicode 1.0    |                 |  
+| 1992       |                | 7               |
+| 1996       | Unicode 2.0    |                 |  
+| 1997       |                | 8               |  
+| 1999       |                | 8i              |   
+| 2001       |                | 9i              |   
+| 2001       |                | 10g             |  
+| 2013       |                | 12c             |  
 
 ---
 #1968 - ASCII
@@ -668,23 +668,23 @@ At the most abstract level, Unicode assigns a unique number called a code point 
 
 ---
 
-| Range           | Block Group                 |
-| :---            | :---                        |
-| `U+0000➜U+007F` | ASCII (Basic Latin)         |
-| `U+0080➜U+00FF` | Latin Supplement            |
-| `U+0100➜U+024F` | Latin Extended (A & B)      |
-| `U+0250➜U+02FF` | Phonetic Symbols            |
-| `U+0300➜U+05FF` | Greek, Cyrillic, Hebrew     |
-| `U+0600➜U+0FFF` | Arabic & Indian             |
-| `U+1000➜U+17FF` | S & SE Asian                |
-| `U+1800➜U+24FF` | E Asian                     |
-| `U+2000➜U+27FF` | Symbols & Punctuation       |
-| `U+2800➜U+28FF` | Braille & Basic Shapes      |
-| `U+2E80➜U+9FFF` | Chinese                     |
-| `U+AC00➜U+D7AF` | Korean                      |
-| `U+D800➜U+DBFF` | High Surrogates             |
-| `U+DC00➜U+DFFF` | Low Surrogates              |
-| `U+E000➜U+F8FF` | Private Use                 |
+| Range           | Block                  |
+| :---            | :---                    |
+| `U+0000➜U+007F` | ASCII (Basic Latin)     |
+| `U+0080➜U+00FF` | Latin Supplement        |
+| `U+0100➜U+024F` | Latin Extended          |
+| `U+0250➜U+02FF` | Phonetic Symbols        |
+| `U+0300➜U+05FF` | Greek, Cyrillic, Hebrew |
+| `U+0600➜U+0FFF` | Arabic & Indian         |
+| `U+1000➜U+17FF` | S & SE Asian            |
+| `U+1800➜U+24FF` | E Asian                 |
+| `U+2000➜U+27FF` | Symbols & Punctuation   |
+| `U+2800➜U+28FF` | Braille & Basic Shapes  |
+| `U+2E80➜U+9FFF` | Chinese                 |
+| `U+AC00➜U+D7AF` | Korean                  |
+| `U+D800➜U+DBFF` | High Surrogates         |
+| `U+DC00➜U+DFFF` | Low Surrogates          |
+| `U+E000➜U+F8FF` | Private Use             |
 
 ^
 Latin1 - Western European
@@ -727,10 +727,10 @@ Universal Character Set
 ```
 
 ---
-#1990 Unicode 1.0 `U+0000➜U+FFFF`
+#1990 Unicode 1 `U+0000➜U+FFFF`
 
 ---
-#1996 Unicode 2.0 `U+0000➜U+10FFFF`
+#1996 Unicode 2+ `U+0000➜U+10FFFF`
 
 
 ---
@@ -766,6 +766,7 @@ Reserved - custom characters used in fonts, software, or private systems”
 [.code-highlight: 1-5]
 [.code-highlight: 1-8]
 [.code-highlight: all]
+[.code-highlight: 4-5]
 ```
 U+0000→U+007F              
 [0xxxxxxx]
@@ -787,23 +788,6 @@ BMP - 16 bit->3 byte
 Rest - 21 bit->4 bytes
 
 ---
-```
-U+0000→U+007F  "dog" = [64 6f 67]              
-[0xxxxxxx]     
-
-U+0080→U+07FF  "cão" = [63 c3 a3 6f]                     
-[110xxxxx 10xxxxxx]
-
-U+0800→U+FFFF   "狗" = [e7 8b 97]
-[1110xxxx 10xxxxxx 10xxxxxx]
-
-U+10000→U+10FFFF "🐶"=[f0 9f 90 b6]
-[11110xxx 10xxxxxx 10xxxxxx 10xxxxxx]
-```
-
----
-#`U+0080→U+07FF`
-[.code-highlight: 4]
 [.code-highlight: 1,4]
 [.code-highlight: 1-2,4]
 [.code-highlight: 1-4]
@@ -842,6 +826,8 @@ utf-8:   "Ł"=[c5 81]
 
 
 ---
+[.code-highlight: 1-3]
+[.code-highlight: all]
 ```
 ➜ encode.py ascii,utf-8 -d dog
 ✅ ascii:   Good dog [64 6f 67] (3 bytes)
@@ -864,17 +850,41 @@ utf-8:   "Ł"=[c5 81]
 ---
 #1997: Oracle 8
 
-New Characterset `UTF8` (CESU-8)
-EE8MSWIN1250
+* New Encodings
+  * `EE8MSWIN1250`  
+  * `UTF8` (not `UTF-8`)
+  * `...`
+
+^
+(CESU-8)
+
+
+---
+```
+U+0000→U+007F              
+[0xxxxxxx]
+
+U+0080→U+07FF                       
+[110xxxxx 10xxxxxx]
+
+U+0800→U+FFFF                      
+[1110xxxx 10xxxxxx 10xxxxxx]
+
+U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
+[̶1̶1̶1̶1̶0̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶]̶
+```
 
 ---
 
 #1999: Oracle 8i
 
-* National Character Set
-* New Charactersets
-  * AL16UTF16 (UCS-2)
+* Introduced National Character Set
+* Charactersets
+  * `UTF8` (Modified)
+  * `AL16UTF16` (New)
 
+^
+(UCS-2)
 
 ---
 #National Character Set
@@ -901,39 +911,6 @@ An alternative character set that enables you to store Unicode character data in
  Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
 
 Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 database to store Unicode character data. SQL NCHAR, NVARCHAR2, and NCLOB data types are not supported by some database features. Most notably, Oracle Text and XML DB do not support these data types. 
-
-
-
----
-```
-➜ encode.py  -t dog  ucs-2
-"dog" encoded in ucs-2 is [64 00 6F 00 67 00]
-
-➜ encode.py -f dogs.txt ucs-2
-
-Summary of encoding with ucs-2
-✅  77 good dogs (332 chars) in 664 bytes
-Average: 8.6 bytes per dog, 2.0 bytes per char
-❌  3 bad dogs:
-  𐀠  𓃥  🐶
-```
-
-^
-Mycenaean Greek
-Hyroglyphic
-Emoji
-
-
-
-
-| Code Point Range    | UTF-8 Pattern                         |
-|---------------------|----------------------------------------|
-| `U+0000 – U+007F`     | `0xxxxxxx`                            |
-| `U+0080 – U+07FF`     | `110xxxxx 10xxxxxx`                   |
-| `U+0800 – U+FFFF`     | `1110xxxx 10xxxxxx 10xxxxxx`          |
-| `U+10000 – U+10FFFF`    | `11110xxx 10xxxxxx 10xxxxxx 10xxxxxx` |
-
-`... 10001011 10100110 11000011 10100011 01100001 ...`
 
 ---
 #UTF-16 (1996)
@@ -1007,16 +984,6 @@ Average: 20.8 bytes per dog, 5.0 bytes per char
 |utf-16   |80       |0       |836  |10.4         |2.5           | 
 |utf-32   |80       |0       |1660 |20.8         |5             | 
 
-
-
----
-
-#UCS-2 
-
-Encodes Basic Multilingual Plane (`U+0000–U+FFFF`)
-Fixed Length Encoding 
-
-
 ---
 
 AL24UTFFSS (Unicode Version 1.1)
@@ -1029,22 +996,8 @@ https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/supporting-m
 
 
 
----
-Basic Multilingual Plane
-
----
 
 
-#Character Set In Oracle
-
-
----
-
-Oracle 11g WE8MSWIN1252 
-Oracle 12c+ AL32UTF8
-
-
-Unicode
 ---
 UTF8 (Not to be confused with UTF-8) actually UTFE
 CESU-8 (Compatibility Encoding Scheme for UTF-16).
@@ -1086,10 +1039,6 @@ The encoding scheme used to represent a specific character
 #Character Repetoire
 
 The characters that are available to be used in the set 
-
----
-#
-The code points or values assigned to each character
 
 
 ----
