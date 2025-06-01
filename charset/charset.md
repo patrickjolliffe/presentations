@@ -644,7 +644,7 @@ Windows 3.0 (1990)
 ---
 #Codepoint
 
-`U+0000➜U+ffff`
+`U+0000➜U+FFFF`
 
 ^
 The Unicode Standard is a fixed-width, uniform character encoding form, intended to support the interchange, processing, and display of written texts in the major languages of the modern world.
@@ -701,13 +701,17 @@ Universal Character Set
  one of the first Unicode encoding forms. fixed-length of 2 bytes (16 bits) per character, allowing direct encoding of all code 
 
 ---
-
+[.code-highlight: 1]
+[.code-highlight: 1-5]
+[.code-highlight: all]
 ```
 'd'=U+0064, 'o'=U+006f 'g'=U+0067 '狗'=U+72d7
 
-➜ encode.py ucs-2be,ucs-2le -d dog,狗
+➜ encode.py ucs-2be -d dog,狗
 ✅ ucs-2be: Good dog [00 64 00 6f 00 67] (6 bytes)
 ✅ ucs-2be: Good 狗 [72 d7] (2 bytes)
+
+➜ encode.py ucs-2le -d dog,狗
 ✅ ucs-2le: Good dog [64 00 6f 00 67 00] (6 bytes)
 ✅ ucs-2le: Good 狗 [d7 72] (2 bytes)
 ```
@@ -860,6 +864,7 @@ utf-8:   "Ł"=[c5 81]
 
 
 ---
+#`UTF8` (not `UTF-8`) 
 ```
 U+0000→U+007F              
 [0xxxxxxx]
@@ -885,6 +890,59 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 
 ^
 (UCS-2)
+
+---
+#`UTF8` (improved?)
+
+```
+U+0000→U+007F              
+[0xxxxxxx]
+
+U+0080→U+07FF                       
+[110xxxxx 10xxxxxx]
+
+U+0800→U+FFFF                      
+[1110xxxx 10xxxxxx 10xxxxxx]
+
+U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
+[̶1̶1̶1̶1̶0̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶]̶
+```
+---
+
+| Range           | Block                  |
+| :---            | :---                    |
+| `U+0000➜U+007F` | ASCII (Basic Latin)     |
+| `U+0080➜U+00FF` | Latin Supplement        |
+| `U+0100➜U+024F` | Latin Extended          |
+| `U+0250➜U+02FF` | Phonetic Symbols        |
+| `U+0300➜U+05FF` | Greek, Cyrillic, Hebrew |
+| `U+0600➜U+0FFF` | Arabic & Indian         |
+| `U+1000➜U+17FF` | S & SE Asian            |
+| `U+1800➜U+24FF` | E Asian                 |
+| `U+2000➜U+27FF` | Symbols & Punctuation   |
+| `U+2800➜U+28FF` | Braille & Basic Shapes  |
+| `U+2E80➜U+9FFF` | Chinese                 |
+| `U+AC00➜U+D7AF` | Korean                  |
+| **`U+D800➜U+DBFF`** | **High Surrogates** |
+| **`U+DC00➜U+DFFF`** | **Low Surrogates**  |
+| `U+E000➜U+F8FF` | Private Use             |
+
+---
+```
+🐶 = U+1F436
+
+    0x1F436-0x10000 = 0x0F436                       
+                      00001111010000110110
+                      0000111101    0000110110
+    Hi 10 bits = 0000111101 = 0x3D
+    Lo 10 bits  = 0000110110 = 0x36
+	  Hi surrogate = 0xD800 + 0x3D = 0xD83D 
+	  Lo surrogate = 0xDC00 + 0x36 = 0xDC36
+U+D83D U+DC36                       
+
+[ed a0 bd ed b0 b6]
+```
+
 
 ---
 #National Character Set
