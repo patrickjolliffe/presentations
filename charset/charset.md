@@ -763,7 +763,8 @@ SSP - Special-purpose codes for language tagging and fine-tuning character displ
 Reserved - custom characters used in fonts, software, or private systems”
 
 ---
-#Unicode Encoding UTF-8
+#Unicode Encoding [1992]
+#UTF-8
 
 ---
 [.code-highlight: 1-2]
@@ -852,7 +853,7 @@ utf-8:   "Ł"=[c5 81]
 ```
 
 ---
-#Unicode Encoding
+#Unicode Encoding [1996]
 ##`UTF-16`
 
 ---
@@ -868,21 +869,79 @@ utf-8:   "Ł"=[c5 81]
 ✅   ucs-2be: Good 狗 [72 d7] (2 bytes)
 ✅ utf-16-be: Good 狗 [72 d7] (2 bytes)
 ```
+
 ---
 ```
-🐶 = U+1f436
-             - 0x10000 = 0x0f436                       
-                      = 0b00001111010000110110
+➜ encode.py utf-16 -d dog
+✅ utf-16:  Good dog [ff fe 64 00 6f 00 67 00] (8 bytes)
+```
+
+---
+#`🐶 = U+1f436`
+
+---
+
+| Range in BMP    | Block                  |
+| :---            | :---                    |
+| `U+0000➜U+007F` | ASCII (Basic Latin)     |
+| `U+0080➜U+00FF` | Latin Supplement        |
+| `U+0100➜U+024F` | Latin Extended          |
+| `U+0250➜U+02FF` | Phonetic Symbols        |
+| `U+0300➜U+05FF` | Greek, Cyrillic, Hebrew |
+| `U+0600➜U+0FFF` | Arabic & Indian         |
+| `U+1000➜U+17FF` | S & SE Asian            |
+| `U+1800➜U+24FF` | E Asian                 |
+| `U+2000➜U+27FF` | Symbols & Punctuation   |
+| `U+2800➜U+28FF` | Braille & Basic Shapes  |
+| `U+2E80➜U+9FFF` | Chinese                 |
+| `U+AC00➜U+D7AF` | Korean                  |
+| **`U+D800➜U+DBFF`** | **High Surrogates** |
+| **`U+DC00➜U+DFFF`** | **Low Surrogates**  |
+| `U+E000➜U+F8FF` | Private Use             |
+
+---
+```
+🐶 = U+1f436 - 0x10000 = 0x0f436                       
+                       = 0b00001111010000110110
                        = [0b0000111101][0b0000110110]
                        = [0x003d]     [0x0036]
-                       + [0xd800]     [0xdc00]
-	                     = [0xd83d]     [dc36]
-   = U+d83d U+dc36
-   = [d8 3d dc 36]
+                        +[0xd800]    +[0xdc00]
+	                   = [0xd83d]     [0xdc36]
+   = U+d83d U+dc36 
+   → [d8 3d dc 36]
 
 ➜ encode.py utf-16-be -d 🐶
 ✅ utf-16-be: Good 🐶 [d8 3d dc 36] (4 bytes)
-````
+```
+
+---
+```
+➜ encode.py utf-16be < dogs.txt
+✅ utf-16be: 80 good dogs
+✅ utf-16be: 338 chars encoded in 682 bytes, 2.0 bytes per char
+✅  No bad dogs
+
+➜ encode.py utf-16 < dogs.txt
+✅ utf-16: 80 good dogs
+✅ utf-16: 338 chars encoded in 842 bytes, 2.5 bytes per char
+✅  No bad dogs
+```
+
+---
+
+|Encoding   |Good Dogs|Chars |Bytes     |Bytes/Char|
+|:--        |:--      |:--   |:--       |:--       |
+|`ascii`    |`53`       |`237`   |`237` |1.0       |
+|`latin1`   |`62`       |`278`   |`278` |1.0       |
+|`win-1252` |`64`       |`286`   |`286` |1.0       |
+|`latin2`   |`60`       |`269`   |`269` |1.0       |
+|`win-1250` |`62`       |`283`   |`283` |1.0       |
+|`gb2312`   |`60`       |`261`   |`269` |1.0       |
+|`gb2312`   |`60`       |`261`   |`269` |1.0       |
+|`utf-8`    |`80`       |`338`   |`413` |1.0       |
+
+
+
 ---
 #1997: Oracle 8
 
@@ -939,117 +998,32 @@ U+0800→U+FFFF
 U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 [̶1̶1̶1̶1̶0̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶]̶
 ```
----
-
-| Range           | Block                  |
-| :---            | :---                    |
-| `U+0000➜U+007F` | ASCII (Basic Latin)     |
-| `U+0080➜U+00FF` | Latin Supplement        |
-| `U+0100➜U+024F` | Latin Extended          |
-| `U+0250➜U+02FF` | Phonetic Symbols        |
-| `U+0300➜U+05FF` | Greek, Cyrillic, Hebrew |
-| `U+0600➜U+0FFF` | Arabic & Indian         |
-| `U+1000➜U+17FF` | S & SE Asian            |
-| `U+1800➜U+24FF` | E Asian                 |
-| `U+2000➜U+27FF` | Symbols & Punctuation   |
-| `U+2800➜U+28FF` | Braille & Basic Shapes  |
-| `U+2E80➜U+9FFF` | Chinese                 |
-| `U+AC00➜U+D7AF` | Korean                  |
-| **`U+D800➜U+DBFF`** | **High Surrogates** |
-| **`U+DC00➜U+DFFF`** | **Low Surrogates**  |
-| `U+E000➜U+F8FF` | Private Use             |
-
----
-```
-🐶 = U+1F436
-
-    0x1F436-0x10000 = 0x0F436                       
-                      00001111010000110110
-                      0000111101    0000110110
-    Hi 10 bits = 0000111101 = 0x3D
-    Lo 10 bits  = 0000110110 = 0x36
-	  Hi surrogate = 0xD800 + 0x3D = 0xD83D 
-	  Lo surrogate = 0xDC00 + 0x36 = 0xDC36
-U+D83D U+DC36                       
-
-[ed a0 bd ed b0 b6]
-```
 
 ---
 
 ```
-🐶 = U+1F436
-
-    0x1F436-0x10000 = 0x0F436                       
-                      00001111010000110110
-                      0000111101    0000110110
-    Hi 10 bits = 0000111101 = 0x3D
-    Lo 10 bits  = 0000110110 = 0x36
-	  Hi surrogate = 0xD800 + 0x3D = 0xD83D 
-	  Lo surrogate = 0xDC00 + 0x36 = 0xDC36
-U+D83D U+DC36                       
-
-[ed a0 bd ed b0 b6]
+🐶 = U+1f436
+   = U+d83d    U+dc36
+   → [ed a0 bd ed b0 b6]
 ```
 
 ---
 #National Character Set
 
-
-Choose AL16UTF16 as the national character set
-
-
-alternative .. unicode character data ... database that does not have a Unicode database character set.
-
- Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
-
-
-* AL16UTF16 Recommended
-* UTF-8 (Deprecated)
-
-* NCHAR
-* NVARCHAR2
-* NCLOB
+AL16UTF16/UTF8
+NCHAR/NVARCHAR2/NCLOB
 
 ^
+alternative characterset unicode character data ... database that does not have a Unicode database character set.
+ Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
+ AL16UTF16/UTF8
+
 An alternative character set that enables you to store Unicode character data in a database that does not have a Unicode database character set. Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
 
  Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
 
 Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 database to store Unicode character data. SQL NCHAR, NVARCHAR2, and NCLOB data types are not supported by some database features. Most notably, Oracle Text and XML DB do not support these data types. 
 
----
-#UTF-16 (1996)
-
----
-
-BMP U+0000–U+FFFF 2 bytes (1 unit) for BMP characters (U+0000–U+FFFF)
-4 bytes (2 units) for supplementary characters (U+10000–U+10FFFF
-
----
-`
-d o g = U+0064 U+006F U+0067
-
-➜  charset git:(master) ✗ python3 encode.py -t dog utf-16
-"dog" encoded in utf-16 is [FF FE 64 00 6F 00 67 00]
-`
-
----
-`
-
-🐶 = U+1F436
-
-subtract x10000
- = 0xF436
- = 0000111101  0000110110
- = 0000111101  0000110110
-          x3D           x36
-   0xD800    + 0xDC00
-   D8 3D       DC 36
-
-➜  charset git:(master) ✗ python3 encode.py -t 🐶 utf-16
-"🐶" encoded in utf-16 is [FF FE 3D D8 36 DC]
-`
 
 ---
 ```
@@ -1079,16 +1053,6 @@ Average: 20.8 bytes per dog, 5.0 bytes per char
 ```
 
 
----
-
-|Encod. |Good|Bad|bytes(b)|b/dog|b/char|
-|:---     |:---     |:---    |:--- |:---         |:---          | 
-|ascii    |53       |27      |237  |4.5          |1             | 
-|latin1   |62       |18      |275  |4.4          |1             | 
-|gbk      |60       |20      |258  |4.4          |1             | 
-|utf-8    |80       |0       |410  |5.1          |1.2           | 
-|utf-16   |80       |0       |836  |10.4         |2.5           | 
-|utf-32   |80       |0       |1660 |20.8         |5             | 
 
 ---
 
