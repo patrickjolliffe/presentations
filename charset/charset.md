@@ -828,7 +828,6 @@ utf-8:   "Ł"=[c5 81]
 [... 10100011 10100011 11000011 10100011 ...]
 ```
 
-
 ---
 [.code-highlight: 1-3]
 [.code-highlight: all]
@@ -851,6 +850,39 @@ utf-8:   "Ł"=[c5 81]
 ✅ utf-8: 338 chars encoded in 413 bytes, 1.2 bytes per char
 ✅  No bad dogs
 ```
+
+---
+#Unicode Encoding
+##`UTF-16`
+
+---
+[.code-highlight: 1]
+[.code-highlight: 1-4,6]
+[.code-highlight: all]
+```
+'d'=U+0064, 'o'=U+006f 'g'=U+0067 '狗'=U+72d7
+
+➜ encode.py ucs-2be,utf-16-be -d dog,狗
+✅   ucs-2be: Good dog [00 64 00 6f 00 67] (6 bytes)
+✅ utf-16-be: Good dog [00 64 00 6f 00 67] (6 bytes)
+✅   ucs-2be: Good 狗 [72 d7] (2 bytes)
+✅ utf-16-be: Good 狗 [72 d7] (2 bytes)
+```
+---
+```
+🐶 = U+1f436
+             - 0x10000 = 0x0f436                       
+                      = 0b00001111010000110110
+                       = [0b0000111101][0b0000110110]
+                       = [0x003d]     [0x0036]
+                       + [0xd800]     [0xdc00]
+	                     = [0xd83d]     [dc36]
+   = U+d83d U+dc36
+   = [d8 3d dc 36]
+
+➜ encode.py utf-16-be -d 🐶
+✅ utf-16-be: Good 🐶 [d8 3d dc 36] (4 bytes)
+````
 ---
 #1997: Oracle 8
 
@@ -943,6 +975,22 @@ U+D83D U+DC36
 [ed a0 bd ed b0 b6]
 ```
 
+---
+
+```
+🐶 = U+1F436
+
+    0x1F436-0x10000 = 0x0F436                       
+                      00001111010000110110
+                      0000111101    0000110110
+    Hi 10 bits = 0000111101 = 0x3D
+    Lo 10 bits  = 0000110110 = 0x36
+	  Hi surrogate = 0xD800 + 0x3D = 0xD83D 
+	  Lo surrogate = 0xDC00 + 0x36 = 0xDC36
+U+D83D U+DC36                       
+
+[ed a0 bd ed b0 b6]
+```
 
 ---
 #National Character Set
