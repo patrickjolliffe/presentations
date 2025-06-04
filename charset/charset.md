@@ -928,17 +928,54 @@ utf-8:   "Ł"=[c5 81]
 ```
 
 ---
+#UTF-32
 
-|Encoding   |Good Dogs|Chars |Bytes     |Bytes/Char|
-|:--        |:--      |:--   |:--       |:--       |
-|`ascii`    |`53`       |`237`   |`237` |1.0       |
-|`latin1`   |`62`       |`278`   |`278` |1.0       |
-|`win-1252` |`64`       |`286`   |`286` |1.0       |
-|`latin2`   |`60`       |`269`   |`269` |1.0       |
-|`win-1250` |`62`       |`283`   |`283` |1.0       |
-|`gb2312`   |`60`       |`261`   |`269` |1.0       |
-|`gb2312`   |`60`       |`261`   |`269` |1.0       |
-|`utf-8`    |`80`       |`338`   |`413` |1.0       |
+---
+```
+➜ encode.py -d dog,🐶 utf-32be
+✅ utf-32be: Good dog [00 00 00 64 00 00 00 6f 00 00 00 67] (12 bytes)
+✅ utf-32be: Good 🐶 [00 01 f4 36] (4 bytes)
+
+➜ encode.py -d dog utf-32
+✅ utf-32:  Good dog [ff fe 00 00 64 00 00 00 6f 00 00 00 67 00 00 00] (16 bytes)
+```
+
+---
+```
+➜ encode.py utf-32be < dogs.txt
+✅ utf-32be: 80 good dogs
+✅ utf-32be: 338 chars encoded in 1352 bytes, 4.0 bytes per char
+✅  No bad dogs
+```
+
+---
+
+|Encoding   |Good Dogs  |Chars |Bytes    |Bytes per Char |
+|:--        |--:        |--:   |--:      |--:         |
+|`ascii`    |`53`       |`237`   |`237`  |`1.0`       |
+|`latin1`   |`62`       |`278`   |`278`  |`1.0`       |
+|`latin2`   |`60`       |`269`   |`269`  |`1.0`       |
+|`win-1252` |`64`       |`286`   |`286`  |`1.0`       |
+|`win-1250` |`62`       |`283`   |`283`  |`1.0`       |
+|`gb2312`   |`60`       |`261`   |`269`  |`1.0`       |
+|`ucs-2`    |`77`       |`332`   |`664`  |`2.0`       |
+|`utf-8`    |`80`       |`338`   |`413`  |`1.2`       |
+|`utf-16`   |`80`       |`338`   |`682`  |`2.0`       |
+|`utf-16`   |`80`       |`338`   |`1352` |`4.0`       |
+
+---
+|Encoding   | Bytes per Char | Self Synchronizing |Full BMP|All Planes|
+|:--        | :--:       |:--:        |:--:     |:--:     |
+|`ascii`    | 1          |           | ❌     |❌ |
+|`latin1`   | 1          |           | ❌     |❌ |
+|`latin2`   | 1          |           | ❌     |❌|
+|`win-1252` | 1          |           | ❌     |❌|
+|`win-1250` | 1          |           | ❌     |❌|
+|`gb2312`   | 1→2        | ❌        | ❌     |❌|
+|`ucs-2`    | 2          |           | ✅     |✅|
+|`utf-8`    | 1→4        | ✅         | ✅     |✅|
+|`utf-16`   | 2→4        | ❌        |✅        |✅|
+|`utf-32`   | 4          |           |✅        |✅|
 
 
 
@@ -1003,43 +1040,26 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 
 ```
 🐶 = U+1f436
-   = U+d83d    U+dc36
-   → [ed a0 bd ed b0 b6]
+   = U+d83d      U+dc36
+   → [ed a0 bd]  [ed b0 b6]
+   = [ed a0 bd    ed b0 b6]
 ```
 
 ---
 #National Character Set
 
-AL16UTF16/UTF8
-NCHAR/NVARCHAR2/NCLOB
+AL16UTF16 or UTF8
+NCHAR NVARCHAR2 NCLOB
 
 ^
 alternative characterset unicode character data ... database that does not have a Unicode database character set.
  Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
  AL16UTF16/UTF8
-
 An alternative character set that enables you to store Unicode character data in a database that does not have a Unicode database character set. Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
-
  Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
-
 Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 database to store Unicode character data. SQL NCHAR, NVARCHAR2, and NCLOB data types are not supported by some database features. Most notably, Oracle Text and XML DB do not support these data types. 
 
 
----
-```
-➜  charset git:(master) ✗ python3 encode.py -f dogs.txt utf-16
-
-Summary of encoding with utf-16
-✅  80 good dogs (335 chars) in 836 bytes
-Average: 10.4 bytes per dog, 2.5 bytes per char
-✅  0 bad dogs
-```
-
----
-#UTF-32
-
-#4 bytes per Character
-#Direct mapping codepoint to encoding
 
 ---
 
