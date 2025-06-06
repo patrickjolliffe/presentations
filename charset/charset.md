@@ -122,15 +122,15 @@ zwin
 ---
 
 | Year       | Standard       |Database Release |
-| :---       | :---           |:---             |
+| :--        | :--           |:---             |
 | 1968       | ascii          |                 |
-| 1985->2001 | iso-8859       |                 |
-| 1990       | windows-1252   |                 |
+| 1985➜2001  | iso-8859       |                 |
+| 1990       | win-125x       |                 |
 | 1988       |                | 6               |  
-| 1980       | GB2312         |                 |
-| 1991       | Unicode 1.0    |                 |  
+| 1980       | gb2312         |                 |
+| 1991       | unicode 1      |                 |  
 | 1992       |                | 7               |
-| 1996       | Unicode 2.0    |                 |  
+| 1996       | unicode 2      |                 |  
 | 1997       |                | 8               |  
 | 1999       |                | 8i              |   
 | 2001       |                | 9i              |   
@@ -138,7 +138,10 @@ zwin
 | 2013       |                | 12c             |  
 
 ---
-#1968 - ASCII
+#ASCII
+
+^
+1968
 
 ---
 
@@ -213,10 +216,16 @@ BCDIC-A
 
 
 ---
+[.code-highlight: 1-3]
+[.code-highlight: all]
 ```
 ➜ encode.py ascii HAU,hau -b
 ✅ ascii:   "HAU"=[01001000 01000001 01010101]
 ✅ ascii:   "hau"=[01101000 01100001 01110101]
+
+➜ encode.py ascii WOOF,woof -b
+✅ ascii:   "WOOF"=[01010111 01001111 01001111 01000110]
+✅ ascii:   "woof"=[01110111 01101111 01101111 01100110]
 ```
 
 ---
@@ -255,10 +264,11 @@ BCDIC-A
 * US7ASCII
 
 ---
-#1987: iso-8859
+#iso-8859
 
 ^
-(latin2)
+1987 to 2001
+latin2
 
 ---
 | Standard      | Alias       | Region                   | Year |
@@ -400,19 +410,20 @@ romanian
 ```
 
 ---
-#GB2312 [1980]
+#gb2312 
 
 ^
+1980
 Character Set
 EUC-CN (Encoding)
 
 
 ---
 
-| Character | Encoding        |Example|
+| Character | Encoded As      |Example|
 | :--       | :--             |:--    |
-| ASCII     | `[00→7f]`        |`"dog" = [64 6f 67]` |
-| Chinese   | `[a1→f7][a1→fe]` |`"狗" = [b9 b7]`|
+| ASCII     | `[00→7f]`       |`'dog' ➜ [64 6f 67]` |
+| Chinese   | `[a1→f7 a1→fe]` |`'狗'  ➜ [b9 b7]`|
 
 
 
@@ -457,13 +468,14 @@ EUC-CN (Encoding)
 
 
 ---
-#Oracle 6 [1988]
+#Oracle 6 
 
 * Configurable charset 
  * **WE8ISO8859P1**
  * WE8DEC
 
 ^
+1988
 User-selectable charsets
 Addition to ASCII
 
@@ -481,7 +493,7 @@ Addition to ASCII
 ![](images/windows.jpg)
 
 ---
-#1990: Windows-1250
+#windows-1250
 
 ^
 Windows 3.0 (1990)
@@ -550,7 +562,9 @@ Windows 3.0 (1990)
 ```
 
 ---
-#1995: Windows-1252
+#Windows-1250
+^
+1995
 
 ---
 |`latin2`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
@@ -616,19 +630,19 @@ Windows 3.0 (1990)
 
 | Standard         | Alias        | Windows Equivalent     |
 |----------------  |-------------|--------------|
-| `iso-8859-1`     | `latin1`    | Windows-1252 |
-| `iso-8859-2`     | `latin2`    | Windows-1250 |
-| `iso-8859-5`     | `cyrillic`  | Windows-1251 |
-| `iso-8859-6`     | `arabic`    | Windows-1256 |
-| `iso-8859-7`     | `greek`     | Windows-1253 |
-| `iso-8859-8`     | `hebrew`    | Windows-1255 |
-| `iso-8859-9`     | `latin5`    | Windows-1254 |
-| `iso-8859-11`    | `thai`      | Windows-874  |
-| `iso-8859-13`    | `latin7`    | Windows-1257 |
-| `iso-8859-15`    | `latin9`    | Windows-1252 |
+| `iso-8859-1`     | `latin1`    | windows-1252 |
+| `iso-8859-2`     | `latin2`    | windows-1250 |
+| `iso-8859-5`     | `cyrillic`  | windows-1251 |
+| `iso-8859-6`     | `arabic`    | windows-1256 |
+| `iso-8859-7`     | `greek`     | windows-1253 |
+| `iso-8859-8`     | `hebrew`    | windows-1255 |
+| `iso-8859-9`     | `latin5`    | windows-1254 |
+| `iso-8859-11`    | `thai`      | windows-874  |
+| `iso-8859-13`    | `latin7`    | windows-1257 |
+| `iso-8859-15`    | `latin9`    | windows-1252 |
 
 ---
-#Oracle 7 (1992)
+#Oracle 7
 
 * NLS framework introduced
 * New Encodings
@@ -637,14 +651,19 @@ Windows 3.0 (1990)
   * `ZHS16CGB231280`
   * `...`
 
+^
+1992
 
 ---
 #Unicode 1.0
+^
+1991
 
 ---
 #Codepoint
 
-`U+0000➜U+FFFF`
+---
+#`U+0000➜U+FFFF`
 
 ^
 The Unicode Standard is a fixed-width, uniform character encoding form, intended to support the interchange, processing, and display of written texts in the major languages of the modern world.
@@ -701,19 +720,28 @@ Universal Character Set
  one of the first Unicode encoding forms. fixed-length of 2 bytes (16 bits) per character, allowing direct encoding of all code 
 
 ---
-[.code-highlight: 1]
+[.code-highlight: 1-2]
+[.code-highlight: all]
+```
+U+0064 ('d')
+➜ [00 64]
+
+U+72d7 ('狗')
+➜ [72 d7]
+```
+
+---
+[.code-highlight: 1-3]
 [.code-highlight: 1-5]
 [.code-highlight: all]
 ```
-'d'=U+0064, 'o'=U+006f 'g'=U+0067 '狗'=U+72d7
-
-➜ encode.py ucs-2be -d dog,狗
+➜ encode.py ucs-2be,ucs-2le,ucs-2 -d dog,狗
 ✅ ucs-2be: Good dog [00 64 00 6f 00 67] (6 bytes)
 ✅ ucs-2be: Good 狗 [72 d7] (2 bytes)
-
-➜ encode.py ucs-2le -d dog,狗
 ✅ ucs-2le: Good dog [64 00 6f 00 67 00] (6 bytes)
 ✅ ucs-2le: Good 狗 [d7 72] (2 bytes)
+✅ ucs-2:   Good dog [ff fe 64 00 6f 00 67 00] (8 bytes)
+✅ ucs-2:   Good 狗 [ff fe d7 72] (4 bytes)
 ```
 ---
 ```
@@ -725,16 +753,21 @@ Universal Character Set
 ```
 
 ---
-```
-➜  encode.py ucs-2 -d dog
-✅ ucs-2:   Good dog [ff fe 64 00 6f 00 67 00] (8 bytes)
-```
+#major languages
+#modern world
 
 ---
-#1990 Unicode 1 `U+0000➜U+FFFF`
+#`U+0000➜U+FFFF`
+
 
 ---
-#1996 Unicode 2+ `U+0000➜U+10FFFF`
+#all languages
+
+^
+and writing systems
+
+---
+#`U+0000➜U+10FFFF`
 
 
 ---
@@ -763,7 +796,7 @@ SSP - Special-purpose codes for language tagging and fine-tuning character displ
 Reserved - custom characters used in fonts, software, or private systems”
 
 ---
-#Unicode Encoding [1992]
+#Unicode Encoding
 #UTF-8
 
 ---
@@ -800,12 +833,12 @@ Rest - 21 bit->4 bytes
 [.code-highlight: 1-6]
 [.code-highlight: all]
 ```
-'Ł' = U+0141
-    =      001 0100 0001
-    =     00101   000001
-      [110xxxxx 10xxxxxx]
-    = [11000101 10000001]
-    = [c5       81] 
+U+0141 ('Ł') 
+ =  00101000001
+ =     00101   000001
+    110xxxxx 10xxxxxx
+ ➜ [11000101 10000001]
+    =    [c5       81] 
 
 ➜ encode.py utf-8 Ł
 utf-8:   "Ł"=[c5 81]     
@@ -813,29 +846,35 @@ utf-8:   "Ł"=[c5 81]
 
 
 ---
+[.code-highlight: 1-4]
+[.code-highlight: 1-6]
 [.code-highlight: 1-7]
+[.code-highlight: 1-8]
+[.code-highlight: 1-9]
+[.code-highlight: 1-10]
 [.code-highlight: all]
 ```
 [0xxxxxxx]                            
-
 [110xxxxx 10xxxxxx]                   
-
 [1110xxxx 10xxxxxx 10xxxxxx]
-
 [11110xxx 10xxxxxx 10xxxxxx 10xxxxxx]
 
+[0xxxxxxx] ASCII
+[10xxxxxx] Continuation
+[110xxxxx] Lead of 2 byte sequence
+[1110xxxx] Lead of 3 byte sequence
+[11110xxx] Lead of 4 byte sequence
 
-
-[... 10100011 10100011 11000011 10100011 ...]
+[...10100011 10100011 11000011 10100011 01010101...]
 ```
 
 ---
 [.code-highlight: 1-3]
 [.code-highlight: all]
 ```
-➜ encode.py ascii,utf-8 -d dog
-✅ ascii:   Good dog [64 6f 67] (3 bytes)
-✅ utf-8:   Good dog [64 6f 67] (3 bytes)
+➜ encode.py ascii,utf8 -d pies
+✅ ascii:   Good pies [70 69 65 73] (4 bytes)
+✅ utf8:    Good pies [70 69 65 73] (4 bytes)
 
 ➜ encode.py utf-8 -d köpek,cão,狗,🐶
 ✅ utf-8:   Good köpek [6b c3 b6 70 65 6b] (6 bytes)
@@ -853,8 +892,8 @@ utf-8:   "Ł"=[c5 81]
 ```
 
 ---
-#Unicode Encoding [1996]
-##`UTF-16`
+#Unicode Encoding
+#`UTF-16`
 
 ---
 [.code-highlight: 1]
@@ -877,7 +916,7 @@ utf-8:   "Ł"=[c5 81]
 ```
 
 ---
-#`🐶 = U+1f436`
+#`U+1f436 ('🐶')`
 
 ---
 
@@ -1009,7 +1048,7 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 
 ---
 
-#1999: Oracle 8i
+#Oracle 8i
 
 * Introduced National Character Set
 * Charactersets
@@ -1017,7 +1056,8 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
   * `AL16UTF16` (New)
 
 ^
-(UCS-2)
+UCS-2
+1999 
 
 ---
 #`UTF8` (improved?)
@@ -1060,19 +1100,10 @@ An alternative character set that enables you to store Unicode character data in
 Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 database to store Unicode character data. SQL NCHAR, NVARCHAR2, and NCLOB data types are not supported by some database features. Most notably, Oracle Text and XML DB do not support these data types. 
 
 
+[.code-highlight: 1-9]
 
 ---
-
-```
-➜  charset git:(master) ✗ python3 encode.py -f dogs.txt utf-32
-
-Summary of encoding with utf-32
-✅  80 good dogs (335 chars) in 1660 bytes
-Average: 20.8 bytes per dog, 5.0 bytes per char
-✅  0 bad dogs
-```
-
-
+#Oracle 9
 
 ---
 
