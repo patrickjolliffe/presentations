@@ -219,11 +219,11 @@ BCDIC-A
 [.code-highlight: 1-3]
 [.code-highlight: all]
 ```
-➜ encode.py ascii HAU,hau -b
+➜ encode.py -b ascii HAU,hau
 ✅ ascii:   "HAU"=[01001000 01000001 01010101]
 ✅ ascii:   "hau"=[01101000 01100001 01110101]
 
-➜ encode.py ascii WOOF,woof -b
+➜ encode.py -b ascii WOOF,woof
 ✅ ascii:   "WOOF"=[01010111 01001111 01001111 01000110]
 ✅ ascii:   "woof"=[01110111 01101111 01101111 01100110]
 ```
@@ -425,8 +425,6 @@ EUC-CN (Encoding)
 | ASCII     | `[00→7f]`       |`'dog' ➜ [64 6f 67]` |
 | Chinese   | `[a1→f7 a1→fe]` |`'狗'  ➜ [b9 b7]`|
 
-
-
 ---
 [.code-highlight: 1-3]
 [.code-highlight: 1-7]
@@ -456,6 +454,21 @@ EUC-CN (Encoding)
 ```
 
 ---
+```
+(8 bytes) [?? ?? ?? ?? ?? ?? ?? ??]
+
+(6 bytes) [?? ?? ?? ?? ?? ??]
+```
+
+---
+```
+(8 bytes) [d0 a1 d1 f8 cd a8 c4 e1] ➜ '小 熊 维 尼' (4 chars)
+
+(6 bytes) [57 69 6e 6e 69 65]       ➜ 'Winnie'     (6 chars)
+```
+
+
+---
 [.code-highlight: 1-2]
 [.code-highlight: all]
 ```
@@ -466,6 +479,12 @@ EUC-CN (Encoding)
 ✅ gb2312:  "dirtyhair肮发"=[64 69 72 74 79 68 61 69 72 b0 b9 b7 a2]
 ```
 
+
+
+---
+`
+b9 b7 = 狗
+`
 
 ---
 #Oracle 6 
