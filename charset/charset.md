@@ -419,6 +419,9 @@ EUC-CN (Encoding)
 
 
 ---
+`犬`
+
+---
 
 | Character | Encoded As      |Example|
 | :--       | :--             |:--    |
@@ -1019,21 +1022,22 @@ utf-8:   "Ł"=[c5 81]
 |`ucs-2`    |`77`       |`332`   |`664`  |`2.0`       |
 |`utf-8`    |`80`       |`338`   |`413`  |`1.2`       |
 |`utf-16`   |`80`       |`338`   |`682`  |`2.0`       |
-|`utf-16`   |`80`       |`338`   |`1352` |`4.0`       |
+|`utf-32`   |`80`       |`338`   |`1352` |`4.0`       |
 
 ---
-|Encoding   | Bytes per Char | Self Synchronizing |Full BMP|All Planes|
-|:--        | :--:       |:--:        |:--:     |:--:     |
-|`ascii`    | 1          |           | ❌     |❌ |
-|`latin1`   | 1          |           | ❌     |❌ |
-|`latin2`   | 1          |           | ❌     |❌|
-|`win-1252` | 1          |           | ❌     |❌|
-|`win-1250` | 1          |           | ❌     |❌|
-|`gb2312`   | 1→2        | ❌        | ❌     |❌|
-|`ucs-2`    | 2          |           | ✅     |✅|
-|`utf-8`    | 1→4        | ✅         | ✅     |✅|
-|`utf-16`   | 2→4        | ❌        |✅        |✅|
-|`utf-32`   | 4          |           |✅        |✅|
+|Encoding         | Bytes per Character |BMP  |All Planes| Self Synchronizing |
+|:--              | :--:                |:--: |:--:      |:--:                |
+|`ascii`          | `1`                 | ❌  |❌         |                    |
+|`latin1`         | `1`                 | ❌  |❌         |                    |
+|`latin2`         | `1`                 | ❌  |❌         |                    |
+|`win-1252`       | `1`                 | ❌  |❌         |                    |
+|`win-1250`       | `1`                 | ❌  |❌         |                    |
+|`gb2312`         | `1,2`               | ❌  |❌         |❌                  |
+|`ucs-2`          | `2`                 | ✅  |❌         |                    |
+|`utf-8`          | `1→4`               | ✅  |✅         |✅                  |
+|`utf8 (Oracle)`  |`1→3,6`              | ✅  |✅         |                    |
+|`utf-16`         | `2,4`               | ✅  |✅         |                    |
+|`utf-32`         | `4`                 | ✅  |✅         |                    |
 
 
 
@@ -1305,6 +1309,48 @@ zwin            Typ=1 Len=4: 7a,77,69,6e
 
 
 
+---
+#`cão`
+
+---
+![fit](images/portuguese.png)
+
 
 
 ---
+#`cão`
+
+---
+![fit](images/portuguese.png)
+
+---
+#`犬`
+
+---
+![fit](images/japan.png)
+
+
+---
+#Ha’DIbaH
+
+---
+![fit](images/klingon.png)
+
+---
+#Huan
+
+---
+![fit](images/elvish.png)
+
+
+---
+
+Ha’DIbaH
+
+
+Klingon
+Ha’DIbaH
+Uses Latin letters — no special script, but notable nerd value
+Quenya (Elvish)
+huan
+Tolkien’s elvish — uses regular Latin characters
