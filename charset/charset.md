@@ -1073,10 +1073,10 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 
 #Oracle 8i
 
-* Introduced National Character Set
-* Charactersets
-  * `UTF8` (Modified)
-  * `AL16UTF16` (New)
+* Charsets
+  * `UTF8` (Changed)
+  * `AL16UTF16`
+* National Character Set
 
 ^
 UCS-2
@@ -1111,8 +1111,8 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 ---
 #National Character Set
 
-AL16UTF16 or UTF8
-NCHAR NVARCHAR2 NCLOB
+* `AL16UTF16/UTF8`
+* `NCHAR,NVARCHAR2,NCLOB`
 
 ^
 alternative characterset unicode character data ... database that does not have a Unicode database character set.
@@ -1126,63 +1126,20 @@ Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 data
 [.code-highlight: 1-9]
 
 ---
-#Oracle 9
+#Oracle 9i
+
+* CharSets
+  * `AL32UTF8`
+  * `...` 
+* Char/Byte Semantics
 
 ---
-
-AL24UTFFSS (Unicode Version 1.1)
-UTF8
-UTFE
-AL32UTF8
-AL16UTF16
-
-https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/supporting-multilingual-databases-with-unicode.html
-
-
-
-
-
----
-UTF8 (Not to be confused with UTF-8) actually UTFE
-CESU-8 (Compatibility Encoding Scheme for UTF-16).
-
-CESU-8 is a Unicode Technical Report #26 encoding form that:
-
-Encodes Basic Multilingual Plane (BMP) characters the same way as UTF-8
-Differs in how it handles supplementary characters
-Uses 6 bytes for supplementary characters by encoding them as pairs of 3-byte sequences
-Was designed primarily for compatibility with UTF-16
-https://en.wikipedia.org/wiki/CESU-8
-
-AL16UTF16 (almost fixed width)
-
-
-
----
-
-
-Oracle's proprietary implementation
-Can use up to 6 bytes per character
-Created before Unicode standard was finalized
-Non-standard implementation that doesn't match the Unicode UTF-8 specification
-Still supported for backwards compatibility
-
 
 Byte Semantics vs. Character Semantics: How Oracle measures string lengths
 
 https://docs.oracle.com/en/database/oracle/oracle-database/23/nlspg/choosing-character-set.html
 Encoded Character Set
 
-A group of characters (for example, alphabetic characters, ideographs, symbols, punctuation marks, and control characters) can be encoded as a character set.
-An encoded character set assigns a unique numeric code to each character in the character set. 
-The characters that are available to be used in the set (also known as the character repertoire) 
-The code points or values assigned to each character
-The encoding scheme used to represent a specific character
-
----
-#Character Repetoire
-
-The characters that are available to be used in the set 
 
 
 ----
@@ -1191,10 +1148,6 @@ Naming Convention for Oracle Database Character Sets
 Oracle Database uses the following naming convention for its character set names:
 
 <region><number of bits used to represent a character><standard character set name>[S|C]
-
----
-
-Oracle implements two deprecated Unicode compatibility encoding forms: CESU-8 through the UTF8 character set and UTF-EBCDIC through the UTFE character set. The UTF8 and UTFE character sets are not guaranteed to include updates to the Unicode standard beyond version 3.0. UTF8 is valid as the client and database character set on ASCII-based platforms and as the national (NCHAR) character set on all platforms. UTFE is valid as the database character set on EBCDIC-based platforms. 
 
 
 ---
@@ -1315,14 +1268,6 @@ zwin            Typ=1 Len=4: 7a,77,69,6e
 ---
 ![fit](images/portuguese.png)
 
-
-
----
-#`cão`
-
----
-![fit](images/portuguese.png)
-
 ---
 #`犬`
 
@@ -1341,16 +1286,3 @@ zwin            Typ=1 Len=4: 7a,77,69,6e
 
 ---
 ![fit](images/elvish.png)
-
-
----
-
-Ha’DIbaH
-
-
-Klingon
-Ha’DIbaH
-Uses Latin letters — no special script, but notable nerd value
-Quenya (Elvish)
-huan
-Tolkien’s elvish — uses regular Latin characters
