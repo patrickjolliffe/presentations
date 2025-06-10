@@ -511,6 +511,13 @@ Addition to ASCII
   ZHS=Simplified Chinese
 
 
+----
+Naming Convention for Oracle Database Character Sets
+
+Oracle Database uses the following naming convention for its character set names:
+
+<region><number of bits used to represent a character><standard character set name>[S|C]
+
 ---
 ![](images/windows.jpg)
 
@@ -1131,23 +1138,11 @@ Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 data
 * CharSets
   * `AL32UTF8`
   * `...` 
-* Char/Byte Semantics
+* Length Semantics (char/byte)
+
 
 ---
-
-Byte Semantics vs. Character Semantics: How Oracle measures string lengths
-
-https://docs.oracle.com/en/database/oracle/oracle-database/23/nlspg/choosing-character-set.html
-Encoded Character Set
-
-
-
-----
-Naming Convention for Oracle Database Character Sets
-
-Oracle Database uses the following naming convention for its character set names:
-
-<region><number of bits used to represent a character><standard character set name>[S|C]
+![fit](images/starwars.jpg)
 
 
 ---
@@ -1156,12 +1151,23 @@ Oracle Database uses the following naming convention for its character set names
 `NLS_LENGTH_SEMANTICS = BYTE (default)| CHAR`
 
 ^
-Oracle strongly recommends that you do NOT set the NLS_LENGTH_SEMANTICS parameter to CHAR in the instance or server parameter file. This may cause many existing installation scripts to unexpectedly create columns with character length semantics, resulting in run-time errors, including buffer overflows. 
-
+Oracle says don't set NLS_LENGTH_SEMANTICS parameter to CHAR
+Causes problems when existing installation scripts create columns with character length semantics
 
 ---
+```
+SQL> create table doggie(name nvarchar2(1 char));
 
-NLS_LANG
+ORA-00907: missing right parenthesis
+
+SQL> create table doggie(name nvarchar2(1))
+
+SQL> Table DOGGIE created.
+
+SQL> insert into doggie values ('🐶');
+
+SQL Error: ORA-12899: value too large for column "PDBADMIN"."DOGGIE"."NAME" (actual: 2, maximum: 1)
+```
 
 
 ---
