@@ -1169,7 +1169,26 @@ SQL> insert into doggie values ('🐶');
 SQL Error: ORA-12899: value too large for column "PDBADMIN"."DOGGIE"."NAME" (actual: 2, maximum: 1)
 ```
 
+---
+```
+SQL> create table longdog (name varchar2(4001 byte));
 
+ORA-00910: specified length too long for its datatype
+
+SQL> create table longdog (name varchar2(4000 char));
+
+Table LONGDOG created.
+
+SQL> insert into longdog values (rpad('🐶', 4000, '🐶'));
+
+1 row inserted.
+
+SQL> select length(name), lengthb(name) from longdog;
+
+   LENGTH(NAME)    LENGTHB(NAME)
+_______________ ________________
+           1000             4000
+```
 ---
 Upgrade
 
