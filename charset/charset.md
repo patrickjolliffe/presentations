@@ -137,8 +137,32 @@ zwin
 | 2001       |                | 10g             |  
 | 2013       |                | 12c             |  
 
+
 ---
-#ASCII
+|`cp353`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
+|:--- | :--- | :--- | :--- | :--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| `0x` |        | `1`    | `2`    | `3`    | `4`    | `5`    | `6`    | `7`    | `8`    | `9`    | `0`    | `#`    | `@`    | `:`    | `>`    | `√`    |
+| `1x` | `␢`    | `/`    | `S`    | `T`    | `U`    | `V`    | `W`    | `X`    | `Y`    | `Z`    | `⧧`    | `,`    | `%`    | `γ`    | `\`    | `⧻`    |
+| `2x` | `-`    | `J`    | `K`    | `L`    | `M`    | `N`    | `O`    | `P`    | `Q`    | `R`    | `!`    | `#`    | `*`    | `]`    | `;`    | `Δ`    |
+| `3x` | `&`    | `A`    | `B`    | `C`    | `D`    | `E`    | `F`    | `G`    | `H`    | `I`    | `?`    | `.`    | `⌑`    | `[`    | `<`    | `⯒`    |
+| `4x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `5x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `6x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `7x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `8x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `9x` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `ax` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `bx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `cx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `dx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `ex` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+| `fx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+
+^
+BCDIC-A
+
+---
+#ascii
 
 ^
 1968
@@ -167,53 +191,8 @@ zwin
 
 
 ^
-7-bit
-
----
-|`cp353`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
-|:--- | :--- | :--- | :--- | :--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| `0x` |        | `1`    | `2`    | `3`    | `4`    | `5`    | `6`    | `7`    | `8`    | `9`    | `0`    | `#`    | `@`    | `:`    | `>`    | `√`    |
-| `1x` | `␢`    | `/`    | `S`    | `T`    | `U`    | `V`    | `W`    | `X`    | `Y`    | `Z`    | `⧧`    | `,`    | `%`    | `γ`    | `\`    | `⧻`    |
-| `2x` | `-`    | `J`    | `K`    | `L`    | `M`    | `N`    | `O`    | `P`    | `Q`    | `R`    | `!`    | `#`    | `*`    | `]`    | `;`    | `Δ`    |
-| `3x` | `&`    | `A`    | `B`    | `C`    | `D`    | `E`    | `F`    | `G`    | `H`    | `I`    | `?`    | `.`    | `⌑`    | `[`    | `<`    | `⯒`    |
-| `4x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `5x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `6x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `7x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `8x` |        |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `9x` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `ax` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `bx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `cx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `dx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `ex` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `fx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-
-^
-BCDIC-A
-
----
-
-|`ascii`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
-| :--- | :--- | :--- |:--- |:--- |:---|:---|:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
-| `2x` |  | `!` | `"` | `#` | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
-| `3x` | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
-| `4x` | `@` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
-| `5x` | `P` | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | `[` | `\` | `]` | `^` | `_` |
-| `6x` | `` ` `` | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
-| `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | `{` | `\|` | `}` | `~` | `<del>` |
-| `8x` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `9x` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `Ax` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `Bx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `Cx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `Dx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `Ex` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-| `Fx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
-
-
+7 bit
+8th bit checksum
 
 ---
 [.code-highlight: 1-3]
@@ -229,6 +208,19 @@ BCDIC-A
 ```
 
 ---
+#Ha’DIbaH
+
+---
+![fit](images/klingon.png)
+
+
+---
+#huan
+
+---
+![fit](images/elvish.png)
+
+---
 [.code-highlight: 1-4]
 [.code-highlight: all]
 ```
@@ -242,8 +234,8 @@ BCDIC-A
 ❌ ascii:   Bad 狗
 ```
 
----
 
+---
 ```
 ➜ encode.py ascii < dogs.txt
 ✅ ascii: 53 good dogs
@@ -255,20 +247,54 @@ BCDIC-A
 ❌ ascii: 𐀠  𓃥  🐶
 ```
 
+^
+53/80
+1 b/char
+
 ---
 ![inline](images/chatgpt.png)
+
+^
+extensive research
 
 ---
 #Oracle Pre-6
 
 * US7ASCII
 
+^
+how to interpret?
+
+---
+
+```
+US   7 ASCII
+
+
+WE   8 ISO8859P1
+WE   8 ISO8859P2
+WE   8 MSWIN1252
+
+EE   8 MSWIN1250
+
+ZHS 16 CGB231280
+
+AL  16 UTF16
+AL  32 UTF8
+```
+
+^
+Character Set-Bytes-Encoding
+WE Western European 
+ZHS Simplified Chinese
+AL All Languages
+
 ---
 #iso-8859
 
 ^
-1987 to 2001
-latin2
+set of standards
+1987➜2001
 
 ---
 | Standard      | Alias       | Region                   | Year |
@@ -290,7 +316,8 @@ latin2
 | `iso-8859-16` | `latin10`  | South-Eastern Europe      | 2001 |
 
 ^
-Latin2 = Poland
+latin2 poland
+latin9 improved latin1 €
 
 ---
 |`ascii`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
@@ -311,6 +338,9 @@ Latin2 = Poland
 | `dx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
 | `ex` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
 | `fx` |     |     |     |     |     |     |     |     |     |     |     |     |   |   |   |   |
+
+^
+blank space
 
 ---
 
@@ -333,6 +363,9 @@ Latin2 = Poland
 | `ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
 | `fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
 
+^
+filled
+
 
 ---
 |`latin2`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
@@ -354,6 +387,9 @@ Latin2 = Poland
 | `ex` | `ą`     | `˙`     | `ď`     | `đ`     | `ë`     | `ę`     | `ě`     | `í`     | `î`     | `ï`     | `˝`     | `ł`     | `ń`     | `ň`     | `ó`     | `ô`     |
 | `fx` | `ő`     | `œ`     | `ŕ`     | `ř`     | `ŗ`     | `ś`     | `ş`     | `š`     | `ţ`     | `ť`     | `ź`     | `ż`     | `ž`     | `ÿ`     |         |         |
 
+^
+latin2 filled others
+
 ---
 [.code-highlight: 1-4]
 [.code-highlight: all]
@@ -367,6 +403,11 @@ Latin2 = Poland
 ❌ latin1:  Bad šuo
 ❌ latin1:  Bad 狗
 ```
+
+^
+western europe = good
+everything else = bad
+
 ---
 ```
 ➜ encode.py latin1 < dogs.txt
@@ -377,6 +418,19 @@ Latin2 = Poland
 ❌ latin1: كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠
 ❌ latin1: 𓃥  🐶
 ```
+
+^
+ascii: 53 
+latin1: 62
+
+
+---
+##What Language?
+#`cão`
+
+---
+![fit](images/portuguese.png)
+
 
 ---
 [.code-highlight: 1-4]
@@ -397,7 +451,6 @@ lithuanian
 turkish
 romanian
 
-
 ---
 ```
 ➜ encode.py latin2 < dogs.txt
@@ -409,24 +462,44 @@ romanian
 ❌ latin2: łééchąą’í  𐀠  𓃥  🐶
 ```
 
+^
+ascii:53
+latin1:62
+latin2:60
+
+---
+##What Language?
+#köpek
+
+---
+![fit](images/turkish.png)
+
+
+
 ---
 #gb2312 
 
 ^
+Meanwhile in China
 1980
 Character Set
 EUC-CN (Encoding)
 
+---
+##What Language?
+#`犬`
 
 ---
-`犬`
+![fit](images/japan.png)
+
 
 ---
+##What Language?
+#狗
 
-| Character | Encoded As      |Example|
-| :--       | :--             |:--    |
-| ASCII     | `[00→7f]`       |`'dog' ➜ [64 6f 67]` |
-| Chinese   | `[a1→f7 a1→fe]` |`'狗'  ➜ [b9 b7]`|
+---
+![fit](images/chinese.png)
+
 
 ---
 [.code-highlight: 1-3]
@@ -455,77 +528,71 @@ EUC-CN (Encoding)
 ❌ gb2312: āšun  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ
 ❌ gb2312: łééchąą’í  𐀠  𓃥  🐶
 ```
+^
+ascii  53
 
 ---
-```
-(8 bytes) [?? ?? ?? ?? ?? ?? ?? ??]
 
-(6 bytes) [?? ?? ?? ?? ?? ??]
-```
+| Character | Encoded As      |Example|
+| :--       | :--             |:--    |
+| ASCII     | `[00→7f]`       |`'dog' ➜ [64 6f 67]` |
+| Chinese   | `[a1→f7 a1→fe]` |`'狗'  ➜ [b9 b7]`|
 
 ---
+[.code-highlight: 1]
+[.code-highlight: 1-4]
+[.code-highlight: 1,6-7]
 ```
-(8 bytes) [d0 a1 d1 f8 cd a8 c4 e1] ➜ '小 熊 维 尼' (4 chars)
+[?? ?? ?? ?? ?? ??] (6 bytes)
 
-(6 bytes) [57 69 6e 6e 69 65]       ➜ 'Winnie'     (6 chars)
+➜ encode.py gb2312 doggie
+✅ gb2312:  "doggie"=[64 6f 67 67 69 65]
+
+➜ encode.py gb2312 狗狗狗
+✅ gb2312:  "狗狗狗"=[b9 b7 b9 b7 b9 b7]
 ```
 
+^
+variable length
+number bytes != number chars
 
 ---
 [.code-highlight: 1-2]
 [.code-highlight: all]
 ```
-➜ encode.py gb2312 dog狗
-✅ gb2312:  "dog狗"=[64 6f 67 b9 b7]
+➜ encode.py gb2312 狗
+✅ gb2312:  "狗"=[b9 b7]
 
-➜ encode.py gb2312 dirtyhair肮发
-✅ gb2312:  "dirtyhair肮发"=[64 69 72 74 79 68 61 69 72 b0 b9 b7 a2]
+➜ encode.py gb2312 肮发
+✅ gb2312:  "肮发"=[b0 b9 b7 a2]
 ```
 
-
-
----
-`
-b9 b7 = 狗
-`
+^
+dog
+dirtyhair
 
 ---
 #Oracle 6 
 
 * Configurable charset 
  * **WE8ISO8859P1**
- * WE8DEC
+ * ...
 
 ^
 1988
-User-selectable charsets
-Addition to ASCII
-
----
-
-# ` WE  8  ISO8859P1`
-
-^
-  AL=All Languages
-  WE=Western European 
-  ZHS=Simplified Chinese
-
-
-----
-Naming Convention for Oracle Database Character Sets
-
-Oracle Database uses the following naming convention for its character set names:
-
-<region><number of bits used to represent a character><standard character set name>[S|C]
+selectable charsets
+addition to ascii
+latin1/Western Europe
 
 ---
 ![](images/windows.jpg)
 
 ---
-#windows-1250
+#windows-1252
 
 ^
-Windows 3.0 (1990)
+1990 windows 3
+aka cp1252
 
 ---
 
@@ -572,26 +639,42 @@ Windows 3.0 (1990)
 
 
 ---
+[.code-highlight: 1-5]
+[.code-highlight: all]
 ```
-➜ encode.py iso-8859-1,windows-1252 -d cão,chó
-✅ iso-8859-1: Good cão [63 e3 6f] (3 bytes)
-✅ iso-8859-1: Good chó [63 68 f3] (3 bytes)
-✅ windows-1252: Good cão [63 e3 6f] (3 bytes)
-✅ windows-1252: Good chó [63 68 f3] (3 bytes)
+➜ encode.py latin1,cp1252 -d cão,chó
+✅ latin1:  Good cão [63 e3 6f] (3 bytes)
+✅ cp1252:  Good cão [63 e3 6f] (3 bytes)
+✅ latin1:  Good chó [63 68 f3] (3 bytes)
+✅ cp1252:  Good chó [63 68 f3] (3 bytes)
+
+➜ encode.py latin1,cp1252 -d tz’i’,šuo
+❌ latin1:  Bad tz’i’
+✅ cp1252:  Good tz’i’ [74 7a 92 69 92] (5 bytes)
+❌ latin1:  Bad šuo
+✅ cp1252:  Good šuo [9a 75 6f] (3 bytes)
+
 ```
 
 ---
+
 ```
-➜ encode.py windows-1252 < dogs.txt
-✅ windows-1252: 64 good dogs
-✅ windows-1252: 283 chars encoded in 283 bytes, 1.0 bytes per char
-❌ windows-1252: 16 bad dogs:
-❌ windows-1252: köpeği  mbʉ  āso  āšun  אבו  כּלב  كلب  कुत्ता
-❌ windows-1252: ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
+➜ encode.py cp1252 < dogs.txt
+✅ cp1252: 64 good dogs
+✅ cp1252: 286 chars encoded in 286 bytes, 1.0 bytes per char
+❌ cp1252: 16 bad dogs:
+❌ cp1252: köpeği  mbʉ  āso  āšun  אבו  כּלב  كلب  कुत्ता
+❌ cp1252: ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
 ```
 
+^
+ascii: 53 
+latin1: 62
+win-1252: 64
+
+
 ---
-#Windows-1250
+#windows-1250
 ^
 1995
 
@@ -606,15 +689,14 @@ Windows 3.0 (1990)
 | `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
 | `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
 | `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
-| `8x` | `⠀`     |         |         |         |         |         |         |         |         |         |         |         |         |         |         |         |
-| `9x` | `⠀`     |         |         |         |         |         |         |         |         |         |         |         |         |         |         |         |
-| `ax` | ` `     | `ˇ`     | `˘`     | `Ł`     | `¤`     | `Ľ`     | `Ś`     | `Š`     | `Ş`     | `Ť`     | `Ź`     | `¡`     | `˛`     | `˙`     | `˝`     | `Ů`     |
-| `bx` | `ź`     | `‘`     | `’`     | `“`     | `”`     | `•`     | `–`     | `—`     | `™`     |         |         |         |         |         |         |         |
-| `cx` | `Ą`     | `˘`     | `Ď`     | `Đ`     | `Ë`     | `Ę`     | `Ě`     | `Í`     | `Î`     | `Ï`     | `˝`     | `Ł`     | `Ń`     | `Ň`     | `Ó`     | `Ô`     |
-| `dx` | `Ő`     | `Œ`     | `Ŕ`     | `Ř`     | `Ŗ`     | `Ś`     | `Ş`     | `Š`     | `Ţ`     | `Ť`     | `Ź`     | `Ż`     | `Ž`     |         |         |         |
-| `ex` | `ą`     | `˙`     | `ď`     | `đ`     | `ë`     | `ę`     | `ě`     | `í`     | `î`     | `ï`     | `˝`     | `ł`     | `ń`     | `ň`     | `ó`     | `ô`     |
-| `fx` | `ő`     | `œ`     | `ŕ`     | `ř`     | `ŗ`     | `ś`     | `ş`     | `š`     | `ţ`     | `ť`     | `ź`     | `ż`     | `ž`     | `ÿ`     |         |         |
-
+| `8x` | `<pad>` | `<hop>` | `<bph>` | `<nbh>` | `<ind>` | `<nel>` | `<ssa>` | `<esa>` | `<hts>` | `<htj>` | `<vts>` | `<pld>` | `<plu>` | `<ri>`  | `<ss2>` | `<ss3>` |
+| `9x` | `<dcs>` | `<pu1>` | `<pu2>` | `<sts>` | `<cch>` | `<mw>`  | `<spa>` | `<epa>` | `<sos>` | `<sgc>` | `<sci>` | `<csi>` | `<st>`  | `<osc>` | `<pm>`  | `<apc>` |
+| `ax` | ` `     | `Ą`     | `˘`     | `Ł`     | `¤`     | `Ľ`     | `Ś`     | `§`     | `¨`     | `Š`     | `Ş`     | `Ť`     | `Ź`     | `­`     | `Ž`     | `Ż`     |
+| `bx` | `°`     | `ą`     | `˛`     | `ł`     | `´`     | `ľ`     | `ś`     | `ˇ`     | `¸`     | `š`     | `ş`     | `ť`     | `ź`     | `˝`     | `ž`     | `ż`     |
+| `cx` | `Ŕ`     | `Á`     | `Â`     | `Ă`     | `Ä`     | `Ĺ`     | `Ć`     | `Ç`     | `Č`     | `É`     | `Ę`     | `Ë`     | `Ě`     | `Í`     | `Î`     | `Ď`     |
+| `dx` | `Đ`     | `Ń`     | `Ň`     | `Ó`     | `Ô`     | `Ő`     | `Ö`     | `×`     | `Ř`     | `Ů`     | `Ú`     | `Ű`     | `Ü`     | `Ý`     | `Ţ`     | `ß`     |
+| `ex` | `ŕ`     | `á`     | `â`     | `ă`     | `ä`     | `ĺ`     | `ć`     | `ç`     | `č`     | `é`     | `ę`     | `ë`     | `ě`     | `í`     | `î`     | `ď`     |
+| `fx` | `đ`     | `ń`     | `ň`     | `ó`     | `ô`     | `ő`     | `ö`     | `÷`     | `ř`     | `ů`     | `ú`     | `ű`     | `ü`     | `ý`     | `ţ`     | `˙`     |
 ---
 |`win-1250`| `0`   | `1`  | `2`  | `3`  | `4`  | `5`  | `6`  | `7`  | `8`  | `9`  | `a`  | `b`  | `c`  | `d`  | `e`  | `f` |
 | :--      |  :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |:--: |
@@ -641,17 +723,17 @@ Windows 3.0 (1990)
 [.code-highlight: 1-7]
 [.code-highlight: all]
 ```
-➜ encode.py iso-8859-2,windows-1250 -d köpek,câine
-✅ iso-8859-2: Good köpek [6b f6 70 65 6b] (5 bytes)
-✅ windows-1250: Good köpek [6b f6 70 65 6b] (5 bytes)
+➜ encode.py latin2,cp1250 -d köpek
+✅ latin2:  Good köpek [6b f6 70 65 6b] (5 bytes)
+✅ cp1250:  Good köpek [6b f6 70 65 6b] (5 bytes)
 
-➜ encode.py iso-8859-2,windows-1250 -d šuo
-✅ iso-8859-2: Good šuo [b9 75 6f] (3 bytes)
-✅ windows-1250: Good šuo [9a 75 6f] (3 bytes)
+➜ encode.py latin2,cp1250 -d šuo
+✅ latin2:  Good šuo [b9 75 6f] (3 bytes)
+✅ cp1250:  Good šuo [9a 75 6f] (3 bytes)
 
-➜ encode.py windows-1250 -d cão,狗
-❌ windows-1250: Bad cão
-❌ windows-1250: Bad 狗
+➜ encode.py cp1250 -d cão,狗
+❌ cp1250:  Bad cão
+❌ cp1250:  Bad 狗
 ```
 
 
@@ -682,22 +764,22 @@ Windows 3.0 (1990)
 
 ^
 1992
+latin2 central & east europe
+windows western europe
+chinese
 
 ---
 #Unicode 1.0
 ^
 1991
+set of standards including encodings
+not an encoding
 
 ---
 #Codepoint
 
 ---
 #`U+0000➜U+FFFF`
-
-^
-The Unicode Standard is a fixed-width, uniform character encoding form, intended to support the interchange, processing, and display of written texts in the major languages of the modern world.
-At the most abstract level, Unicode assigns a unique number called a code point to each character. 
-`U+0000–U+FFFF`
 
 --- 
 | `U+`     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
@@ -735,8 +817,8 @@ At the most abstract level, Unicode assigns a unique number called a code point 
 | `U+E000➜U+F8FF` | Private Use             |
 
 ^
-Latin1 - Western European
-Latin Ext. A & B - Rest of European and African
+latin suppl: latin1, western europe
+latin extend: rest of europe, africa
 
 
 ---
@@ -745,8 +827,10 @@ Latin Ext. A & B - Rest of European and African
 
 
 ^
-Universal Character Set
- one of the first Unicode encoding forms. fixed-length of 2 bytes (16 bits) per character, allowing direct encoding of all code 
+universal character set
+first unicode encodings
+fixed-length, 2 bytes per char
+allowing direct encoding of all code 
 
 ---
 [.code-highlight: 1-2]
@@ -780,6 +864,10 @@ U+72d7 ('狗')
 ❌ ucs-2le: 3 bad dogs:
 ❌ ucs-2le: 𐀠  𓃥  🐶
 ```
+
+^
+all bmp
+not efficient
 
 ---
 #major languages
@@ -817,10 +905,10 @@ and writing systems
 
 ^
 BMP - Almost all characters used in modern languages throughout the world
-SMP - Ancient languages, emoji, music notation, and special symbols.
-SIP - Rare and historic Chinese characters
-TIP - Extremely rare Chinese characters
-Reserved for future use
+SMP ancient/emoji/music/special symbols
+SIP rare & historic chinese
+TIP even rarer chinese
+Future use
 SSP - Special-purpose codes for language tagging and fine-tuning character display
 Reserved - custom characters used in fonts, software, or private systems”
 
@@ -849,10 +937,11 @@ U+10000→U+10FFFF
 ```
 
 ^
-ASCII=7 bit->1 byte
-Eur & Mid. East=11 bit->2 byte
-BMP - 16 bit->3 byte
-Rest - 21 bit->4 bytes
+ascii: 7 bits->1 byte
+eur & mid east:11 bits->2 bytes
+bmp: 16 bits->3 bytes
+others: 21 bits->4 bytes
+Same on big-little endian
 
 ---
 [.code-highlight: 1,4]
@@ -878,8 +967,6 @@ utf-8:   "Ł"=[c5 81]
 [.code-highlight: 1-4]
 [.code-highlight: 1-6]
 [.code-highlight: 1-7]
-[.code-highlight: 1-8]
-[.code-highlight: 1-9]
 [.code-highlight: 1-10]
 [.code-highlight: all]
 ```
@@ -897,6 +984,10 @@ utf-8:   "Ł"=[c5 81]
 [...10100011 10100011 11000011 10100011 01010101...]
 ```
 
+^
+possible encoded sequences
+self-synchonizing
+
 ---
 [.code-highlight: 1-3]
 [.code-highlight: all]
@@ -912,6 +1003,12 @@ utf-8:   "Ł"=[c5 81]
 ✅ utf-8:   Good 🐶 [f0 9f 90 b6] (4 bytes)
 ```
 
+^
+ascii same
+western non ascii 2 bytes
+chinese 3 bytes
+emoji 4 bytes
+
 ---
 ```
 ➜ encode.py utf-8 < dogs.txt
@@ -919,6 +1016,10 @@ utf-8:   "Ł"=[c5 81]
 ✅ utf-8: 338 chars encoded in 413 bytes, 1.2 bytes per char
 ✅  No bad dogs
 ```
+
+^
+encodes all
+very efficient
 
 ---
 #Unicode Encoding
@@ -1049,7 +1150,7 @@ utf-8:   "Ł"=[c5 81]
 
 
 ---
-#1997: Oracle 8
+#Oracle 8
 
 * New Encodings
   * `EE8MSWIN1250`  
@@ -1057,6 +1158,7 @@ utf-8:   "Ł"=[c5 81]
   * `...`
 
 ^
+1997: 
 (CESU-8)
 
 
@@ -1080,17 +1182,19 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 
 #Oracle 8i
 
+* National Character Set
 * Charsets
   * `UTF8` (Changed)
-  * `AL16UTF16`
-* National Character Set
+  * `AL16UTF16` 
+
 
 ^
 UCS-2
 1999 
+AL16UTF16 for National Characterset
 
 ---
-#`UTF8` (improved?)
+#`UTF8` 
 
 ```
 U+0000→U+007F              
@@ -1106,13 +1210,15 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 [̶1̶1̶1̶1̶0̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶]̶
 ```
 
+^
+Improved?
+
 ---
 
 ```
 🐶 = U+1f436
-   = U+d83d      U+dc36
-   → [ed a0 bd]  [ed b0 b6]
-   = [ed a0 bd    ed b0 b6]
+   → U+d83d      U+dc36
+   → [ed a0 bd   ed b0 b6]   
 ```
 
 ---
@@ -1171,6 +1277,15 @@ SQL Error: ORA-12899: value too large for column "PDBADMIN"."DOGGIE"."NAME" (act
 
 ---
 ```
+SQL> select length(n'🐶'), rawtohex(n'🐶');
+
+   LENGTH(U'\D83D\DC36') RAWTOHEX(U'\D83D\DC36')
+________________________ __________________________
+                       2 D83DDC36
+```
+
+---
+```
 SQL> create table longdog (name varchar2(4001 byte));
 
 ORA-00910: specified length too long for its datatype
@@ -1179,7 +1294,7 @@ SQL> create table longdog (name varchar2(4000 char));
 
 Table LONGDOG created.
 
-SQL> insert into longdog values (rpad('🐶', 4000, '🐶'));
+SQL> insert into longdog values (rpad('🐶', 4000, '🐶'));s
 
 1 row inserted.
 
@@ -1189,11 +1304,20 @@ SQL> select length(name), lengthb(name) from longdog;
 _______________ ________________
            1000             4000
 ```
----
-Upgrade
-
 
 ---
+#Oracle 11g 
+
+* `AL32UTF8` recommended 
+
+---
+#Oracle 12c 
+
+* `AL32UTF8` default  
+* Database Migration Assistant for Unicode (DMU)
+
+---
+
 https://blogs.oracle.com/timesten/post/why-databasecharacterset-matters
 
 
@@ -1286,28 +1410,3 @@ zwin            Typ=1 Len=4: 7a,77,69,6e
 ```
 
 
-
----
-#`cão`
-
----
-![fit](images/portuguese.png)
-
----
-#`犬`
-
----
-![fit](images/japan.png)
-
-
----
-#Ha’DIbaH
-
----
-![fit](images/klingon.png)
-
----
-#Huan
-
----
-![fit](images/elvish.png)
