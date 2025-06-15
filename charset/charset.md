@@ -229,8 +229,8 @@ BCDIC-A
 ```
 
 ^
-53/80
-1 b/char
+53
+1 byte per char
 
 ---
 ![inline](images/chatgpt.png)
@@ -253,8 +253,8 @@ US   7 ASCII
 
 WE   8 ISO8859P1
 WE   8 ISO8859P2
-WE   8 MSWIN1252
 
+WE   8 MSWIN1252
 EE   8 MSWIN1250
 
 ZHS 16 CGB231280
@@ -264,7 +264,7 @@ AL  32 UTF8
 ```
 
 ^
-Character Set-Bytes-Encoding
+Character Set-Bits-Encoding
 WE Western European 
 ZHS Simplified Chinese
 AL All Languages
@@ -400,8 +400,8 @@ everything else = bad
 ```
 
 ^
-ascii: 53 
-latin1: 62
+ascii 53 
+latin1 62
 
 
 ---
@@ -443,9 +443,8 @@ romanian
 ```
 
 ^
-ascii:53
-latin1:62
-latin2:60
+ascii  53
+latin2 60
 
 ---
 ##Which Language?
@@ -463,7 +462,7 @@ latin2:60
 Meanwhile in China
 1980
 Character Set
-EUC-CN (Encoding)
+Encoding is EUC-CN
 
 ---
 ##Which Language?
@@ -554,7 +553,7 @@ dirtyhair
 ---
 #Oracle 6 
 
-* Configurable charset 
+* Selectable charset 
  * **WE8ISO8859P1**
  * ...
 
@@ -648,9 +647,9 @@ aka cp1252
 ```
 
 ^
-ascii: 53 
-latin1: 62
-win-1252: 64
+ascii=53 
+latin1=62
+win-1252=64
 
 
 ---
@@ -669,8 +668,8 @@ win-1252: 64
 | `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
 | `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
 | `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
-| `8x` | `<pad>` | `<hop>` | `<bph>` | `<nbh>` | `<ind>` | `<nel>` | `<ssa>` | `<esa>` | `<hts>` | `<htj>` | `<vts>` | `<pld>` | `<plu>` | `<ri>`  | `<ss2>` | `<ss3>` |
-| `9x` | `<dcs>` | `<pu1>` | `<pu2>` | `<sts>` | `<cch>` | `<mw>`  | `<spa>` | `<epa>` | `<sos>` | `<sgc>` | `<sci>` | `<csi>` | `<st>`  | `<osc>` | `<pm>`  | `<apc>` |
+| `8x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| `9x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
 | `ax` | ` `     | `Ą`     | `˘`     | `Ł`     | `¤`     | `Ľ`     | `Ś`     | `§`     | `¨`     | `Š`     | `Ş`     | `Ť`     | `Ź`     | `­`     | `Ž`     | `Ż`     |
 | `bx` | `°`     | `ą`     | `˛`     | `ł`     | `´`     | `ľ`     | `ś`     | `ˇ`     | `¸`     | `š`     | `ş`     | `ť`     | `ź`     | `˝`     | `ž`     | `ż`     |
 | `cx` | `Ŕ`     | `Á`     | `Â`     | `Ă`     | `Ä`     | `Ĺ`     | `Ć`     | `Ç`     | `Č`     | `É`     | `Ę`     | `Ë`     | `Ě`     | `Í`     | `Î`     | `Ď`     |
@@ -799,6 +798,7 @@ not an encoding
 ^
 latin suppl: latin1, western europe
 latin extend: rest of europe, africa
+note surrogates 
 
 
 ---
@@ -811,6 +811,28 @@ universal character set
 first unicode encodings
 fixed-length, 2 bytes per char
 allowing direct encoding of all code 
+remember ucs-2 for utf-16
+
+
+---
+
+# `"d"⠀⠀⠀⠀⠀⠀⠀⠀⠀`
+# `⠀`
+# `"狗"⠀⠀⠀⠀⠀⠀⠀⠀⠀`
+
+---
+
+# `"d"⠀=⠀U+0064`
+# `⠀`
+# `"狗"⠀=⠀U+72d7`
+
+---
+
+
+# `"d"=U+0064➜[00 64]`
+# `⠀`
+# `"狗"=U+72d7➜[72 d7]`
+
 
 ---
 [.code-highlight: 1-2]
@@ -846,7 +868,7 @@ U+72d7 ('狗')
 ```
 
 ^
-all bmp
+all unicode 1 chars
 not efficient
 
 ---
@@ -871,26 +893,27 @@ and writing systems
 
 
 
-| Plane   |  Range              | Name                                | Abbreviation | 
+| Plane   |  Range              | Plane Name                          | Abbreviation | 
 |:---     |:---                 | :---                                | :--   |
-| `0`     | `U+0000➜U+FFFF`     | Basic Multilingual Plane            |BMP    |
-| `1`     | `U+10000➜U+1FFFF`   | Supplementary Multilingual Plane    |SMP    |
-| `2`     | `U+20000➜U+2FFFF`   | Supplementary Ideographic Plane     |SIP    |
-| `3`     | `U+30000➜U+3FFFF`   | Tertiary Ideographic Plane          |TIP    | 
+| `0`     | `U+0000➜U+FFFF`     | Basic Multilingual            |BMP    |
+| `1`     | `U+10000➜U+1FFFF`   | Supplementary Multilingual  |SMP    |
+| `2`     | `U+20000➜U+2FFFF`   | Supplementary Ideographic   |SIP    |
+| `3`     | `U+30000➜U+3FFFF`   | Tertiary Ideographic Plane         |TIP    | 
 | `4➜13`  | `U+40000➜U+DFFFF`   | Reserved                            |       |
-| `14`    | `U+E0000➜U+EFFFF`   | Supplementary Special-purpose Plane |SSP    |
+| `14`    | `U+E0000➜U+EFFFF`   | Supplementary Special-Purpose |SSP    |
 | `15`    | `U+F0000➜U+FFFFF`   | Private Use Area A                  |       |
 | `16`    | `U+100000➜U+10FFFF` | Private Use Area B                  |       |
 
 
 ^
-BMP - Almost all characters used in modern languages throughout the world
-SMP ancient/emoji/music/special symbols
-SIP rare & historic chinese
-TIP even rarer chinese
+BMP most chars used modern languages (Unicode 1.0)
+SMP ancient,emoji,music,special symbols
+SIP rare chinese
+TIP very rare chinese
+Reserved - custom characters used in fonts, software, or private systems
 Future use
 SSP - Special-purpose codes for language tagging and fine-tuning character display
-Reserved - custom characters used in fonts, software, or private systems”
+
 
 ---
 #Unicode Encoding
