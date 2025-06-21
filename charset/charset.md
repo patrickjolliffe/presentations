@@ -121,21 +121,21 @@ zwin
 
 ---
 
-| Year       | Standard       |Database Release |
-| :--        | :--           |:---             |
-| 1968       | ascii          |                 |
-| 1985➜2001  | iso-8859       |                 |
-| 1990       | win-125x       |                 |
-| 1988       |                | 6               |  
-| 1980       | gb2312         |                 |
-| 1991       | unicode 1      |                 |  
-| 1992       |                | 7               |
-| 1996       | unicode 2      |                 |  
-| 1997       |                | 8               |  
-| 1999       |                | 8i              |   
-| 2001       |                | 9i              |   
-| 2001       |                | 10g             |  
-| 2013       |                | 12c             |  
+| Standard       |Oracle Release |
+| :--:           |:--:             |
+| ascii          |                 |
+| iso-8859       |                 |
+| win-125x       |                 |
+|                | 6               |  
+| gb2312         |                 |
+| unicode 1      |                 |  
+|                | 7               |
+| unicode 2      |                 |  
+|                | 8               |  
+|                | 8i              |   
+|                | 9i              |   
+|                | 10g             |  
+|                | 12c             |  
 
 
 ---
@@ -159,15 +159,15 @@ BCDIC-A
 ---
 
 |`ascii`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
-|:--- | :--- | :--- | :--- | :--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
-| `2x` |  | `!` | `"` | `#` | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
-| `3x` | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
-| `4x` | `@` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
-| `5x` | `P` | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | `[` | `\` | `]` | `^` | `_` |
-| `6x` | `` ` `` | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
-| `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | `{` | `\|` | `}` | `~` | `<del>` |
+|:--:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|**`0x`**|`<nul>`| `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>`|`<lf>`|`<vt>`|`<ff>`| `<cr>` | `<so>` | `<si>` |
+|**`1x`**| `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
+|**`2x`**|  | `!` | `"` | `#` | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
+|**`3x`**| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
+|**`4x`**| `@` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
+|**`5x`**| `P` | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | `[` | `\` | `]` | `^` | `_` |
+|**`6x`**| `` ` `` | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
+|**`7x`**| `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | `{` | `\|` | `}` | `~` | `<del>` |
 
 
 
@@ -209,10 +209,6 @@ BCDIC-A
 ✅ ascii:   Good pies [70 69 65 73] (4 bytes)
 ✅ ascii:   Good dog [64 6f 67] (3 bytes)
 ✅ ascii:   Good huan [68 75 61 6e] (4 bytes)
-
-➜ encode.py ascii -d cão,狗
-❌ ascii:   Bad cão
-❌ ascii:   Bad 狗
 ```
 
 
@@ -371,22 +367,23 @@ filled
 latin2 filled others
 
 ---
-[.code-highlight: 1-4]
-[.code-highlight: all]
 ```
 ➜ encode.py latin1 -d cão,câin,köpek
 ✅ latin1:  Good cão [63 e3 6f] (3 bytes)
 ✅ latin1:  Good câin [63 e2 69 6e] (4 bytes)
 ✅ latin1:  Good köpek [6b f6 70 65 6b] (5 bytes)
-
-➜ encode.py latin1 -d šuo,狗
-❌ latin1:  Bad šuo
-❌ latin1:  Bad 狗
 ```
 
 ^
 western europe = good
-everything else = bad
+
+
+---
+##Which Language?
+#`cão`
+
+---
+![fit](images/portuguese.png)
 
 ---
 ```
@@ -400,30 +397,16 @@ everything else = bad
 ```
 
 ^
+everything else = bad
 ascii 53 
 latin1 62
 
-
 ---
-##Which Language?
-#`cão`
-
----
-![fit](images/portuguese.png)
-
-
----
-[.code-highlight: 1-4]
-[.code-highlight: all]
 ```
 ➜ encode.py latin2 -d šuo,köpek,câine
 ✅ latin2:  Good šuo [b9 75 6f] (3 bytes)
 ✅ latin2:  Good köpek [6b f6 70 65 6b] (5 bytes)
 ✅ latin2:  Good câine [63 e2 69 6e 65] (5 bytes)
-
-➜ encode.py latin2 -d cão,狗
-❌ latin2:  Bad cão
-❌ latin2:  Bad 狗
 ```
 
 ^
@@ -465,6 +448,19 @@ Character Set
 Encoding is EUC-CN
 
 ---
+[.code-highlight: 1-3]
+[.code-highlight: all]
+```
+➜ encode.py ascii,gb2312 -d dog
+✅ ascii:   Good dog [64 6f 67] (3 bytes)
+✅ gb2312:  Good dog [64 6f 67] (3 bytes)
+
+➜ encode.py gb2312 -d 犬,狗
+✅ gb2312:  Good 犬 [c8 ae] (2 bytes)
+✅ gb2312:  Good 狗 [b9 b7] (2 bytes)
+```
+
+---
 ##Which Language?
 #`犬`
 
@@ -478,24 +474,6 @@ Encoding is EUC-CN
 
 ---
 ![fit](images/chinese.png)
-
-
----
-[.code-highlight: 1-3]
-[.code-highlight: 1-7]
-[.code-highlight: all]
-```
-➜ encode.py ascii,gb2312 -d dog
-✅ ascii:   Good dog [64 6f 67] (3 bytes)
-✅ gb2312:  Good dog [64 6f 67] (3 bytes)
-
-➜ encode.py gb2312 -d 犬,狗
-✅ gb2312:  Good 犬 [c8 ae] (2 bytes)
-✅ gb2312:  Good 狗 [b9 b7] (2 bytes)
-
-➜ encode.py gb2312 -d cão
-❌ gb2312:          Bad cão
-```
 
 ---
 ```
@@ -699,8 +677,8 @@ win-1252=64
 
 ---
 [.code-highlight: 1-3]
-[.code-highlight: 1-7]
-[.code-highlight: all]
+[.code-highlight: 5-7]
+[.code-highlight: 9-11]
 ```
 ➜ encode.py latin2,cp1250 -d köpek
 ✅ latin2:  Good köpek [6b f6 70 65 6b] (5 bytes)
@@ -710,11 +688,21 @@ win-1252=64
 ✅ latin2:  Good šuo [b9 75 6f] (3 bytes)
 ✅ cp1250:  Good šuo [9a 75 6f] (3 bytes)
 
-➜ encode.py cp1250 -d cão,狗
-❌ cp1250:  Bad cão
-❌ cp1250:  Bad 狗
+➜ encode.py latin2,cp1250 -d łééchąą’í
+❌ latin2:  Bad łééchąą’í
+✅ cp1250:  Good łééchąą’í [b3 e9 e9 63 68 b9 b9 92 ed] (9 bytes)
 ```
 
+---
+```
+➜ encode.py cp1250 < dogs.txt
+✅ cp1250: 62 good dogs
+✅ cp1250: 283 chars encoded in 283 bytes, 1.0 bytes per char
+❌ cp1250: 18 bad dogs:
+❌ cp1250: cão  klèb  køter  köpeği  mbʉ  āso  āšun  אבו
+❌ cp1250: כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  𐀠
+❌ cp1250: 𓃥  🐶
+```
 
 ---
 
@@ -815,24 +803,15 @@ remember ucs-2 for utf-16
 
 
 ---
+```
+dog
+=  U+0064 U+006f U+0067
+➜ [00 64  00 6f  00 67 ]
 
-# `"d"⠀⠀⠀⠀⠀⠀⠀⠀⠀`
-# `⠀`
-# `"狗"⠀⠀⠀⠀⠀⠀⠀⠀⠀`
-
----
-
-# `"d"⠀=⠀U+0064`
-# `⠀`
-# `"狗"⠀=⠀U+72d7`
-
----
-
-
-# `"d"=U+0064➜[00 64]`
-# `⠀`
-# `"狗"=U+72d7➜[72 d7]`
-
+狗
+=  U+72d7
+➜ [72 d7 ]
+```
 
 ---
 [.code-highlight: 1-2]
