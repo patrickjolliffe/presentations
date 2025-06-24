@@ -26,6 +26,24 @@ slidenumbers: true
 #`[64 6F 67]`
 
 ---
+#Oracle Database
+#Character Set
+#⠀
+
+
+---
+#⠀
+#Character Set
+#⠀
+
+---
+#⠀
+#Character Set
+#Encoding
+
+
+
+---
 ###`🐈 dogs.txt` 
 [.column]
 ```
@@ -167,10 +185,17 @@ BCDIC-A
 ```
 
 ---
+[.code-highlight: 1-4]
+[.code-highlight: all]
 ```
-➜ encode.py ascii -d Huan,"Ha'DIbaH"
+➜ encode.py ascii -d dog,Huan,"Ha'DIbaH"
+✅ ascii:   Good dog [64 6f 67] (3 bytes)
 ✅ ascii:   Good Huan [48 75 61 6e] (4 bytes)
 ✅ ascii:   Good Ha'DIbaH [48 61 27 44 49 62 61 48] (8 bytes)
+
+➜ encode.py ascii -d cão,🐶
+❌ ascii:   Bad cão
+❌ ascii:   Bad 🐶
 ```
 
 
@@ -193,17 +218,26 @@ BCDIC-A
 
 ---
 #Lost in Doglation...
+#⠀
+#⠀
 
 ---
-
+#Lost in Doglation...
+#⠀
 #Ha’DIbaH
 
 ---
 ![fit](images/klingon.png)
 
+---
+#Lost in Doglation...
+#⠀
+#⠀
 
 ---
-#huan
+#Lost in Doglation...
+#⠀
+#Huan
 
 ---
 ![fit](images/elvish.png)
@@ -350,14 +384,25 @@ latin1 62
 
 ---
 #Lost in Doglation...
+#⠀
+#⠀
 
 ---
-#`cão`
+#Lost in Doglation...
+#⠀
+#cão
 
 ---
 ![fit](images/portuguese.png)
 
 ---
+#Lost in Doglation...
+#⠀
+#⠀
+
+---
+#Lost in Doglation...
+#⠀
 #köpek
 
 ---
@@ -432,21 +477,32 @@ latin2 60
 
 ---
 #Lost in Doglation...
+#⠀
+#⠀
 
 ---
+#Lost in Doglation...
+#⠀
 #šuo
 
 ---
-![fill](images/lithuanian.png)
+![fit](images/lithuanian.png)
 
 ^
 lithuanian
 
 ---
+#Lost in Doglation...
+#⠀
+#⠀
+
+---
+#Lost in Doglation...
+#⠀
 #câine
 
 ---
-![fill](images/romanian.png)
+![fit](images/romanian.png)
 
 ^
 romanian
@@ -504,7 +560,7 @@ aka cp1252
 
 ---
 [.code-highlight: 1-5]
-[.code-highlight: 7-11]
+[.code-highlight: all]
 ```
 ➜ encode.py latin1,cp1252 -d cão,chó
 ✅ latin1:  Good cão [63 e3 6f] (3 bytes)
@@ -584,8 +640,8 @@ win-1252=64
 
 ---
 [.code-highlight: 1-3]
-[.code-highlight: 5-7]
-[.code-highlight: 9-11]
+[.code-highlight: 1-7]
+[.code-highlight: 1-11]
 ```
 ➜ encode.py latin2,cp1250 -d köpek
 ✅ latin2:  Good köpek [6b f6 70 65 6b] (5 bytes)
@@ -640,9 +696,9 @@ Encoding is EUC-CN
 [.code-highlight: 1-3]
 [.code-highlight: all]
 ```
-➜ encode.py ascii,gb2312 -d dog
-✅ ascii:   Good dog [64 6f 67] (3 bytes)
-✅ gb2312:  Good dog [64 6f 67] (3 bytes)
+➜ encode.py ascii,gb2312 dog
+✅ ascii:   "dog"=[64 6f 67]
+✅ gb2312:  "dog"=[64 6f 67]
 
 ➜ encode.py gb2312 -d 犬,狗
 ✅ gb2312:  Good 犬 [c8 ae] (2 bytes)
@@ -664,9 +720,13 @@ ascii  53
 
 ---
 #Lost in Doglation...
+#⠀
+#⠀
 
 ---
-#`犬`
+#Lost in Doglation...
+#⠀
+#犬
 
 ---
 ![fit](images/japan.png)
@@ -674,8 +734,12 @@ ascii  53
 
 ---
 #Lost in Doglation...
+#⠀
+#⠀
 
 ---
+#Lost in Doglation...
+#⠀
 #狗
 
 ---
@@ -685,34 +749,25 @@ ascii  53
 [.code-highlight: 1]
 [.code-highlight: 1-4]
 [.code-highlight: 1-7]
+[.code-highlight: all]
 ```
 [?? ?? ?? ?? ?? ??] (6 bytes)
 
 ➜ encode.py gb2312 doggie
 ✅ gb2312:  "doggie"=[64 6f 67 67 69 65]
 
-➜ encode.py gb2312 狗犬狗
-✅ gb2312:  "狗犬狗"=[b9 b7 c8 ae b9 b7]
-```
-
-^
-variable length
-number bytes != number chars
-
----
-[.code-highlight: 1-2]
-[.code-highlight: all]
-```
-➜ encode.py gb2312 狗
-✅ gb2312:  "狗"=[b9 b7]
+➜ encode.py gb2312 狗狗狗
+✅ gb2312:  "狗犬狗"=[b9 b7 b9 b7 b9 b7]
 
 ➜ encode.py gb2312 肮发
 ✅ gb2312:  "肮发"=[b0 b9 b7 a2]
 ```
 
 ^
-dog
+variable length
+number bytes != number chars
 dirtyhair
+
 
 ---
 #Oracle 6 
@@ -813,29 +868,23 @@ remember ucs-2 for utf-16
 
 
 ---
-[.code-highlight: 1]
 [.code-highlight: 1-2]
+[.code-highlight: 1-3]
+[.code-highlight: 1-4]
+[.code-highlight: 1-5]
 [.code-highlight: all]
 ```
 "Good 狗"
-=  U+0047 U+006f U+006f U+0064 U+0020 U+72d7
-➜ [00  47 00  6f 00  6f 00  64 00  20 72  d7]
+=        U+0047 U+006f U+006f U+0064 U+0020 U+72d7
+➜       [00  47 00  6f 00  6f 00  64 00  20 72  d7] (LE)
+➜       [47  00 6f  00 6f  00 64  00 20  00 d7  72] (BE)
+➜ [ff fe 47  00 6f  00 6f  00 64  00 20  00 72  d7] (LE + BOM)
+➜ [fe ff 00  47 00  6f 00  6f 00  64 00  20 72  d7] (BE + BOM)
 ```
 
 ^
 6 characters
 12 bytes
-
----
-[.code-highlight: 1-2]
-[.code-highlight: 1-3]
-[.code-highlight: all]
-```
-➜ encode.py ucs-2be,ucs-2le,ucs-2 "Good 狗"
-✅ ucs-2be: "Good 狗"=[00 47 00 6f 00 6f 00 64 00 20 72 d7]
-✅ ucs-2le: "Good 狗"=[47 00 6f 00 6f 00 64 00 20 00 d7 72]
-✅ ucs-2:   "Good 狗"=[ff fe 47 00 6f 00 6f 00 64 00 20 00 d7 72]
-```
 
 ---
 ```
@@ -1138,7 +1187,7 @@ very efficient
 
 * New Encodings
   * `EE8MSWIN1250`  
-  * `UTF8` (is not `UTF-8`)
+  * `UTF8` (≠ `UTF-8`)
   * `...`
 
 ^
@@ -1147,7 +1196,7 @@ very efficient
 
 
 ---
-#`UTF8` (is not `UTF-8`) 
+#`UTF8` (≠ `UTF-8`) 
 ```
 U+0000→U+007F              
 [0xxxxxxx]
@@ -1168,7 +1217,7 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 
 * National Character Set
 * Charsets
-  * `UTF8` (Changed)
+  * `UTF8` (Improved?)
   * `AL16UTF16` 
 
 
@@ -1178,7 +1227,7 @@ UCS-2
 AL16UTF16 for National Characterset
 
 ---
-#`UTF8` 
+#`UTF8` (Improved?)
 
 ```
 U+0000→U+007F              
