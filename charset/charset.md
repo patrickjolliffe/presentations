@@ -185,17 +185,14 @@ BCDIC-A
 ```
 
 ---
-[.code-highlight: 1-4]
-[.code-highlight: all]
+![fit original](images/elvish.png) ![fit original](images/klingon.png)
+#⠀Huan⠀⠀⠀⠀⠀Ha'DIbaH
+
+---
 ```
-➜ encode.py ascii -d dog,Huan,"Ha'DIbaH"
-✅ ascii:   Good dog [64 6f 67] (3 bytes)
+➜ encode.py ascii -d Huan,"Ha'DIbaH"
 ✅ ascii:   Good Huan [48 75 61 6e] (4 bytes)
 ✅ ascii:   Good Ha'DIbaH [48 61 27 44 49 62 61 48] (8 bytes)
-
-➜ encode.py ascii -d cão,🐶
-❌ ascii:   Bad cão
-❌ ascii:   Bad 🐶
 ```
 
 
@@ -214,33 +211,6 @@ BCDIC-A
 ^
 53
 1 byte per char
-
-
----
-#Lost in Doglation...
-#⠀
-#⠀
-
----
-#Lost in Doglation...
-#⠀
-#Ha’DIbaH
-
----
-![fit](images/klingon.png)
-
----
-#Lost in Doglation...
-#⠀
-#⠀
-
----
-#Lost in Doglation...
-#⠀
-#Huan
-
----
-![fit](images/elvish.png)
 
 ---
 ![inline](images/chatgpt.png)
@@ -356,6 +326,12 @@ blank space
 ^
 filled
 
+
+
+---
+![fit original](images/portuguese.png) ![fit original](images/turkish.png)
+#⠀cão⠀⠀⠀⠀⠀⠀köpek
+
 ---
 ```
 ➜ encode.py latin1 -d cão,köpek
@@ -381,33 +357,6 @@ western europe = good
 everything else = bad
 ascii 53 
 latin1 62
-
----
-#Lost in Doglation...
-#⠀
-#⠀
-
----
-#Lost in Doglation...
-#⠀
-#cão
-
----
-![fit](images/portuguese.png)
-
----
-#Lost in Doglation...
-#⠀
-#⠀
-
----
-#Lost in Doglation...
-#⠀
-#köpek
-
----
-![fit](images/turkish.png)
-
 
 ---
 |`ascii`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
@@ -453,6 +402,18 @@ latin1 62
 ^
 latin2 filled others
 
+
+---
+#⠀šuo⠀⠀⠀⠀câine
+
+---
+![fit original](images/lithuanian.png) ![fit original](images/romanian.png)
+#⠀šuo⠀⠀⠀⠀câine
+
+^
+lithuanian
+romanian
+
 ---
 ```
 ➜ encode.py latin2 -d šuo,câine
@@ -475,37 +436,7 @@ latin2 filled others
 ascii  53
 latin2 60
 
----
-#Lost in Doglation...
-#⠀
-#⠀
 
----
-#Lost in Doglation...
-#⠀
-#šuo
-
----
-![fit](images/lithuanian.png)
-
-^
-lithuanian
-
----
-#Lost in Doglation...
-#⠀
-#⠀
-
----
-#Lost in Doglation...
-#⠀
-#câine
-
----
-![fit](images/romanian.png)
-
-^
-romanian
 
 ---
 #windows-1252
@@ -719,31 +650,11 @@ Encoding is EUC-CN
 ascii  53
 
 ---
-#Lost in Doglation...
-#⠀
-#⠀
+#犬⠀⠀⠀⠀⠀⠀⠀⠀狗
 
 ---
-#Lost in Doglation...
-#⠀
-#犬
-
----
-![fit](images/japan.png)
-
-
----
-#Lost in Doglation...
-#⠀
-#⠀
-
----
-#Lost in Doglation...
-#⠀
-#狗
-
----
-![fit](images/chinese.png)
+![fit  original](images/japan.png) ![fit original](images/chinese.png)
+#犬⠀⠀⠀⠀⠀⠀⠀⠀狗
 
 ---
 [.code-highlight: 1]
@@ -1216,8 +1127,8 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 #Oracle 8i
 
 * National Character Set
-* Charsets
-  * `UTF8` (Improved?)
+* Character Sets
+  * `UTF8` (Beyond BMP)
   * `AL16UTF16` 
 
 
@@ -1225,6 +1136,8 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 UCS-2
 1999 
 AL16UTF16 for National Characterset
+
+
 
 ---
 #`UTF8` (Improved?)
@@ -1255,29 +1168,34 @@ Improved?
 ```
 
 ---
+#Oracle 9i
+
+* Character Sets
+  * `AL32UTF8`
+  * `...` 
+* Length Semantics
+
+^
+char/byte
+
+---
 #National Character Set
 
 * `AL16UTF16/UTF8`
 * `NCHAR,NVARCHAR2,NCLOB`
 
 ^
-alternative characterset unicode character data ... database that does not have a Unicode database character set.
- Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
- AL16UTF16/UTF8
-An alternative character set that enables you to store Unicode character data in a database that does not have a Unicode database character set. Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
- Another reason for choosing a national character set is that the properties of a different character encoding scheme may be more desirable for extensive character processing operations. 
-Oracle recommends using SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 database to store Unicode character data. SQL NCHAR, NVARCHAR2, and NCLOB data types are not supported by some database features. Most notably, Oracle Text and XML DB do not support these data types. 
+historically 
+alternative for unicode data
+now recommendation use SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 database to store Unicode character data
+not supported by some database features. Most notably, Oracle Text and XML DB do not support these data types. 
+in 8i multiple possibilities
+NCLOB data stored as AL16UTF16 even for UTF8
+from 9i, AL16UTF16 (default) or UTF8 (deprecated)
+
+(Doc ID 276914.1)
 
 
-[.code-highlight: 1-9]
-
----
-#Oracle 9i
-
-* CharSets
-  * `AL32UTF8`
-  * `...` 
-* Length Semantics (char/byte)
 
 
 ---
@@ -1327,7 +1245,7 @@ SQL> create table longdog (name varchar2(4000 char));
 
 Table LONGDOG created.
 
-SQL> insert into longdog values (rpad('🐶', 4000, '🐶'));s
+SQL> insert into longdog values (rpad('🐶', 4000, '🐶'));
 
 1 row inserted.
 
@@ -1348,98 +1266,3 @@ _______________ ________________
 
 * `AL32UTF8` default  
 * Database Migration Assistant for Unicode (DMU)
-
----
-
-https://blogs.oracle.com/timesten/post/why-databasecharacterset-matters
-
-
----
-```
-SQL> select rpad(name, 8), dump(name, 16) from dogs order by name;
-
-RPAD(NAME,8)    DUMP(NAME,16)
-_______________ ______________________________________________________________________
-Hund            Typ=1 Len=4: 48,75,6e,64
-abwo            Typ=1 Len=4: 61,62,77,6f
-alabai          Typ=1 Len=6: 61,6c,61,62,61,69
-anjing          Typ=1 Len=6: 61,6e,6a,69,6e,67
-ashun           Typ=1 Len=5: 61,73,68,75,6e
-aso             Typ=1 Len=3: 61,73,6f
-cane            Typ=1 Len=4: 63,61,6e,65
-chien           Typ=1 Len=5: 63,68,69,65,6e
-chó             Typ=1 Len=4: 63,68,c3,b3
-cyn             Typ=1 Len=3: 63,79,6e
-câin            Typ=1 Len=5: 63,c3,a2,69,6e
-câine           Typ=1 Len=6: 63,c3,a2,69,6e,65
-câini           Typ=1 Len=6: 63,c3,a2,69,6e,69
-cão             Typ=1 Len=4: 63,c3,a3,6f
-dog             Typ=1 Len=3: 64,6f,67
-emba            Typ=1 Len=4: 65,6d,62,61
-ghaddu          Typ=1 Len=6: 67,68,61,64,64,75
-gom             Typ=1 Len=3: 67,6f,6d
-hond            Typ=1 Len=4: 68,6f,6e,64
-hondur          Typ=1 Len=6: 68,6f,6e,64,75,72
-hualp           Typ=1 Len=5: 68,75,61,6c,70
-huan            Typ=1 Len=4: 68,75,61,6e
-hund            Typ=1 Len=4: 68,75,6e,64
-imba            Typ=1 Len=4: 69,6d,62,61
-imbua           Typ=1 Len=5: 69,6d,62,75,61
-imbwa           Typ=1 Len=5: 69,6d,62,77,61
-imbwe           Typ=1 Len=5: 69,6d,62,77,65
-inu             Typ=1 Len=3: 69,6e,75
-it              Typ=1 Len=2: 69,74
-jindo           Typ=1 Len=5: 6a,69,6e,64,6f
-kelb            Typ=1 Len=4: 6b,65,6c,62
-khuy            Typ=1 Len=4: 6b,68,75,79
-klèb            Typ=1 Len=5: 6b,6c,c3,a8,62
-koer            Typ=1 Len=4: 6b,6f,65,72
-koira           Typ=1 Len=5: 6b,6f,69,72,61
-kotta           Typ=1 Len=5: 6b,6f,74,74,61
-kutta           Typ=1 Len=5: 6b,75,74,74,61
-kutya           Typ=1 Len=5: 6b,75,74,79,61
-köpek           Typ=1 Len=6: 6b,c3,b6,70,65,6b
-köpeği          Typ=1 Len=8: 6b,c3,b6,70,65,c4,9f,69
-køter           Typ=1 Len=6: 6b,c3,b8,74,65,72
-mbula           Typ=1 Len=5: 6d,62,75,6c,61
-mbwa            Typ=1 Len=4: 6d,62,77,61
-mbwagh          Typ=1 Len=6: 6d,62,77,61,67,68
-mbwene          Typ=1 Len=6: 6d,62,77,65,6e,65
-mbwá            Typ=1 Len=5: 6d,62,77,c3,a1
-mbʉ             Typ=1 Len=4: 6d,62,ca,89
-njau            Typ=1 Len=4: 6e,6a,61,75
-njoka           Typ=1 Len=5: 6e,6a,6f,6b,61
-pa              Typ=1 Len=2: 70,61
-perro           Typ=1 Len=5: 70,65,72,72,6f
-pes             Typ=1 Len=3: 70,65,73
-pies            Typ=1 Len=4: 70,69,65,73
-qen             Typ=1 Len=3: 71,65,6e
-qeni            Typ=1 Len=4: 71,65,6e,69
-sag             Typ=1 Len=3: 73,61,67
-sagol           Typ=1 Len=5: 73,61,67,6f,6c
-sobaka          Typ=1 Len=6: 73,6f,62,61,6b,61
-suns            Typ=1 Len=4: 73,75,6e,73
-szczenia        Typ=1 Len=9: 73,7a,63,7a,65,6e,69,61,6b
-tz’i’           Typ=1 Len=9: 74,7a,e2,80,99,69,e2,80,99
-ukudla          Typ=1 Len=6: 75,6b,75,64,6c,61
-welpe           Typ=1 Len=5: 77,65,6c,70,65
-xolo            Typ=1 Len=4: 78,6f,6c,6f
-zwin            Typ=1 Len=4: 7a,77,69,6e
-āso             Typ=1 Len=4: c4,81,73,6f
-āšun            Typ=1 Len=6: c4,81,c5,a1,75,6e
-łééchąą’        Typ=1 Len=17: c5,82,c3,a9,c3,a9,63,68,c4,85,c4,85,e2,80,99,c3,ad
-šuo             Typ=1 Len=4: c5,a1,75,6f
-אבו             Typ=1 Len=6: d7,90,d7,91,d7,95
-כּלב            Typ=1 Len=8: d7,9b,d6,bc,d7,9c,d7,91
-كلب             Typ=1 Len=6: d9,83,d9,84,d8,a8
-कुत्ता          Typ=1 Len=18: e0,a4,95,e0,a5,81,e0,a4,a4,e0,a5,8d,e0,a4,a4,e0,a4,be
-ฆ่า             Typ=1 Len=9: e0,b8,86,e0,b9,88,e0,b8,b2
-ⴽⵍⴱ             Typ=1 Len=9: e2,b4,bd,e2,b5,8d,e2,b4,b1
-犬               Typ=1 Len=3: e7,8a,ac
-狗               Typ=1 Len=3: e7,8b,97
-𐀠              Typ=1 Len=4: f0,90,80,a0
-𓃥              Typ=1 Len=4: f0,93,83,a5
-🐶              Typ=1 Len=4: f0,9f,90,b6
-```
-
-
