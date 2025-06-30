@@ -26,24 +26,6 @@ slidenumbers: true
 #`[64 6F 67]`
 
 ---
-#Oracle Database
-#Character Set
-#⠀
-
-
----
-#⠀
-#Character Set
-#⠀
-
----
-#⠀
-#Character Set
-#Encoding
-
-
-
----
 ###`🐈 dogs.txt` 
 [.column]
 ```
@@ -137,6 +119,24 @@ zwin
 𓃥
 🐶
 ```
+
+---
+#Oracle Database
+#Character Set
+#⠀
+
+
+---
+#⠀
+#Character Set
+#⠀
+
+---
+#⠀
+#Character Set
+#Encoding
+
+
 ---
 #bcdic-a
 
@@ -178,23 +178,42 @@ BCDIC-A
 8th bit checksum
 
 ---
+[.code-highlight: 1-2]
+[.code-highlight: all]
 ```
-➜ encode.py -b ascii WOOF,woof
-✅ ascii:   "WOOF"=[01010111 01001111 01001111 01000110]
-✅ ascii:   "woof"=[01110111 01101111 01101111 01100110]
+"WOOF"➜[01010111 01001111 01001111 01000110]
+"woof"➜[01110111 01101111 01101111 01100110]
+
+"HAU"➜[1001000 1000001 1010101]
+"hau"➜[1101000 1100001 1110101]
 ```
 
 ---
-![fit original](images/elvish.png) ![fit original](images/klingon.png)
-#⠀Huan⠀⠀⠀⠀⠀Ha'DIbaH
+#`Huan`
+##⠀
+---
+![fit original](images/elvish.png)
+#`Huan`
+##⠀
 
 ---
-```
-➜ encode.py ascii -d Huan,"Ha'DIbaH"
-✅ ascii:   Good Huan [48 75 61 6e] (4 bytes)
-✅ ascii:   Good Ha'DIbaH [48 61 27 44 49 62 61 48] (8 bytes)
-```
+![fit original](images/elvish.png)
+#`Huan`
+###`➜[48 75 61 6e] (ascii)`
 
+---
+#Ha'DIbaH
+##⠀
+
+---
+#Ha'DIbaH
+##⠀
+![fit original](images/klingon.png)
+
+---
+![fit original](images/klingon.png)
+#Ha'DIbaH
+###`➜[48 61 27 44 49 62 61 48] (ascii)`
 
 ---
 ```
@@ -211,43 +230,6 @@ BCDIC-A
 ^
 53
 1 byte per char
-
----
-![inline](images/chatgpt.png)
-
-^
-extensive research
-
----
-#Oracle Pre-6
-
-* US7ASCII
-
-^
-how to interpret?
-
----
-```
-US   7 ASCII
-
-
-WE   8 ISO8859P1
-WE   8 ISO8859P2
-
-WE   8 MSWIN1252
-EE   8 MSWIN1250
-
-ZHS 16 CGB231280
-
-AL  16 UTF16
-AL  32 UTF8
-```
-
-^
-Character Set-Bits-Encoding
-WE Western European 
-ZHS Simplified Chinese
-AL All Languages
 
 ---
 #iso-8859
@@ -326,21 +308,33 @@ blank space
 ^
 filled
 
-
+---
+#`cão`
+##⠀
 
 ---
-![fit original](images/portuguese.png) ![fit original](images/turkish.png)
-#⠀cão⠀⠀⠀⠀⠀⠀köpek
+![fit original](images/portuguese.png)
+#`cão`
+##⠀
 
 ---
-```
-➜ encode.py latin1 -d cão,köpek
-✅ latin1:  Good cão [63 e3 6f] (3 bytes)
-✅ latin1:  Good köpek [6b f6 70 65 6b] (5 bytes)
-```
+![fit original](images/portuguese.png)
+#`cão`
+###`➜[63 e3 6f] (latin1)`
 
-^
-western europe = good
+---
+#`köpek`
+###⠀
+
+---
+![fit original](images/turkish.png)
+#`köpek`
+###⠀
+
+---
+![fit original](images/turkish.png)
+#`köpek`
+###`➜[6b f6 70 65 6b] (latin1)`
 
 ---
 ```
@@ -402,24 +396,39 @@ latin1 62
 ^
 latin2 filled others
 
+---
+#`šuo`
+
 
 ---
-#⠀šuo⠀⠀⠀⠀câine
-
----
-![fit original](images/lithuanian.png) ![fit original](images/romanian.png)
-#⠀šuo⠀⠀⠀⠀câine
+![fit original](images/lithuanian.png)
+#`šuo`
+###⠀
 
 ^
 lithuanian
+
+---
+![fit original](images/lithuanian.png)
+#`šuo`
+###`➜[b9 75 6f] (latin2)`
+
+---
+#`câine`
+###⠀
+
+---
+![fit original](images/romanian.png)
+#`câine`
+###⠀
+
+^
 romanian
 
 ---
-```
-➜ encode.py latin2 -d šuo,câine
-✅ latin2:  Good šuo [b9 75 6f] (3 bytes)
-✅ latin2:  Good câine [63 e2 69 6e 65] (5 bytes)
-```
+![fit original](images/romanian.png)
+#`câine`
+###`[b9 75 6f] (latin2)`
 
 ---
 ```
@@ -680,35 +689,6 @@ number bytes != number chars
 dirtyhair
 
 
----
-#Oracle 6 
-
-* Selectable charset 
- * **WE8ISO8859P1**
- * ...
-
-^
-1988
-selectable charsets
-addition to ascii
-latin1/Western Europe
-
-
----
-#Oracle 7
-
-* NLS framework introduced
-* New Encodings
-  * `WE8ISO8859P2`
-  * `WE8MSWIN1252`
-  * `ZHS16CGB231280`
-  * `...`
-
-^
-1992
-latin2 central & east europe
-windows western europe
-chinese
 
 ---
 #Unicode 1.0
@@ -766,51 +746,6 @@ note surrogates
 
 
 ---
-#Unicode Encoding
-#UCS-2
-
-
-^
-universal character set
-first unicode encodings
-fixed-length, 2 bytes per char
-allowing direct encoding of all code 
-remember ucs-2 for utf-16
-
-
----
-[.code-highlight: 1-2]
-[.code-highlight: 1-3]
-[.code-highlight: 1-4]
-[.code-highlight: 1-5]
-[.code-highlight: all]
-```
-"Good 狗"
-=        U+0047 U+006f U+006f U+0064 U+0020 U+72d7
-➜       [00  47 00  6f 00  6f 00  64 00  20 72  d7] (LE)
-➜       [47  00 6f  00 6f  00 64  00 20  00 d7  72] (BE)
-➜ [ff fe 47  00 6f  00 6f  00 64  00 20  00 72  d7] (LE + BOM)
-➜ [fe ff 00  47 00  6f 00  6f 00  64 00  20 72  d7] (BE + BOM)
-```
-
-^
-6 characters
-12 bytes
-
----
-```
-➜ encode.py ucs-2le < dogs.txt
-✅ ucs-2le: 77 good dogs
-✅ ucs-2le: 332 chars encoded in 664 bytes, 2.0 bytes per char
-❌ ucs-2le: 3 bad dogs:
-❌ ucs-2le: 𐀠  𓃥  🐶
-```
-
-^
-all unicode 1 chars
-not efficient
-
----
 #major languages
 #modern world
 
@@ -853,6 +788,141 @@ Reserved - custom characters used in fonts, software, or private systems
 Future use
 SSP - Special-purpose codes for language tagging and fine-tuning character display
 
+---
+#Unicode Encodings
+
+* `UTF-32`
+* `UTF-16`
+* `UTF-8`
+
+---
+#Unicode Encodings
+
+* **`UTF-32`**
+* `UTF-16`
+* `UTF-8`
+
+---
+
+```
+"犬🐶"
+=  U+72ac      U+1f436
+➜ [00 00 72 ac 00 01 f4 36] 
+➜ [ac 72 00 00 36 f4 01 00]
+➜ [00 00 fe ff 00 00 72 ac 00 01 f4 36] 
+➜ [ff fe 00 00 ac 72 00 00 36 f4 01 00]
+```
+
+---
+```
+➜ encode.py utf-32be < dogs.txt
+✅ utf-32be: 80 good dogs
+✅ utf-32be: 338 chars encoded in 1352 bytes, 4.0 bytes per char
+✅  No bad dogs
+```
+
+---
+#Unicode Encodings
+
+* `UTF-32`
+* **`UTF-16`**
+* `UTF-8`
+
+
+
+^
+universal character set
+first unicode encodings
+fixed-length, 2 bytes per char
+allowing direct encoding of all code 
+remember ucs-2 for utf-16
+
+---
+```
+"犬🐶"
+= U+72ad U+1f436
+```
+
+---
+
+| Range in BMP    | Block                  |
+| :---            | :---                    |
+| `U+0000➜U+007F` | ASCII (Basic Latin)     |
+| `U+0080➜U+00FF` | Latin Supplement        |
+| `U+0100➜U+024F` | Latin Extended          |
+| `U+0250➜U+02FF` | Phonetic Symbols        |
+| `U+0300➜U+05FF` | Greek, Cyrillic, Hebrew |
+| `U+0600➜U+0FFF` | Arabic & Indian         |
+| `U+1000➜U+17FF` | S & SE Asian            |
+| `U+1800➜U+24FF` | E Asian                 |
+| `U+2000➜U+27FF` | Symbols & Punctuation   |
+| `U+2800➜U+28FF` | Braille & Basic Shapes  |
+| `U+2E80➜U+9FFF` | Chinese                 |
+| `U+AC00➜U+D7AF` | Korean                  |
+| **`U+D800➜U+DBFF`** | **High Surrogates** |
+| **`U+DC00➜U+DFFF`** | **Low Surrogates**  |
+| `U+E000➜U+F8FF` | Private Use             |
+
+---
+```
+🐶 = U+1f436 - 0x10000 = 0x0f436                       
+                       = 0b00001111010000110110
+                       = [0b0000111101][0b0000110110]
+                       = [0x003d]     [0x0036]
+                        +[0xd800]    +[0xdc00]
+	                   = [0xd83d]     [0xdc36]
+   ➜ U+d83d U+dc36 
+```
+
+---
+```
+"犬🐶"
+=  U+72ad U+d83d U+dc36
+➜ [72 ad  d8 3d  dc 36 ] 
+➜ [ad 72  3d d8  36 dc ] 
+
+
+```
+
+---
+```
+➜ encode.py utf-16be < dogs.txt
+✅ utf-16be: 80 good dogs
+✅ utf-16be: 338 chars encoded in 682 bytes, 2.0 bytes per char
+✅  No bad dogs
+```
+
+---
+[.code-highlight: 1-2]
+[.code-highlight: 1-3]
+[.code-highlight: 1-4]
+[.code-highlight: 1-5]
+[.code-highlight: all]
+```
+"Good 狗"
+=        U+0047 U+006f U+006f U+0064 U+0020 U+72d7
+➜       [00  47 00  6f 00  6f 00  64 00  20 72  d7] (LE)
+➜       [47  00 6f  00 6f  00 64  00 20  00 d7  72] (BE)
+➜ [ff fe 47  00 6f  00 6f  00 64  00 20  00 72  d7] (LE + BOM)
+➜ [fe ff 00  47 00  6f 00  6f 00  64 00  20 72  d7] (BE + BOM)
+```
+
+^
+6 characters
+12 bytes
+
+---
+```
+➜ encode.py ucs-2le < dogs.txt
+✅ ucs-2le: 77 good dogs
+✅ ucs-2le: 332 chars encoded in 664 bytes, 2.0 bytes per char
+❌ ucs-2le: 3 bad dogs:
+❌ ucs-2le: 𐀠  𓃥  🐶
+```
+
+^
+all unicode 1 chars
+not efficient
 
 ---
 #Unicode Encoding
@@ -962,105 +1032,7 @@ emoji 4 bytes
 encodes all
 very efficient
 
----
-#Unicode Encoding
-#`UTF-16`
 
----
-[.code-highlight: 1-3]
-[.code-highlight: 1-5]
-[.code-highlight: 1-6]
-[.code-highlight: all]
-```
-"Good 狗"
-=  U+0047 U+006f U+006f U+0064 U+0020 U+72d7
-➜ [00  47 00  6f 00  6f 00  64 00  20 72  d7]
-
-"Good 🐶"
-=  U+0047 U+006f U+006f U+0064 U+0020 U+1f436
-➜ [00  47 00  6f 00  6f 00  64 00  20    ?   ]
-```
-
-^
-6 characters
-12 bytes
-
----
-
-| Range in BMP    | Block                  |
-| :---            | :---                    |
-| `U+0000➜U+007F` | ASCII (Basic Latin)     |
-| `U+0080➜U+00FF` | Latin Supplement        |
-| `U+0100➜U+024F` | Latin Extended          |
-| `U+0250➜U+02FF` | Phonetic Symbols        |
-| `U+0300➜U+05FF` | Greek, Cyrillic, Hebrew |
-| `U+0600➜U+0FFF` | Arabic & Indian         |
-| `U+1000➜U+17FF` | S & SE Asian            |
-| `U+1800➜U+24FF` | E Asian                 |
-| `U+2000➜U+27FF` | Symbols & Punctuation   |
-| `U+2800➜U+28FF` | Braille & Basic Shapes  |
-| `U+2E80➜U+9FFF` | Chinese                 |
-| `U+AC00➜U+D7AF` | Korean                  |
-| **`U+D800➜U+DBFF`** | **High Surrogates** |
-| **`U+DC00➜U+DFFF`** | **Low Surrogates**  |
-| `U+E000➜U+F8FF` | Private Use             |
-
----
-[.code-highlight: 1]
-[.code-highlight: 1-2]
-[.code-highlight: 1-3]
-[.code-highlight: 1-4]
-[.code-highlight: 1-5]
-[.code-highlight: 1-6]
-[.code-highlight: 1-7]
-```
-➜ encode.py utf-16-be -d 🐶
-✅ utf-16-be: Good 🐶 [d8 3d dc 36] (4 bytes)
-
-🐶 = U+1f436 - 0x10000 = 0x0f436                       
-                       = 0b00001111010000110110
-                       = [0b0000111101][0b0000110110]
-                       = [0x003d]     [0x0036]
-                        +[0xd800]    +[0xdc00]
-	                   = [0xd83d]     [0xdc36]
-   = U+d83d U+dc36 
-   → [d8 3d dc 36]
-```
-
----
-```
-➜ encode.py utf-16be < dogs.txt
-✅ utf-16be: 80 good dogs
-✅ utf-16be: 338 chars encoded in 682 bytes, 2.0 bytes per char
-✅  No bad dogs
-```
-
----
-#UTF-32
-
----
-
-```
-"Good 🐶"
-=  U+0047      U+006f      U+006f      U+0064      U+0020      U+1f436
-➜ [00 00 00 47 00 00 00 6f 00 00 00 6f 00 00 00 64 00 00 00 20 00 01 f4 36]
-```
-
----
-```
-➜ encode.py utf-32be,utf-32le,utf-32 "Good 🐶"
-✅ utf-32be: "Good 🐶"=[00 00 00 47 00 00 00 6f 00 00 00 6f 00 00 00 64 00 00 00 20 00 01 f4 36]
-✅ utf-32le: "Good 🐶"=[47 00 00 00 6f 00 00 00 6f 00 00 00 64 00 00 00 20 00 00 00 36 f4 01 00]
-✅ utf-32:  "Good 🐶"=[ff fe 00 00 47 00 00 00 6f 00 00 00 6f 00 00 00 64 00 00 00 20 00 00 00 36 f4 01 00]
-```
-
----
-```
-➜ encode.py utf-32be < dogs.txt
-✅ utf-32be: 80 good dogs
-✅ utf-32be: 338 chars encoded in 1352 bytes, 4.0 bytes per char
-✅  No bad dogs
-```
 
 ---
 
@@ -1092,6 +1064,74 @@ very efficient
 |`utf-32`         | `4`                 | ✅  |✅         |                    |
 
 
+---
+![inline](images/chatgpt.png)
+
+^
+extensive research
+
+---
+#Oracle Pre-6
+
+* US7ASCII
+
+^
+how to interpret?
+
+---
+```
+US   7 ASCII
+
+
+WE   8 ISO8859P1
+WE   8 ISO8859P2
+
+WE   8 MSWIN1252
+EE   8 MSWIN1250
+
+ZHS 16 CGB231280
+
+AL  16 UTF16
+AL  32 UTF8
+```
+
+^
+Character Set-Bits-Encoding
+WE Western European 
+ZHS Simplified Chinese
+AL All Languages
+
+
+
+---
+#Oracle 6 
+
+* Selectable charset 
+ * **WE8ISO8859P1**
+ * ...
+
+^
+1988
+selectable charsets
+addition to ascii
+latin1/Western Europe
+
+
+---
+#Oracle 7
+
+* NLS framework introduced
+* New Encodings
+  * `WE8ISO8859P2`
+  * `WE8MSWIN1252`
+  * `ZHS16CGB231280`
+  * `...`
+
+^
+1992
+latin2 central & east europe
+windows western europe
+chinese
 
 ---
 #Oracle 8
