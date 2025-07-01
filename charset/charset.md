@@ -338,6 +338,11 @@ filled
 
 ---
 ```
+➜ encode.py ascii < dogs.txt
+✅ ascii: 53 good dogs
+✅ ascii: 237 chars encoded in 237 bytes, 1.0 bytes per char
+...
+
 ➜ encode.py latin1 < dogs.txt
 ✅ latin1: 62 good dogs
 ✅ latin1: 275 chars encoded in 275 bytes, 1.0 bytes per char
@@ -432,6 +437,11 @@ romanian
 
 ---
 ```
+➜ encode.py ascii < dogs.txt
+✅ ascii: 53 good dogs
+✅ ascii: 237 chars encoded in 237 bytes, 1.0 bytes per char
+...
+
 ➜ encode.py latin2 < dogs.txt
 ✅ latin2: 60 good dogs
 ✅ latin2: 266 chars encoded in 266 bytes, 1.0 bytes per char
@@ -499,25 +509,20 @@ aka cp1252
 
 
 ---
-[.code-highlight: 1-5]
-[.code-highlight: all]
-```
-➜ encode.py latin1,cp1252 -d cão,chó
-✅ latin1:  Good cão [63 e3 6f] (3 bytes)
-✅ cp1252:  Good cão [63 e3 6f] (3 bytes)
-✅ latin1:  Good chó [63 68 f3] (3 bytes)
-✅ cp1252:  Good chó [63 68 f3] (3 bytes)
+![fit original](images/portuguese.png)
+#`cão`
+###`➜[63 e3 6f] (latin1)`
+###`➜[63 e3 6f] (cp1252)`
 
-➜ encode.py latin1,cp1252 -d tz’i’,šuo
-❌ latin1:  Bad tz’i’
-✅ cp1252:  Good tz’i’ [74 7a 92 69 92] (5 bytes)
-❌ latin1:  Bad šuo
-✅ cp1252:  Good šuo [9a 75 6f] (3 bytes)
-
-```
 
 ---
+![fit original](images/lithuanian.png)
+#`šuo`
+###`➜ ❌Bad šuo❌(latin1)`
+###`➜[9a 75 6f] (cp1252)`
+###`➜[b9 75 6f] (latin2)`
 
+---
 ```
 ➜ encode.py cp1252 < dogs.txt
 ✅ cp1252: 64 good dogs
@@ -598,6 +603,10 @@ win-1252=64
 
 ---
 ```
+➜ encode.py latin2 < dogs.txt
+✅ latin2: 60 good dogs
+✅ latin2: 266 chars encoded in 266 bytes, 1.0 bytes per char
+
 ➜ encode.py cp1250 < dogs.txt
 ✅ cp1250: 62 good dogs
 ✅ cp1250: 283 chars encoded in 283 bytes, 1.0 bytes per char
@@ -633,20 +642,43 @@ Character Set
 Encoding is EUC-CN
 
 ---
-[.code-highlight: 1-3]
-[.code-highlight: all]
-```
-➜ encode.py ascii,gb2312 dog
-✅ ascii:   "dog"=[64 6f 67]
-✅ gb2312:  "dog"=[64 6f 67]
+#`犬`
 
-➜ encode.py gb2312 -d 犬,狗
-✅ gb2312:  Good 犬 [c8 ae] (2 bytes)
-✅ gb2312:  Good 狗 [b9 b7] (2 bytes)
-```
+---
+
+![fit  original](images/japan.png)
+#`犬`
+
+---
+![fit  original](images/japan.png)
+#`犬`
+#`➜ [c8 ae]`
+
+---
+![fit original](images/chinese.png)
+#狗
+
+
+---
+![fit original](images/chinese.png)
+#狗
+#`➜ [b9 b7]`
+
+
+---
+![fit original](images/english.png)
+#`dog`
+#`➜[64 6f 67] (ascii)⠀`
+#`➜[64 6f 67]⠀(gb2312)`
+
 
 ---
 ```
+➜ encode.py ascii < dogs.txt
+✅ ascii: 53 good dogs
+✅ ascii: 237 chars encoded in 237 bytes, 1.0 bytes per char
+...
+
 ➜ encode.py gb2312 < dogs.txt
 ✅ gb2312: 60 good dogs
 ✅ gb2312: 258 chars encoded in 266 bytes, 1.0 bytes per char
@@ -657,13 +689,6 @@ Encoding is EUC-CN
 ```
 ^
 ascii  53
-
----
-#犬⠀⠀⠀⠀⠀⠀⠀⠀狗
-
----
-![fit  original](images/japan.png) ![fit original](images/chinese.png)
-#犬⠀⠀⠀⠀⠀⠀⠀⠀狗
 
 ---
 [.code-highlight: 1]
