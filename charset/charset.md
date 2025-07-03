@@ -656,20 +656,19 @@ Encoding is EUC-CN
 
 ---
 ![fit original](images/chinese.png)
-#狗
+#`狗`
 
 
 ---
 ![fit original](images/chinese.png)
-#狗
+#`狗`
 #`➜ [b9 b7]`
 
 
 ---
-![fit original](images/english.png)
-#`dog`
-#`➜[64 6f 67] (ascii)⠀`
-#`➜[64 6f 67]⠀(gb2312)`
+![fit original](images/german.png)
+#`Hund`
+##`[48 75 6e 64] (gb2312/ascii)`
 
 
 ---
@@ -691,28 +690,34 @@ Encoding is EUC-CN
 ascii  53
 
 ---
-[.code-highlight: 1]
-[.code-highlight: 1-4]
-[.code-highlight: 1-7]
-[.code-highlight: all]
-```
-[?? ?? ?? ?? ?? ??] (6 bytes)
+![fit original](images/mystery.png)
+#`?`
+##`➜[?? ?? ?? ??] (gb2312)`
 
-➜ encode.py gb2312 doggie
-✅ gb2312:  "doggie"=[64 6f 67 67 69 65]
 
-➜ encode.py gb2312 狗狗狗
-✅ gb2312:  "狗犬狗"=[b9 b7 b9 b7 b9 b7]
+---
+![fit original](images/german.png)
+#`Hund`
+##`➜[48 75 6e 64] (gb2312)`
 
-➜ encode.py gb2312 肮发
-✅ gb2312:  "肮发"=[b0 b9 b7 a2]
-```
+---
+![fit original](images/japanese_chinese.png)
+#`狗犬`
+##`➜[b9 b7 c8 ae] (gb2312)`
 
-^
-variable length
-number bytes != number chars
-dirtyhair
+---
+#`?`
+##`➜[.. b9 b7 ..] (gb2312)`
 
+---
+![fit original](images/chinese.png)
+#`狗`
+##`➜[.. b9 b7 ..] (gb2312)`
+
+---
+![fit original](images/dirtyhair.png)
+#`肮发`
+#`➜ [b0 b9 b7 a2]`
 
 
 ---
@@ -828,6 +833,12 @@ SSP - Special-purpose codes for language tagging and fine-tuning character displ
 * `UTF-8`
 
 ---
+[.code-highlight: 1]
+[.code-highlight: 1-2]
+[.code-highlight: 1-3]
+[.code-highlight: 1-4]
+[.code-highlight: 1-5]
+[.code-highlight: 1-6]
 
 ```
 "犬🐶"
@@ -863,30 +874,34 @@ allowing direct encoding of all code
 remember ucs-2 for utf-16
 
 ---
+[.code-highlight: 1]
+[.code-highlight: 1-2]
+[.code-highlight: 1-3]
 ```
 "犬🐶"
-= U+72ad U+1f436
+=  U+72ad U+1f436
+➜ [72 ad  ?? ??  ] 
 ```
 
 ---
 
-| Range in BMP    | Block                  |
-| :---            | :---                    |
-| `U+0000➜U+007F` | ASCII (Basic Latin)     |
-| `U+0080➜U+00FF` | Latin Supplement        |
-| `U+0100➜U+024F` | Latin Extended          |
-| `U+0250➜U+02FF` | Phonetic Symbols        |
-| `U+0300➜U+05FF` | Greek, Cyrillic, Hebrew |
-| `U+0600➜U+0FFF` | Arabic & Indian         |
-| `U+1000➜U+17FF` | S & SE Asian            |
-| `U+1800➜U+24FF` | E Asian                 |
-| `U+2000➜U+27FF` | Symbols & Punctuation   |
-| `U+2800➜U+28FF` | Braille & Basic Shapes  |
-| `U+2E80➜U+9FFF` | Chinese                 |
-| `U+AC00➜U+D7AF` | Korean                  |
-| **`U+D800➜U+DBFF`** | **High Surrogates** |
-| **`U+DC00➜U+DFFF`** | **Low Surrogates**  |
-| `U+E000➜U+F8FF` | Private Use             |
+| Range               | Block                   |
+| :---                | :---                    |
+| `U+0000➜U+007f`     | Latin Basic             |
+| `U+0080➜U+00ff`     | Latin Supplement        |
+| `U+0100➜U+024f`     | Latin Extended          |
+| `U+0250➜U+02ff`     | Phonetics               |
+| `U+0300➜U+05ff`     | Greek, Cyrillic, Hebrew |
+| `U+0600➜U+0Fff`     | Arabic, Indian          |
+| `U+1000➜U+17ff`     | S & SE Asian            |
+| `U+1800➜U+24ff`     | E Asian                 |
+| `U+2000➜U+27ff`     | Symbols                 |
+| `U+2800➜U+28ff`     | Braille, Shapes         |
+| `U+2e80➜U+9Fff`     | Chinese                 |
+| `U+ac00➜U+D7af`     | Korean                  |
+| **`U+d800➜U+dBff`** | **High Surrogates**     |
+| **`U+dc00➜U+dfff`** | **Low Surrogates**      |
+| `U+e000➜U+f8ff`     | Private Use             |
 
 ---
 ```
