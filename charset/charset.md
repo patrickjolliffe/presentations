@@ -3,27 +3,27 @@ slidenumbers: true
 ![](images/franck.jpg)
 
 ---
-![fill](images/english.png)
-
-
----
-![fill](images/english.png)
-
-#**`dog`**
+![fit](images/english.png)
 
 ---
-![fill](images/english.png)
-
-#`━••  ━━━  ━━•`
-
----
-![fill](images/english.png)
-#⠙⠕⠛
+![fit](images/english.png)
+#`dog`
 
 ---
-![fill](images/english.png)
+![fit](images/english.png)
 
-#`[64 6F 67]`
+#`dog`
+###`➜[━••  ━━━  ━━•] (morse code)`
+
+---
+![fit](images/english.png)
+#`dog`  
+###`➜[⠙⠕⠛] (braille)`
+
+---
+![fit](images/english.png)
+#`dog` 
+###`➜[64 6f 67]`
 
 ---
 ###`🐈 dogs.txt` 
@@ -135,6 +135,13 @@ zwin
 #⠀
 #Character Set
 #Encoding
+
+---
+
+* Old Character Encodings 
+* A Quick Guide to Unicode
+* A Brief History of Oracle
+* The Oracle CharacterSet
 
 
 ---
@@ -582,24 +589,27 @@ win-1252=64
 | `ex` | `ŕ` | `á` | `â` | `ă` | `ä` | `ĺ` | `ć` | `ç` | `č` | `é` | `ę` | `ë` | `ě` | `í` | `î` | `ď` |
 | `fx` | `đ` | `ń` | `ň` | `ó` | `ô` | `ő` | `ö` | `÷` | `ř` | `ů` | `ú` | `ű` | `ü` | `ý` | `ţ` | `˙` |
 
-
 ---
-[.code-highlight: 1-3]
-[.code-highlight: 1-7]
-[.code-highlight: 1-11]
-```
-➜ encode.py latin2,cp1250 -d köpek
-✅ latin2:  Good köpek [6b f6 70 65 6b] (5 bytes)
-✅ cp1250:  Good köpek [6b f6 70 65 6b] (5 bytes)
-
-➜ encode.py latin2,cp1250 -d šuo
-✅ latin2:  Good šuo [b9 75 6f] (3 bytes)
-✅ cp1250:  Good šuo [9a 75 6f] (3 bytes)
-
+![fit original](images/turkish.png)
 ➜ encode.py latin2,cp1250 -d łééchąą’í
 ❌ latin2:  Bad łééchąą’í
 ✅ cp1250:  Good łééchąą’í [b3 e9 e9 63 68 b9 b9 92 ed] (9 bytes)
 ```
+
+
+
+---
+![fit original](images/turkish.png)
+#`köpek`
+###`➜[6b f6 70 65 6b] (latin2)`
+###`➜[6b f6 70 65 6b] (cp1250)`
+
+---
+![fit original](images/lithuanian.png)
+#`šuo`
+###`➜[b9 75 6f] (latin2)`
+###`➜[9a 75 6f] (cp1250)`
+
 
 ---
 ```
