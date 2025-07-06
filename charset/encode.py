@@ -1,7 +1,6 @@
 #!/opt/homebrew/bin/python3
 import sys
 import os
-import argparse
 
 def encode_ucs2 (text, encoding):
     # UCS-2 encoding is a fixed-length encoding that uses 2 bytes for each character
@@ -63,9 +62,7 @@ def encode_all_dogs(dogs, encoding):
     if bad_dogs:
         print(f"❌ {encoding}: {len(bad_dogs)} bad dogs:")
         for i in range(0, len(bad_dogs), 8):
-            print(f"❌ {encoding}: " + '  '.join(bad_dogs[i:i+8]))
-    else:
-        print("✅  No bad dogs")
+            print(f"❌ {encoding}: " + '  '.join(bad_dogs[i:i+8]))    
 
 
 def process_text(texts, encodings, binary=False):    
@@ -91,32 +88,95 @@ def process_text(texts, encodings, binary=False):
                 print(f"❌ {encoding}: Failed to encode {text}")
 
 def main():        
-    parser = argparse.ArgumentParser(description="Check if text can be encoded with a given encoding, and report good and bad dogs.")
-    parser.add_argument("encodings", help="Comma-separated of encodings (e.g., ascii,utf-8,utf-16)")
-    parser.add_argument("text", nargs="?", help="Comma-separated of text to encode (e.g., WOOF,woof)")
-    parser.add_argument("--list", action="store_true", help="List good and bad dogs after encoding")
-
-    parser.add_argument("-f", "--file", action="store_true", help="Process dogs.txt")
-    parser.add_argument("-d", "--dogs", help="Comma-separated dogs to process")   
-    parser.add_argument("-b", "--binary", action="store_true", help="Output in binary instead of hexadecimal")
-
-    args = parser.parse_args()
-
-    encodings = args.encodings.split(',')        
-
-    if args.text:        
-        process_text(args.text, encodings, args.binary)
+    if not (2 <= len(sys.argv) <= 3):
+        print("Usage: encode.py ENCODING1 [ENCODING2] < dogs.txt")
         sys.exit(1)
-    elif args.dogs:        
-        dogs = [dog.strip() for dog in args.dogs.split(',')]        
-        encode_dogs(dogs, encodings)
-    elif not sys.stdin.isatty():
-        # Reading from stdin (e.g., encode.py utf-8 < dogs.txt)
+
+    enc1 = sys.argv[1]
+    enc2 = sys.argv[2] if len(sys.argv) == 3 else None
+
+    if not sys.stdin.isatty():
         dogs = [line.strip() for line in sys.stdin]
-        encode_all_dogs(dogs, encodings[0])
-    else:
-        print("Either --file, --dogs, --text, or piped input must be provided.")
-        sys.exit(1)
+        if enc2:
+            # comparison mode
+            bad1 = set()
+            bad2 = set()
+            good1 = set()
+            good2 = set()
+
+            for dog in dogs:
+                try:
+                    dog.encode(enc1)
+                    good1.add(dog)
+                except UnicodeEncodeError:
+                    bad1.add(dog)
+                try:
+                    dog.encode(enc2)
+                    good2.add(dog)
+                except UnicodeEncodeError:
+                    bad2.add(dog)
+
+
+            byte_count1 = sum(len(dog.encode(enc1)) for dog in good1)
+            char_count1 = sum(len(dog) for dog in good1)
+            byte_count2 = sum(len(dog.encode(enc2)) for dog in good2)
+            char_count2 = sum(len(dog) for dog in good2)
+
+            bad_enc1_good_enc2 = sorted(bad1 & good2)
+            good_enc1_bad_enc2 = sorted(good1 & bad2)
+
+            bad_both = sorted(bad1 & bad2)
+            good_both = sorted(good1 & good2)
+            if good_both:
+                print(f"✅ {enc1} ✅ {enc2}: {len(good_both)} dogs")
+                for i in range(0, len(good_both), 8):
+                    print("  " + "  ".join(good_both[i:i+8]))
+
+            if bad_enc1_good_enc2:
+                print(f"❌ {enc1} ✅ {enc2}: {len(bad_enc1_good_enc2)} dogs")
+                for i in range(0, len(bad_enc1_good_enc2), 8):
+                    print("  " + "  ".join(bad_enc1_good_enc2[i:i+8]))
+            if good_enc1_bad_enc2:
+                print(f"✅ {enc1} ❌ {enc2}: {len(good_enc1_bad_enc2)} dogs")
+                for i in range(0, len(good_enc1_bad_enc2), 8):
+                    print("  " + "  ".join(good_enc1_bad_enc2[i:i+8]))
+
+            if bad_both:
+                print(f"❌ {enc1} ❌ {enc2}: {len(bad_both)} dogs")
+                for i in range(0, len(bad_both), 8):
+                    print("  " + "  ".join(bad_both[i:i+8]))
+
+            print(f"\n✅ {enc1}→{enc2}: {len(good_both)}→{len(good_both) + len(bad_enc1_good_enc2)} good dogs")
+            print(f"✅ {enc1}: {char_count1} chars encoded in {byte_count1} bytes, {byte_count1 / char_count1:.1f} bytes per char")
+            print(f"✅ {enc2}: {char_count2} chars encoded in {byte_count2} bytes, {byte_count2 / char_count2:.1f} bytes per char")
+        else:
+            # single encoding mode
+            good = []
+            bad = []
+            for dog in dogs:
+                try:
+                    dog.encode(enc1)
+                    good.append(dog)
+                except UnicodeEncodeError:
+                    bad.append(dog)
+
+            if bad:
+                print(f"✅ {enc1}: {len(good)} good dogs")
+                for i in range(0, len(good), 8):
+                    print("  " + "  ".join(good[i:i+8]))
+
+                print(f"❌ {enc1}: {len(bad)} bad dogs")
+                for i in range(0, len(bad), 8):
+                    print("  " + "  ".join(bad[i:i+8]))            
+
+                byte_count = sum(len(dog.encode(enc1)) for dog in good)
+                char_count = sum(len(dog) for dog in good)
+                print(f"{enc1}: {char_count} chars encoded in {byte_count} bytes, {byte_count / char_count:.1f} bytes per char\n")
+            else:
+                byte_count = sum(len(dog.encode(enc1)) for dog in good)
+                char_count = sum(len(dog) for dog in good)
+                print(f"✅ {enc1}: {len(good)} good dogs")
+                print(f"{enc1}: {char_count} chars encoded in {byte_count} bytes, {byte_count / char_count:.1f} bytes per char")
 
 if __name__ == "__main__":    
     main()

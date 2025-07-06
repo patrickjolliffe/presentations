@@ -8,22 +8,31 @@ slidenumbers: true
 ---
 ![fit](images/english.png)
 #`dog`
+###`⠀`
+###`⠀`
+###`⠀`
 
 ---
 ![fit](images/english.png)
 
 #`dog`
-###`➜[━••  ━━━  ━━•] (morse code)`
+###`↓`
+###`⠀`
+###`━••  ━━━  ━━•`
 
 ---
 ![fit](images/english.png)
-#`dog`  
-###`➜[⠙⠕⠛] (braille)`
+#`dog`
+###`↓`  
+###`⠀`
+###`⠙⠕⠛`
 
 ---
 ![fit](images/english.png)
-#`dog` 
-###`➜[64 6f 67]`
+#`dog`
+###`↓`
+###`⠀` 
+###`[64 6f 67]`
 
 ---
 ###`🐈 dogs.txt` 
@@ -138,9 +147,9 @@ zwin
 
 ---
 
-* Old Character Encodings 
-* A Quick Guide to Unicode
-* A Brief History of Oracle
+* Ye Olde Encodings
+* One Standard to Rule Them All (?)
+* Oracle History Today
 * The Oracle CharacterSet
 
 
@@ -196,12 +205,27 @@ BCDIC-A
 ```
 
 ---
-#`Huan`
-##⠀
----
-![fit original](images/elvish.png)
-#`Huan`
-##⠀
+```
+➜ encode.py ascii  < 80dogs.txt
+✅ ascii: 53 good dogs
+  Hund  Ha'DIbaH  abwo  alabai  anjing  ashun  aso  cane
+  chien  cyn  dog  emba  ghaddu  gom  hond  hondur
+  hualp  huan  hund  imba  imbua  imbwe  inu  it
+  jindo  kelb  khuy  koer  koira  kotta  kutya  kutta
+  mbula  mbwa  mbwagh  mbwene  njau  njoka  pa  perro
+  pes  pies  qen  qeni  sag  sagol  sobaka  suns
+  szczeniak  ukudla  welpe  xolo  zwin
+❌ ascii: 27 bad dogs
+  cão  câin  câine  câini  chó  klèb  køter  köpek
+  köpeği  mbwá  mbʉ  tz’i’  āso  āšun  šuo  אבו
+  כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í
+  𐀠  𓃥  🐶
+ascii: 240 chars encoded in 240 bytes, 1.0 bytes per char
+```
+
+^
+53
+1 byte per char
 
 ---
 ![fit original](images/elvish.png)
@@ -209,34 +233,9 @@ BCDIC-A
 ###`➜[48 75 61 6e] (ascii)`
 
 ---
-#Ha'DIbaH
-##⠀
-
----
-#Ha'DIbaH
-##⠀
-![fit original](images/klingon.png)
-
----
 ![fit original](images/klingon.png)
 #Ha'DIbaH
 ###`➜[48 61 27 44 49 62 61 48] (ascii)`
-
----
-```
-➜ encode.py ascii < dogs.txt
-✅ ascii: 53 good dogs
-✅ ascii: 237 chars encoded in 237 bytes, 1.0 bytes per char
-❌ ascii: 27 bad dogs:
-❌ ascii: cão  câin  câine  câini  chó  klèb  køter  köpek
-❌ ascii: köpeği  mbwá  mbʉ  tz’i’  āso  āšun  šuo  אבו
-❌ ascii: כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í
-❌ ascii: 𐀠  𓃥  🐶
-```
-
-^
-53
-1 byte per char
 
 ---
 #iso-8859
@@ -316,53 +315,44 @@ blank space
 filled
 
 ---
-#`cão`
-##⠀
-
----
-![fit original](images/portuguese.png)
-#`cão`
-##⠀
-
----
-![fit original](images/portuguese.png)
-#`cão`
-###`➜[63 e3 6f] (latin1)`
-
----
-#`köpek`
-###⠀
-
----
-![fit original](images/turkish.png)
-#`köpek`
-###⠀
-
----
-![fit original](images/turkish.png)
-#`köpek`
-###`➜[6b f6 70 65 6b] (latin1)`
-
----
 ```
-➜ encode.py ascii < dogs.txt
-✅ ascii: 53 good dogs
-✅ ascii: 237 chars encoded in 237 bytes, 1.0 bytes per char
-...
+➜ encode.py ascii latin1 < 80dogs.txt
+✅ ascii ✅ latin1: 53 dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane
+  chien  cyn  dog  emba  ghaddu  gom  hond  hondur
+  hualp  huan  hund  imba  imbua  imbwe  inu  it
+  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya
+  mbula  mbwa  mbwagh  mbwene  njau  njoka  pa  perro
+  pes  pies  qen  qeni  sag  sagol  sobaka  suns
+  szczeniak  ukudla  welpe  xolo  zwin
+❌ ascii ✅ latin1: 9 dogs
+  chó  câin  câine  câini  cão  klèb  köpek  køter
+  mbwá
+❌ ascii ❌ latin1: 18 dogs
+  köpeği  mbʉ  tz’i’  āso  āšun  łééchąą’í  šuo  אבו
+  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠
+  𓃥  🐶
 
-➜ encode.py latin1 < dogs.txt
-✅ latin1: 62 good dogs
-✅ latin1: 275 chars encoded in 275 bytes, 1.0 bytes per char
-❌ latin1: 18 bad dogs:
-❌ latin1: köpeği  mbʉ  tz’i’  āso  āšun  šuo  אבו  כּלב
-❌ latin1: كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠
-❌ latin1: 𓃥  🐶
+✅ ascii→latin1: 53→62 good dogs
+✅ ascii: 240 chars encoded in 240 bytes, 1.0 bytes per char
+✅ latin1: 278 chars encoded in 278 bytes, 1.0 bytes per char
 ```
 
 ^
 everything else = bad
 ascii 53 
 latin1 62
+
+---
+![fit original](images/portuguese.png)
+#`cão`
+###`➜[63 e3 6f] (latin1)`
+
+
+---
+![fit original](images/turkish.png)
+#`köpek`
+###`➜[6b f6 70 65 6b] (latin1)`
 
 ---
 |`ascii`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
@@ -408,60 +398,49 @@ latin1 62
 ^
 latin2 filled others
 
----
-#`šuo`
-
 
 ---
-![fit original](images/lithuanian.png)
-#`šuo`
-###⠀
+```
+➜ encode.py ascii latin2 < 80dogs.txt
+✅ ascii ✅ latin2: 53 dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane
+  chien  cyn  dog  emba  ghaddu  gom  hond  hondur
+  hualp  huan  hund  imba  imbua  imbwe  inu  it
+  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya
+  mbula  mbwa  mbwagh  mbwene  njau  njoka  pa  perro
+  pes  pies  qen  qeni  sag  sagol  sobaka  suns
+  szczeniak  ukudla  welpe  xolo  zwin
+❌ ascii ✅ latin2: 7 dogs
+  chó  câin  câine  câini  köpek  mbwá  šuo
+❌ ascii ❌ latin2: 20 dogs
+  cão  klèb  köpeği  køter  mbʉ  tz’i’  āso  āšun
+  łééchąą’í  אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  犬
+  狗  𐀠  𓃥  🐶
 
+✅ ascii→latin2: 53→60 good dogs
+✅ ascii: 240 chars encoded in 240 bytes, 1.0 bytes per char
+✅ latin2: 269 chars encoded in 269 bytes, 1.0 bytes per char
+```
 ^
-lithuanian
+ascii  53
+latin2 60
+
 
 ---
 ![fit original](images/lithuanian.png)
 #`šuo`
 ###`➜[b9 75 6f] (latin2)`
 
----
-#`câine`
-###⠀
-
----
-![fit original](images/romanian.png)
-#`câine`
-###⠀
-
 ^
-romanian
+lithuanian
 
 ---
 ![fit original](images/romanian.png)
 #`câine`
 ###`[b9 75 6f] (latin2)`
 
----
-```
-➜ encode.py ascii < dogs.txt
-✅ ascii: 53 good dogs
-✅ ascii: 237 chars encoded in 237 bytes, 1.0 bytes per char
-...
-
-➜ encode.py latin2 < dogs.txt
-✅ latin2: 60 good dogs
-✅ latin2: 266 chars encoded in 266 bytes, 1.0 bytes per char
-❌ latin2: 20 bad dogs:
-❌ latin2: cão  klèb  køter  köpeği  mbʉ  tz’i’  āso  āšun
-❌ latin2: אבו  כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ
-❌ latin2: łééchąą’í  𐀠  𓃥  🐶
-```
-
 ^
-ascii  53
-latin2 60
-
+romanian
 
 
 ---
@@ -514,6 +493,33 @@ aka cp1252
 | `Ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
 | `Fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
 
+---
+```
+➜ encode.py latin1 cp1252 < 80dogs.txt
+✅ latin1 ✅ cp1252: 62 dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane
+  chien  chó  cyn  câin  câine  câini  cão  dog
+  emba  ghaddu  gom  hond  hondur  hualp  huan  hund
+  imba  imbua  imbwe  inu  it  jindo  kelb  khuy
+  klèb  koer  koira  kotta  kutta  kutya  köpek  køter
+  mbula  mbwa  mbwagh  mbwene  mbwá  njau  njoka  pa
+  perro  pes  pies  qen  qeni  sag  sagol  sobaka
+  suns  szczeniak  ukudla  welpe  xolo  zwin
+❌ latin1 ✅ cp1252: 2 dogs
+  tz’i’  šuo
+❌ latin1 ❌ cp1252: 16 dogs
+  köpeği  mbʉ  āso  āšun  łééchąą’í  אבו  כּלב  كلب
+  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
+
+✅ latin1→cp1252: 62→64 good dogs
+✅ latin1: 278 chars encoded in 278 bytes, 1.0 bytes per char
+✅ cp1252: 286 chars encoded in 286 bytes, 1.0 bytes per char
+```
+
+^
+ascii=53 
+latin1=62
+win-1252=64
 
 ---
 ![fit original](images/portuguese.png)
@@ -526,24 +532,8 @@ aka cp1252
 ![fit original](images/lithuanian.png)
 #`šuo`
 ###`➜ ❌Bad šuo❌(latin1)`
-###`➜[9a 75 6f] (cp1252)`
 ###`➜[b9 75 6f] (latin2)`
-
----
-```
-➜ encode.py cp1252 < dogs.txt
-✅ cp1252: 64 good dogs
-✅ cp1252: 286 chars encoded in 286 bytes, 1.0 bytes per char
-❌ cp1252: 16 bad dogs:
-❌ cp1252: köpeği  mbʉ  āso  āšun  אבו  כּלב  كلب  कुत्ता
-❌ cp1252: ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í  𐀠  𓃥  🐶
-```
-
-^
-ascii=53 
-latin1=62
-win-1252=64
-
+###`➜[9a 75 6f] (cp1252)`
 
 ---
 #windows-1250
@@ -590,13 +580,28 @@ win-1252=64
 | `fx` | `đ` | `ń` | `ň` | `ó` | `ô` | `ő` | `ö` | `÷` | `ř` | `ů` | `ú` | `ű` | `ü` | `ý` | `ţ` | `˙` |
 
 ---
-![fit original](images/turkish.png)
-➜ encode.py latin2,cp1250 -d łééchąą’í
-❌ latin2:  Bad łééchąą’í
-✅ cp1250:  Good łééchąą’í [b3 e9 e9 63 68 b9 b9 92 ed] (9 bytes)
 ```
+➜ encode.py latin2 cp1250 < 80dogs.txt
+✅ latin2 ✅ cp1250: 60 dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane
+  chien  chó  cyn  câin  câine  câini  dog  emba
+  ghaddu  gom  hond  hondur  hualp  huan  hund  imba
+  imbua  imbwe  inu  it  jindo  kelb  khuy  koer
+  koira  kotta  kutta  kutya  köpek  mbula  mbwa  mbwagh
+  mbwene  mbwá  njau  njoka  pa  perro  pes  pies
+  qen  qeni  sag  sagol  sobaka  suns  szczeniak  ukudla
+  welpe  xolo  zwin  šuo
+❌ latin2 ✅ cp1250: 2 dogs
+  tz’i’  łééchąą’í
+❌ latin2 ❌ cp1250: 18 dogs
+  cão  klèb  köpeği  køter  mbʉ  āso  āšun  אבו
+  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠
+  𓃥  🐶
 
-
+✅ latin2→cp1250: 60→62 good dogs
+✅ latin2: 269 chars encoded in 269 bytes, 1.0 bytes per char
+✅ cp1250: 283 chars encoded in 283 bytes, 1.0 bytes per char
+```
 
 ---
 ![fit original](images/turkish.png)
@@ -609,22 +614,6 @@ win-1252=64
 #`šuo`
 ###`➜[b9 75 6f] (latin2)`
 ###`➜[9a 75 6f] (cp1250)`
-
-
----
-```
-➜ encode.py latin2 < dogs.txt
-✅ latin2: 60 good dogs
-✅ latin2: 266 chars encoded in 266 bytes, 1.0 bytes per char
-
-➜ encode.py cp1250 < dogs.txt
-✅ cp1250: 62 good dogs
-✅ cp1250: 283 chars encoded in 283 bytes, 1.0 bytes per char
-❌ cp1250: 18 bad dogs:
-❌ cp1250: cão  klèb  køter  köpeği  mbʉ  āso  āšun  אבו
-❌ cp1250: כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  𐀠
-❌ cp1250: 𓃥  🐶
-```
 
 ---
 
@@ -652,12 +641,27 @@ Character Set
 Encoding is EUC-CN
 
 ---
-#`犬`
+```
+➜ encode.py ascii gb2312 < 80dogs.txt
+✅ ascii ✅ gb2312: 53 dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane
+  chien  cyn  dog  emba  ghaddu  gom  hond  hondur
+  hualp  huan  hund  imba  imbua  imbwe  inu  it
+  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya
+  mbula  mbwa  mbwagh  mbwene  njau  njoka  pa  perro
+  pes  pies  qen  qeni  sag  sagol  sobaka  suns
+  szczeniak  ukudla  welpe  xolo  zwin
+❌ ascii ✅ gb2312: 7 dogs
+  chó  klèb  mbwá  tz’i’  āso  犬  狗
+❌ ascii ❌ gb2312: 20 dogs
+  câin  câine  câini  cão  köpek  köpeği  køter  mbʉ
+  āšun  łééchąą’í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
+  ⴽⵍⴱ  𐀠  𓃥  🐶
 
----
-
-![fit  original](images/japan.png)
-#`犬`
+✅ ascii→gb2312: 53→60 good dogs
+✅ ascii: 240 chars encoded in 240 bytes, 1.0 bytes per char
+✅ gb2312: 261 chars encoded in 269 bytes, 1.0 bytes per char
+```
 
 ---
 ![fit  original](images/japan.png)
@@ -667,67 +671,43 @@ Encoding is EUC-CN
 ---
 ![fit original](images/chinese.png)
 #`狗`
-
-
----
-![fit original](images/chinese.png)
-#`狗`
 #`➜ [b9 b7]`
-
 
 ---
 ![fit original](images/german.png)
 #`Hund`
-##`[48 75 6e 64] (gb2312/ascii)`
-
-
----
-```
-➜ encode.py ascii < dogs.txt
-✅ ascii: 53 good dogs
-✅ ascii: 237 chars encoded in 237 bytes, 1.0 bytes per char
-...
-
-➜ encode.py gb2312 < dogs.txt
-✅ gb2312: 60 good dogs
-✅ gb2312: 258 chars encoded in 266 bytes, 1.0 bytes per char
-❌ gb2312: 20 bad dogs:
-❌ gb2312: cão  câin  câine  câini  køter  köpek  köpeği  mbʉ
-❌ gb2312: āšun  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ
-❌ gb2312: łééchąą’í  𐀠  𓃥  🐶
-```
-^
-ascii  53
+###`➜ [48 75 6e 64] (gb2312)`
+###`➜ [48 75 6e 64] (ascii)⠀`
 
 ---
 ![fit original](images/mystery.png)
 #`?`
-##`➜[?? ?? ?? ??] (gb2312)`
+###`➜[?? ?? ?? ??] (gb2312)`
 
 
 ---
 ![fit original](images/german.png)
 #`Hund`
-##`➜[48 75 6e 64] (gb2312)`
+###`➜[48 75 6e 64] (gb2312)`
 
 ---
 ![fit original](images/japanese_chinese.png)
 #`狗犬`
-##`➜[b9 b7 c8 ae] (gb2312)`
+###`➜[b9 b7 c8 ae] (gb2312)`
 
 ---
 #`?`
-##`➜[.. b9 b7 ..] (gb2312)`
+###`➜[.. b9 b7 ..] (gb2312)`
 
 ---
 ![fit original](images/chinese.png)
 #`狗`
-##`➜[.. b9 b7 ..] (gb2312)`
+###`➜[.. b9 b7 ..] (gb2312)`
 
 ---
 ![fit original](images/dirtyhair.png)
 #`肮发`
-#`➜ [b0 b9 b7 a2]`
+###`➜ [b0 b9 b7 a2] (gb2312)`
 
 
 ---
@@ -812,8 +792,8 @@ and writing systems
 | `0`     | `U+0000➜U+FFFF`     | Basic Multilingual            |BMP    |
 | `1`     | `U+10000➜U+1FFFF`   | Supplementary Multilingual  |SMP    |
 | `2`     | `U+20000➜U+2FFFF`   | Supplementary Ideographic   |SIP    |
-| `3`     | `U+30000➜U+3FFFF`   | Tertiary Ideographic Plane         |TIP    | 
-| `4➜13`  | `U+40000➜U+DFFFF`   | Reserved                            |       |
+| `3`     | `U+30000➜U+3FFFF`   | Tertiary Ideographic Plane     |TIP    | 
+| `4➜13`  | `U+40000➜U+DFFFF`   | Reserved                       |       |
 | `14`    | `U+E0000➜U+EFFFF`   | Supplementary Special-Purpose |SSP    |
 | `15`    | `U+F0000➜U+FFFFF`   | Private Use Area A                  |       |
 | `16`    | `U+100000➜U+10FFFF` | Private Use Area B                  |       |
@@ -842,6 +822,22 @@ SSP - Special-purpose codes for language tagging and fine-tuning character displ
 * `UTF-16`
 * `UTF-8`
 
+
+---
+```
+➜ encode.py utf-32be < 80dogs.txt
+✅ utf-32be: 80 good dogs
+utf-32be: 338 chars encoded in 1352 bytes, 4.0 bytes per char
+```
+
+---
+![fit](images/chinese.png)
+#`犬 = U+72ac`
+###`➜ [00 00 72 ac] (utf-32be)`
+###`➜ [ac 72 00 00] (utf-32le)`
+###`➜ [00 00 fe ff 00 00 72 ac] (utf-32be with BOM)`
+###`➜ [ff fe 00 00 ac 72 00 00] (utf-32le with BOM)`
+
 ---
 [.code-highlight: 1]
 [.code-highlight: 1-2]
@@ -851,7 +847,7 @@ SSP - Special-purpose codes for language tagging and fine-tuning character displ
 [.code-highlight: 1-6]
 
 ```
-"犬🐶"
+"犬"
 =  U+72ac      U+1f436
 ➜ [00 00 72 ac 00 01 f4 36] 
 ➜ [ac 72 00 00 36 f4 01 00]
