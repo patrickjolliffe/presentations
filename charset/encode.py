@@ -58,7 +58,7 @@ def encode_all_dogs(dogs, encoding):
 
     bytes_per_char = byte_count / char_count if char_count else 0        
     print(f"✅ {encoding}: {len(good_dogs)} good dogs")        
-    print(f"✅ {encoding}: {char_count} chars encoded in {byte_count} bytes, {bytes_per_char:.1f} bytes per char")        
+    print(f"✅ {encoding}: {char_count} chars encoded in {byte_count} bytes, {bytes_per_char:.2f} bytes per char")        
     if bad_dogs:
         print(f"❌ {encoding}: {len(bad_dogs)} bad dogs:")
         for i in range(0, len(bad_dogs), 8):
@@ -147,8 +147,8 @@ def main():
                     print("  " + "  ".join(bad_both[i:i+8]))
 
             print(f"\n✅ {enc1}→{enc2}: {len(good_both)}→{len(good_both) + len(bad_enc1_good_enc2)} good dogs")
-            print(f"✅ {enc1}: {char_count1} chars encoded in {byte_count1} bytes, {byte_count1 / char_count1:.1f} bytes per char")
-            print(f"✅ {enc2}: {char_count2} chars encoded in {byte_count2} bytes, {byte_count2 / char_count2:.1f} bytes per char")
+            print(f"✅ {enc1}: {char_count1} chars encoded in {byte_count1} bytes, {byte_count1 / char_count1:.2f} bytes per char")
+            print(f"✅ {enc2}: {char_count2} chars encoded in {byte_count2} bytes, {byte_count2 / char_count2:.2f} bytes per char")
         else:
             # single encoding mode
             good = []
@@ -171,12 +171,12 @@ def main():
 
                 byte_count = sum(len(dog.encode(enc1)) for dog in good)
                 char_count = sum(len(dog) for dog in good)
-                print(f"{enc1}: {char_count} chars encoded in {byte_count} bytes, {byte_count / char_count:.1f} bytes per char\n")
+                print(f"✅ {enc1}: {char_count} chars encoded in {byte_count} bytes, {byte_count / char_count:.2f} bytes per char\n")
             else:
                 byte_count = sum(len(dog.encode(enc1)) for dog in good)
                 char_count = sum(len(dog) for dog in good)
                 print(f"✅ {enc1}: {len(good)} good dogs")
-                print(f"{enc1}: {char_count} chars encoded in {byte_count} bytes, {byte_count / char_count:.1f} bytes per char")
+                print(f"✅ {enc1}: {char_count} chars encoded in {byte_count} bytes, {byte_count / char_count:.2f} bytes per char")
 
 if __name__ == "__main__":    
     main()
