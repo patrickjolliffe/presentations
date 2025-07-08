@@ -39,6 +39,7 @@ slidenumbers: true
 [.column]
 ```
 Hund
+Ha'DIbaH
 abwo
 alabai
 anjing
@@ -57,16 +58,17 @@ emba
 ghaddu
 gom
 hond
-hondur
 ```
+
+
 [.column]
 ```
+hondur
 hualp
 huan
 hund
 imba
 imbua
-imbwa
 imbwe
 inu
 it
@@ -308,17 +310,15 @@ latin2 60
 
 
 ---
-![fit original](images/lithuanian.png)
-#`šuo`
-###`➜[b9 75 6f] (latin2)`
+![fit original](images/turkish.png)
+#`köpek`
+###`➜[6b f6 70 65 6b] (latin2)`
 
-^
-lithuanian
 
 ---
 ![fit original](images/romanian.png)
 #`câine`
-###`[b9 75 6f] (latin2)`
+###`➜[b9 75 6f] (latin2)`
 
 ^
 romanian
@@ -392,10 +392,10 @@ romanian
 ```
 
 ---
-![fit original](images/turkish.png)
-#`köpek`
-###`➜[6b f6 70 65 6b] (latin2)`
-###`➜[6b f6 70 65 6b] (cp1250)`
+![fit original](images/vietnamese.png)
+#`chó`
+###`➜[63 68 f3] (latin2)`
+###`➜[63 68 f3] (cp1250)`
 
 ---
 ![fit original](images/lithuanian.png)
@@ -474,9 +474,9 @@ Encoding is EUC-CN
 
 
 ---
-![fit original](images/german.png)
-#`Hund`
-###`➜[48 75 6e 64] (gb2312)`
+![fit original](images/italian.png)
+#`cane`
+###`➜[63 61 6e 65] (gb2312)`
 
 ---
 ![fit original](images/japanese_chinese.png)
