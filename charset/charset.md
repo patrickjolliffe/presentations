@@ -457,11 +457,6 @@ Encoding is EUC-CN
 ###`➜ [c8 ae]`
 
 ---
-![fit original](images/chinese.png)
-#`狗`
-###`➜ [b9 b7]`
-
----
 ![fit original](images/german.png)
 #`Hund`
 ###`➜ [48 75 6e 64] (gb2312)`
@@ -642,14 +637,9 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 ###`➜ [ff fe ac 72] (utf-16le + BOM)`
 
 ---
-[.code-highlight: 1]
-[.code-highlight: 1-2]
-[.code-highlight: 1-3]
-```
-"犬🐶"
-=  U+72ad U+1f436
-➜ [72 ad  ?? ??  ] 
-```
+#`🐶 =  U+1f436`
+###`➜ [?? ??] (utf-16)`
+
 
 ---
 
@@ -683,48 +673,26 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 ```
 
 ---
-```
-"犬🐶"
-=  U+72ad U+d83d U+dc36
-➜ [72 ad  d8 3d  dc 36 ] 
-➜ [ad 72  3d d8  36 dc ] 
-```
-
----
-[.code-highlight: 1-2]
-[.code-highlight: 1-3]
-[.code-highlight: 1-4]
-[.code-highlight: 1-5]
-[.code-highlight: all]
-```
-"Good 狗"
-=        U+0047 U+006f U+006f U+0064 U+0020 U+72d7
-➜       [00  47 00  6f 00  6f 00  64 00  20 72  d7] (LE)
-➜       [47  00 6f  00 6f  00 64  00 20  00 d7  72] (BE)
-➜ [ff fe 47  00 6f  00 6f  00 64  00 20  00 72  d7] (LE + BOM)
-➜ [fe ff 00  47 00  6f 00  6f 00  64 00  20 72  d7] (BE + BOM)
-```
-
-^
-6 characters
-12 bytes
-
----
-```
-➜ encode.py ucs-2le < dogs.txt
-✅ ucs-2le: 77 good dogs
-✅ ucs-2le: 332 chars encoded in 664 bytes, 2.0 bytes per char
-❌ ucs-2le: 3 bad dogs:
-❌ ucs-2le: 𐀠  𓃥  🐶
-```
-
-^
-all unicode 1 chars
-not efficient
+#`🐶 = U+1f436`
+###`➜ ⠀U+d83d⠀⠀⠀⠀⠀U+dc36⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`
+###`➜ [72 ad  d8] [3d  dc 36 ] (utf-16)`
 
 ---
 #Unicode Encoding
 #UTF-8
+
+---
+
+```
+➜ encode.py utf-8 < 80dogs.txt
+✅ utf-8: 80 good dogs
+✅ utf-8: 338 chars encoded in 413 bytes, 1.22 bytes per char
+```
+
+^
+encodes all
+very efficient
+
 
 ---
 [.code-highlight: 1-2]
@@ -799,14 +767,28 @@ possible encoded sequences
 self-synchonizing
 
 ---
-[.code-highlight: 1-3]
-[.code-highlight: all]
-```
-➜ encode.py ascii,utf8 -d pies
-✅ ascii:   Good pies [70 69 65 73] (4 bytes)
-✅ utf8:    Good pies [70 69 65 73] (4 bytes)
+![fit original](images/polish.png)
+#`pies`
+###`➜[70 69 65 73] (ascii)` 
+###`➜[70 69 65 73] (utf-8)` 
 
-➜ encode.py utf-8 -d cão,狗,🐶
+---
+![fit original](images/portuguese.png)
+#`cão`
+###`➜[63 c3 a3 6f] (utf-8)` 
+
+---
+![fit original](images/chinese.png)
+#`狗`
+###`➜[e7 8b 97]`
+
+---
+#`🐶`
+###`➜[f0 9f 90 b6]]`
+
+
+---
+➜ encode.py utf-8 -d cão,狗,
 ✅ utf-8:   Good cão [63 c3 a3 6f] (4 bytes)
 ✅ utf-8:   Good 狗 [e7 8b 97] (3 bytes)
 ✅ utf-8:   Good 🐶 [f0 9f 90 b6] (4 bytes)
@@ -817,18 +799,6 @@ ascii same
 western non ascii 2 bytes
 chinese 3 bytes
 emoji 4 bytes
-
----
-```
-➜ encode.py utf-8 < dogs.txt
-✅ utf-8: 80 good dogs
-✅ utf-8: 338 chars encoded in 413 bytes, 1.2 bytes per char
-✅  No bad dogs
-```
-
-^
-encodes all
-very efficient
 
 
 ---
@@ -1302,3 +1272,10 @@ win-1252=64
 ###`➜ ❌Bad šuo❌(latin1)`
 ###`➜[b9 75 6f] (latin2)`
 ###`➜[9a 75 6f] (cp1252)`
+
+
+---
+![fit original](images/chinese.png)
+#`狗`
+###`➜ [b9 b7]`
+
