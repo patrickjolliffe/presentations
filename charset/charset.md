@@ -636,7 +636,12 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 ###`➜ [fe ff 72 ac] (utf-16be + BOM)`
 ###`➜ [ff fe ac 72] (utf-16le + BOM)`
 
+
 ---
+![fit](images/emoji.png)
+
+---
+![fit](images/emoji.png)
 #`🐶 =  U+1f436`
 ###`➜ [?? ??] (utf-16)`
 
@@ -673,6 +678,7 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 ```
 
 ---
+![fit](images/emoji.png)
 #`🐶 = U+1f436`
 ###`➜ ⠀U+d83d⠀⠀⠀⠀⠀U+dc36⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`
 ###`➜ [72 ad  d8] [3d  dc 36 ] (utf-16)`
@@ -783,52 +789,21 @@ self-synchonizing
 ###`➜[e7 8b 97]`
 
 ---
+![fit](images/emoji.png)
 #`🐶`
-###`➜[f0 9f 90 b6]]`
+###`➜[f0 9f 90 b6]`
 
 
 ---
-➜ encode.py utf-8 -d cão,狗,
-✅ utf-8:   Good cão [63 c3 a3 6f] (4 bytes)
-✅ utf-8:   Good 狗 [e7 8b 97] (3 bytes)
-✅ utf-8:   Good 🐶 [f0 9f 90 b6] (4 bytes)
-```
-
-^
-ascii same
-western non ascii 2 bytes
-chinese 3 bytes
-emoji 4 bytes
-
-
----
-
-|Encoding   |Good Dogs  |Chars |Bytes    |Bytes per Char |
-|:--        |--:        |--:   |--:      |--:         |
-|`ascii`    |`53`       |`237`   |`237`  |`1.0`       |
-|`latin1`   |`62`       |`278`   |`278`  |`1.0`       |
-|`latin2`   |`60`       |`269`   |`269`  |`1.0`       |
-|`win-1252` |`64`       |`286`   |`286`  |`1.0`       |
-|`win-1250` |`62`       |`283`   |`283`  |`1.0`       |
-|`gb2312`   |`60`       |`261`   |`269`  |`1.0`       |
-|`ucs-2`    |`77`       |`332`   |`664`  |`2.0`       |
-|`utf-8`    |`80`       |`338`   |`413`  |`1.2`       |
-|`utf-16`   |`80`       |`338`   |`682`  |`2.0`       |
-|`utf-32`   |`80`       |`338`   |`1352` |`4.0`       |
-
----
-|Encoding         | Bytes per Character |BMP  |All Planes| Self Synchronizing |
-|:--              | :--:                |:--: |:--:      |:--:                |
-|`ascii`          | `1`                 | ❌  |❌         |                    |
-|`latin1`         | `1`                 | ❌  |❌         |                    |
-|`latin2`         | `1`                 | ❌  |❌         |                    |
-|`win-1252`       | `1`                 | ❌  |❌         |                    |
-|`win-1250`       | `1`                 | ❌  |❌         |                    |
-|`gb2312`         | `1,2`               | ❌  |❌         |❌                  |
-|`ucs-2`          | `2`                 | ✅  |❌         |                    |
-|`utf-8`          | `1→4`               | ✅  |✅         |✅                  |
-|`utf-16`         | `2,4`               | ✅  |✅         |                    |
-|`utf-32`         | `4`                 | ✅  |✅         |                    |
+|Encoding   |Good Dogs  | Bytes per Char |
+|:--        |:--:        |--:             |
+|`ascii`    |`53`       | `1.00`         |
+|`latin2`   |`60`       | `1.00`         |
+|`win-1250` |`62`       | `1.00`         |
+|`gb2312`   |`60`       | `1.03`         |
+|`utf-8`    |`80`       | `1.22`         |
+|`utf-16`   |`80`       | `2.02`         |
+|`utf-32`   |`80`       | `4.00`         |
 
 
 ---
@@ -868,37 +843,27 @@ WE Western European
 ZHS Simplified Chinese
 AL All Languages
 
+---
 
+|Database Version|Character Set   |
+| :--             | :--           |
+|Oracle 6        |`WE8ISO8859P1`  | 
+|Oracle 7        |`WE8ISO8859P2`  |
+|                |`ZHS16CGB231280`|
+|Oracle 8        |`EE8MSWIN1250`  |
+|                |`UTF8 (BMP)`    |
+|Oracle 9i       |`AL32UTF8`      |
 
 ---
-#Oracle 6 
-
-* Selectable charset 
- * **WE8ISO8859P1**
- * ...
-
-^
-1988
-selectable charsets
-addition to ascii
-latin1/Western Europe
 
 
----
-#Oracle 7
-
-* NLS framework introduced
-* New Encodings
-  * `WE8ISO8859P2`
-  * `WE8MSWIN1252`
-  * `ZHS16CGB231280`
-  * `...`
-
-^
-1992
-latin2 central & east europe
-windows western europe
-chinese
+  * `EE8MSWIN1250`  
+  * `UTF8` (BMP)
+#Oracle 9i
+* Character Sets
+  * `AL32UTF8`
+  * `...` 
+* Length Semantics
 
 ---
 #Oracle 8
@@ -1278,4 +1243,17 @@ win-1252=64
 ![fit original](images/chinese.png)
 #`狗`
 ###`➜ [b9 b7]`
+
+
+
+---
+|Encoding   |Good Dogs  |Chars   |Bytes  |Bytes per Char |
+|:--        |--:        |--:     |--:    |--:            |
+|`ascii`    |`53`       |`237`   |`237`  |`1.00`         |
+|`latin2`   |`60`       |`269`   |`269`  |`1.00`         |
+|`win-1250` |`62`       |`283`   |`283`  |`1.00`         |
+|`gb2312`   |`60`       |`261`   |`269`  |`1.03`         |
+|`utf-8`    |`80`       |`338`   |`413`  |`1.22`         |
+|`utf-16`   |`80`       |`338`   |`682`  |`2.02`         |
+|`utf-32`   |`80`       |`338`   |`1352` |`4.00`         |
 
