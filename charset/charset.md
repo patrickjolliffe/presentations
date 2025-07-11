@@ -805,25 +805,25 @@ self-synchonizing
 |`utf-16`   |`80`       | `2.02`         |
 |`utf-32`   |`80`       | `4.00`         |
 
-
 ---
-![inline](images/chatgpt.png)
+```
+⠀US7ASCII⠀
 
-^
-extensive research
+ WE8ISO8859P1
+ WE8ISO8859P2
 
----
-#Oracle Pre-6
+ WE8MSWIN1252
+ EE8MSWIN1250
 
-* US7ASCII
+ ZHS16CGB231280
 
-^
-how to interpret?
+ AL16UTF16
+ AL32UTF8
+```
 
 ---
 ```
 US   7 ASCII
-
 
 WE   8 ISO8859P1
 WE   8 ISO8859P2
@@ -851,32 +851,7 @@ AL All Languages
 |Oracle 7        |`WE8ISO8859P2`  |
 |                |`ZHS16CGB231280`|
 |Oracle 8        |`EE8MSWIN1250`  |
-|                |`UTF8 (BMP)`    |
 |Oracle 9i       |`AL32UTF8`      |
-
----
-
-
-  * `EE8MSWIN1250`  
-  * `UTF8` (BMP)
-#Oracle 9i
-* Character Sets
-  * `AL32UTF8`
-  * `...` 
-* Length Semantics
-
----
-#Oracle 8
-
-* New Encodings
-  * `EE8MSWIN1250`  
-  * `UTF8` (≠ `UTF-8`)
-  * `...`
-
-^
-1997: 
-(CESU-8)
-
 
 ---
 #`UTF8` (≠ `UTF-8`) 
@@ -895,60 +870,19 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 ```
 
 ---
-
-#Oracle 8i
-
-* National Character Set
-* Character Sets
-  * `UTF8` (Beyond BMP)
-  * `AL16UTF16` 
-
-
-^
-UCS-2
-1999 
-AL16UTF16 for National Characterset
-
-
+![fit](images/egyptian.png)
 
 ---
-#`UTF8` (Improved?)
-
-```
-U+0000→U+007F              
-[0xxxxxxx]
-
-U+0080→U+07FF                       
-[110xxxxx 10xxxxxx]
-
-U+0800→U+FFFF                      
-[1110xxxx 10xxxxxx 10xxxxxx]
-
-U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
-[̶1̶1̶1̶1̶0̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶]̶
-```
-
-^
-Improved?
+![fit](images/egyptian.png)
+#`𓃥 = U+130e5`
+###`⠀`
+###`⠀`
 
 ---
-
-```
-🐶 = U+1f436
-   → U+d83d      U+dc36
-   → [ed a0 bd   ed b0 b6]   
-```
-
----
-#Oracle 9i
-
-* Character Sets
-  * `AL32UTF8`
-  * `...` 
-* Length Semantics
-
-^
-char/byte
+![fit](images/egyptian.png)
+#`𓃥 = U+130e5`
+###`➜ U+d83c U+dce5`
+###`➜ [ed a0 bc ed b3 a5]`
 
 ---
 #National Character Set
