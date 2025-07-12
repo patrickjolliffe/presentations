@@ -845,13 +845,18 @@ AL All Languages
 
 ---
 
-|Database Version|Character Set   |
-| :--             | :--           |
-|Oracle 6        |`WE8ISO8859P1`  | 
-|Oracle 7        |`WE8ISO8859P2`  |
-|                |`ZHS16CGB231280`|
-|Oracle 8        |`EE8MSWIN1250`  |
-|Oracle 9i       |`AL32UTF8`      |
+|Database Version|Character Set            |
+| :--      | :--                           |
+|Oracle 6  |`WE8ISO8859P1`                 | 
+|Oracle 7  |`WE8ISO8859P2,ZHS16CGB231280`  |
+|Oracle 8  |`EE8MSWIN1250`                 |
+|Oracle 8i |`UTF8`                         |
+|Oracle 9i |`AL32UTF8`                     |
+
+
+^
+11g AL32UTF8 Recommended
+12c AL32UTF8 Default
 
 ---
 #`UTF8` (≠ `UTF-8`) 
@@ -885,23 +890,24 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 ###`➜ [ed a0 bc ed b3 a5]`
 
 ---
-#National Character Set
-
-* `AL16UTF16/UTF8`
-* `NCHAR,NVARCHAR2,NCLOB`
-
+```
+create database piesek
+   characterset we8iso8859p1
+   national character set al16utf16
+   ...
+```
 ^
-historically 
-alternative for unicode data
-now recommendation use SQL CHAR, VARCHAR2, and CLOB data types in AL32UTF8 database to store Unicode character data
-not supported by some database features. Most notably, Oracle Text and XML DB do not support these data types. 
-in 8i multiple possibilities
-NCLOB data stored as AL16UTF16 even for UTF8
-from 9i, AL16UTF16 (default) or UTF8 (deprecated)
+ historically any
+ now utf8 & al16utf16
 
-(Doc ID 276914.1)
+---
+```
+create table dogs ( name  nchar (10),
+                    breed char(10) );
 
-
+insert into dogs (name,  breed)
+          values (n'犬', 'Shiba Inu');
+```
 
 
 ---
@@ -963,14 +969,7 @@ _______________ ________________
 ```
 
 ---
-#Oracle 11g 
 
-* `AL32UTF8` recommended 
-
----
-#Oracle 12c 
-
-* `AL32UTF8` default  
 * Database Migration Assistant for Unicode (DMU)
 
 
