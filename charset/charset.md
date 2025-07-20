@@ -132,33 +132,42 @@ zwin
 ```
 
 ---
-* Ye Olde Encodings
+* Before Unicode
 * Unicode Unleashed
 * Oracle Through The Ages
 * Oracle CharacterSet
 
----
-|     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|`0x`|     | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `0` | `#` | `@` | `:` | `>` | `√` |
-|`1x`| `␢` | `/` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | `⧧` | `,` | `%` | `γ` | `\` | `⧻` |
-|`2x`| `-` | `J` | `K` | `L` | `M` | `N` | `O` | `P` | `Q` | `R` | `!` | `#` | `*` | `]` | `;` | `Δ` |
-|`3x`| `&` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `?` | `.` | `⌑` | `[` | `<` | `⯒` |
-
-^
-BCDIC-A
 
 ---
-#ascii
+```
+➜ encode.py ascii < 80dogs.txt
+✅ ascii: 53 good dogs
+  Hund  Ha'DIbaH  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
+  ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
+  jindo  kelb  khuy  koer  koira  kotta  kutya  kutta  mbula  mbwa  mbwagh  mbwene
+  njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
+  szczeniak  ukudla  welpe  xolo  zwin
+❌ ascii: 27 bad dogs
+  cão  câin  câine  câini  chó  klèb  køter  köpek  köpeği  mbwá  mbʉ  tz’i’
+  āso  āšun  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í
+  𐀠  𓃥  🐶
+✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
+```
 
 ^
 1968
+53
+1 byte per char
+
+---
+![fit original](images/elvish.png)
+#`Huan`
+###`➜[48 75 61 6e] (ascii)`
 
 
 ---
-
 |`ascii`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
-|:--:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|:--     |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |**`0x`**|`<nul>`| `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>`|`<lf>`|`<vt>`|`<ff>`| `<cr>` | `<so>` | `<si>` |
 |**`1x`**| `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
 |**`2x`**|  | `!` | `"` | `#` | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
@@ -175,8 +184,6 @@ BCDIC-A
 8th bit checksum
 
 ---
-[.code-highlight: 1-2]
-[.code-highlight: all]
 ```
 "WOOF"➜[01010111 01001111 01001111 01000110]
 "woof"➜[01110111 01101111 01101111 01100110]
@@ -184,39 +191,6 @@ BCDIC-A
 "HAU"➜[1001000 1000001 1010101]
 "hau"➜[1101000 1100001 1110101]
 ```
-
----
-```
-➜ encode.py ascii < 80dogs.txt
-✅ ascii: 53 good dogs
-  Hund  Ha'DIbaH  abwo  alabai  anjing  ashun  aso  cane
-  chien  cyn  dog  emba  ghaddu  gom  hond  hondur
-  hualp  huan  hund  imba  imbua  imbwe  inu  it
-  jindo  kelb  khuy  koer  koira  kotta  kutya  kutta
-  mbula  mbwa  mbwagh  mbwene  njau  njoka  pa  perro
-  pes  pies  qen  qeni  sag  sagol  sobaka  suns
-  szczeniak  ukudla  welpe  xolo  zwin
-❌ ascii: 27 bad dogs
-  cão  câin  câine  câini  chó  klèb  køter  köpek
-  köpeği  mbwá  mbʉ  tz’i’  āso  āšun  šuo  אבו
-  כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í
-  𐀠  𓃥  🐶
-✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
-```
-
-^
-53
-1 byte per char
-
----
-![fit original](images/elvish.png)
-#`Huan`
-###`➜[48 75 61 6e] (ascii)`
-
----
-![fit original](images/klingon.png)
-#Ha'DIbaH
-###`➜[48 61 27 44 49 62 61 48] (ascii)`
 
 ---
 #iso-8859
@@ -248,6 +222,32 @@ set of standards
 latin2 poland
 latin9 improved latin1 €
 
+
+---
+```
+➜ encode.py ascii latin1 < 80dogs.txt
+✅ ascii ✅ latin1: 53 good dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
+  ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
+  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
+  njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
+  szczeniak  ukudla  welpe  xolo  zwin
+❌ ascii ✅ latin1: 9 bad dogs turned good
+  chó  câin  câine  câini  cão  klèb  köpek  køter  mbwá
+❌ ascii ❌ latin1: 18 bad dogs
+  köpeği  mbʉ  tz’i’  āso  āšun  łééchąą’í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
+  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
+
+✅ ascii→latin1: 53→62 good dogs
+✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
+✅ latin1: 278 chars encoded in 278 bytes, 1.00 bytes per char
+```
+
+---
+![fit original](images/portuguese.png)
+#`cão`
+###`➜[63 e3 6f] (latin1)` 
+
 ---
 |`ascii`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
 | :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
@@ -270,77 +270,8 @@ latin9 improved latin1 €
 
 
 ---
-|`latin2`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
-| :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
-| `2x` | ` `     | `!`     | `"`     | `#`     | `$`     | `%`     | `&`     | `'`     | `(`     | `)`     | `*`     | `+`     | `,`     | `-`     | `.`     | `/`     |
-| `3x` | `0`     | `1`     | `2`     | `3`     | `4`     | `5`     | `6`     | `7`     | `8`     | `9`     | `:`     | `;`     | `<`     | `=`     | `>`     | `?`     |
-| `4x` | `@`     | `A`     | `B`     | `C`     | `D`     | `E`     | `F`     | `G`     | `H`     | `I`     | `J`     | `K`     | `L`     | `M`     | `N`     | `O`     |
-| `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
-| `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
-| `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
-| `8x` |         |         |         |         |         |         |         |         |         |         |         |         |         |         |         |         |
-| `9x` |         |         |         |         |         |         |         |         |         |         |         |         |         |         |         |         |
-| `ax` | ` `     | `ˇ`     | `˘`     | `Ł`     | `¤`     | `Ľ`     | `Ś`     | `Š`     | `Ş`     | `Ť`     | `Ź`     | `¡`     | `˛`     | `˙`     | `˝`     | `Ů`     |
-| `bx` | `ź`     | `‘`     | `’`     | `“`     | `”`     | `•`     | `–`     | `—`     | `™`     |         |         |         |         |         |         |         |
-| `cx` | `Ą`     | `˘`     | `Ď`     | `Đ`     | `Ë`     | `Ę`     | `Ě`     | `Í`     | `Î`     | `Ï`     | `˝`     | `Ł`     | `Ń`     | `Ň`     | `Ó`     | `Ô`     |
-| `dx` | `Ő`     | `Œ`     | `Ŕ`     | `Ř`     | `Ŗ`     | `Ś`     | `Ş`     | `Š`     | `Ţ`     | `Ť`     | `Ź`     | `Ż`     | `Ž`     |         |         |         |
-| `ex` | `ą`     | `˙`     | `ď`     | `đ`     | `ë`     | `ę`     | `ě`     | `í`     | `î`     | `ï`     | `˝`     | `ł`     | `ń`     | `ň`     | `ó`     | `ô`     |
-| `fx` | `ő`     | `œ`     | `ŕ`     | `ř`     | `ŗ`     | `ś`     | `ş`     | `š`     | `ţ`     | `ť`     | `ź`     | `ż`     | `ž`     | `ÿ`     |         |         |
 
-^
-latin2 filled others
-
-
----
-```
-➜ encode.py ascii latin2 < 80dogs.txt
-✅ ascii ✅ latin2: 53 good dogs
-  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane
-  chien  cyn  dog  emba  ghaddu  gom  hond  hondur
-  hualp  huan  hund  imba  imbua  imbwe  inu  it
-  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya
-  mbula  mbwa  mbwagh  mbwene  njau  njoka  pa  perro
-  pes  pies  qen  qeni  sag  sagol  sobaka  suns
-  szczeniak  ukudla  welpe  xolo  zwin
-❌ ascii ✅ latin2: 7 bad dogs turned good
-  chó  câin  câine  câini  köpek  mbwá  šuo
-❌ ascii ❌ latin2: 20 bad dogs
-  cão  klèb  köpeği  køter  mbʉ  tz’i’  āso  āšun
-  łééchąą’í  אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  犬
-  狗  𐀠  𓃥  🐶
-
-✅ ascii→latin2: 53→60 good dogs
-✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
-✅ latin2: 269 chars encoded in 269 bytes, 1.00 bytes per char
-```
-^
-ascii  53
-latin2 60
-
-
----
-![fit original](images/turkish.png)
-#`köpek`
-###`➜[6b f6 70 65 6b] (latin2)`
-
-
----
-![fit original](images/romanian.png)
-#`câine`
-###`➜[63 e2 69 6e 65] (latin2)`
-
-^
-romanian
-
----
-#windows-1250
-^
-1995
-
----
-|`latin2`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
+|`latin1`| ` 0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `a`   | `b`   | `c`   | `d`   | `e`   | `f`   |
 | :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 | `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
 | `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
@@ -352,31 +283,103 @@ romanian
 | `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
 | `8x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
 | `9x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
-| `ax` | ` `     | `Ą`     | `˘`     | `Ł`     | `¤`     | `Ľ`     | `Ś`     | `§`     | `¨`     | `Š`     | `Ş`     | `Ť`     | `Ź`     | `­`     | `Ž`     | `Ż`     |
-| `bx` | `°`     | `ą`     | `˛`     | `ł`     | `´`     | `ľ`     | `ś`     | `ˇ`     | `¸`     | `š`     | `ş`     | `ť`     | `ź`     | `˝`     | `ž`     | `ż`     |
-| `cx` | `Ŕ`     | `Á`     | `Â`     | `Ă`     | `Ä`     | `Ĺ`     | `Ć`     | `Ç`     | `Č`     | `É`     | `Ę`     | `Ë`     | `Ě`     | `Í`     | `Î`     | `Ď`     |
-| `dx` | `Đ`     | `Ń`     | `Ň`     | `Ó`     | `Ô`     | `Ő`     | `Ö`     | `×`     | `Ř`     | `Ů`     | `Ú`     | `Ű`     | `Ü`     | `Ý`     | `Ţ`     | `ß`     |
-| `ex` | `ŕ`     | `á`     | `â`     | `ă`     | `ä`     | `ĺ`     | `ć`     | `ç`     | `č`     | `é`     | `ę`     | `ë`     | `ě`     | `í`     | `î`     | `ď`     |
-| `fx` | `đ`     | `ń`     | `ň`     | `ó`     | `ô`     | `ő`     | `ö`     | `÷`     | `ř`     | `ů`     | `ú`     | `ű`     | `ü`     | `ý`     | `ţ`     | `˙`     |
+| `ax` | `¡`     | `¢`     | `£`     | `¤`     | `¥`     | `¦`     | `§`     | `¨`     | `©`     | `ª`     | `«`     | `¬`     | `­`     | `®`     | `¯`     | `°`     |
+| `bx` | `±`     | `²`     | `³`     | `´`     | `µ`     | `¶`     | `·`     | `¸`     | `¹`     | `º`     | `»`     | `¼`     | `½`     | `¾`     | `¿`     |        |
+| `cx` | `À`     | `Á`     | `Â`     | `Ã`     | `Ä`     | `Å`     | `Æ`     | `Ç`     | `È`     | `É`     | `Ê`     | `Ë`     | `Ì`     | `Í`     | `Î`     | `Ï`     |
+| `dx` | `Ð`     | `Ñ`     | `Ò`     | `Ó`     | `Ô`     | `Õ`     | `Ö`     | `×`     | `Ø`     | `Ù`     | `Ú`     | `Û`     | `Ü`     | `Ý`     | `Þ`     | `ß`     |
+| `ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
+| `fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
+
+^
+latin2 filled others
+
 ---
-|`win-1250`| `0`   | `1`  | `2`  | `3`  | `4`  | `5`  | `6`  | `7`  | `8`  | `9`  | `a`  | `b`  | `c`  | `d`  | `e`  | `f` |
-| :--      |  :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |:--: |
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
-| `2x` | ` ` | `!` | `"` | `#` | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
-| `3x` | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
-| `4x` | `@` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
-| `5x` | `P` | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | `[` | `\\` | `]` | `^` | `_` |
-| `6x` | `` ` `` | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
-| `7x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | `{` | `|` | `}` | `~` | `<del>` |
-| `8x` | `€` | `` | `‚` | `` | `„` | `…` | `†` | `‡` | `` | `‰` | `Š` | `‹` | `Ś` | `Ť` | `Ž` | `Ź` |
-| `9x` | `` | `‘` | `’` | `“` | `”` | `•` | `–` | `—` | `` | `™` | `š` | `›` | `ś` | `ť` | `ž` | `ź` |
-| `ax` | ` ` | `ˇ` | `˘` | `Ł` | `¤` | `Ą` | `¦` | `§` | `¨` | `©` | `Ş` | `«` | `¬` | `­` | `®` | `Ż` |
-| `bx` | `°` | `±` | `˛` | `ł` | `´` | `µ` | `¶` | `·` | `¸` | `ą` | `ş` | `»` | `Ľ` | `˝` | `ľ` | `ż` |
-| `cx` | `Ŕ` | `Á` | `Â` | `Ă` | `Ä` | `Ĺ` | `Ć` | `Ç` | `Č` | `É` | `Ę` | `Ë` | `Ě` | `Í` | `Î` | `Ď` |
-| `dx` | `Đ` | `Ń` | `Ň` | `Ó` | `Ô` | `Ő` | `Ö` | `×` | `Ř` | `Ů` | `Ú` | `Ű` | `Ü` | `Ý` | `Ţ` | `ß` |
-| `ex` | `ŕ` | `á` | `â` | `ă` | `ä` | `ĺ` | `ć` | `ç` | `č` | `é` | `ę` | `ë` | `ě` | `í` | `î` | `ď` |
-| `fx` | `đ` | `ń` | `ň` | `ó` | `ô` | `ő` | `ö` | `÷` | `ř` | `ů` | `ú` | `ű` | `ü` | `ý` | `ţ` | `˙` |
+```
+➜ encode.py ascii latin2 < 80dogs.txt
+✅ ascii ✅ latin2: 53 good dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
+  ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
+  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
+  njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
+  szczeniak  ukudla  welpe  xolo  zwin
+❌ ascii ✅ latin2: 7 bad dogs turned good
+  chó  câin  câine  câini  köpek  mbwá  šuo
+❌ ascii ❌ latin2: 20 bad dogs
+  cão  klèb  köpeği  køter  mbʉ  tz’i’  āso  āšun  łééchąą’í  אבו  כּלב  كلب
+  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
+
+✅ ascii→latin2: 53→60 good dogs
+✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
+✅ latin2: 269 chars encoded in 269 bytes, 1.00 bytes per char
+```
+
+---
+![fit original](images/turkish.png)
+#`köpek`
+###`➜[6b f6 70 65 6b] (latin2)`
+
+---
+```
+➜ encode.py latin1 cp1252 < 80dogs.txt
+✅ latin1 ✅ cp1252: 62 good dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
+  câine  câini  cão  dog  emba  ghaddu  gom  hond  hondur  hualp  huan  hund
+  imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
+  kutta  kutya  köpek  køter  mbula  mbwa  mbwagh  mbwene  mbwá  njau  njoka  pa
+  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns  szczeniak  ukudla  welpe
+  xolo  zwin
+❌ latin1 ✅ cp1252: 2 bad dogs turned good
+  tz’i’  šuo
+❌ latin1 ❌ cp1252: 16 bad dogs
+  köpeği  mbʉ  āso  āšun  łééchąą’í  אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  犬
+  狗  𐀠  𓃥  🐶
+
+✅ latin1→cp1252: 62→64 good dogs
+✅ latin1: 278 chars encoded in 278 bytes, 1.00 bytes per char
+✅ cp1252: 286 chars encoded in 286 bytes, 1.00 bytes per char
+```
+
+---
+|`latin1`| ` 0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
+| :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
+| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
+| `2x` | ` `     | `!`     | `"`     | `#`     | `$`     | `%`     | `&`     | `'`     | `(`     | `)`     | `*`     | `+`     | `,`     | `-`     | `.`     | `/`     |
+| `3x` | `0`     | `1`     | `2`     | `3`     | `4`     | `5`     | `6`     | `7`     | `8`     | `9`     | `:`     | `;`     | `<`     | `=`     | `>`     | `?`     |
+| `4x` | `@`     | `A`     | `B`     | `C`     | `D`     | `E`     | `F`     | `G`     | `H`     | `I`     | `J`     | `K`     | `L`     | `M`     | `N`     | `O`     |
+| `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
+| `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
+| `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
+| `8x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| `9x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| `Ax` | `¡`     | `¢`     | `£`     | `¤`     | `¥`     | `¦`     | `§`     | `¨`     | `©`     | `ª`     | `«`     | `¬`     | `­`     | `®`     | `¯`     | `°`     |
+| `Bx` | `±`     | `²`     | `³`     | `´`     | `µ`     | `¶`     | `·`     | `¸`     | `¹`     | `º`     | `»`     | `¼`     | `½`     | `¾`     | `¿`     |        |
+| `Cx` | `À`     | `Á`     | `Â`     | `Ã`     | `Ä`     | `Å`     | `Æ`     | `Ç`     | `È`     | `É`     | `Ê`     | `Ë`     | `Ì`     | `Í`     | `Î`     | `Ï`     |
+| `Dx` | `Ð`     | `Ñ`     | `Ò`     | `Ó`     | `Ô`     | `Õ`     | `Ö`     | `×`     | `Ø`     | `Ù`     | `Ú`     | `Û`     | `Ü`     | `Ý`     | `Þ`     | `ß`     |
+| `Ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
+| `Fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
+
+---
+
+
+|`win-1252`| `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `a`   | `b`   | `c`   | `d`   | `e`   | `f`   |
+| :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
+| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
+| `2x` | ` `     | `!`     | `"`     | `#`     | `$`     | `%`     | `&`     | `'`     | `(`     | `)`     | `*`     | `+`     | `,`     | `-`     | `.`     | `/`     |
+| `3x` | `0`     | `1`     | `2`     | `3`     | `4`     | `5`     | `6`     | `7`     | `8`     | `9`     | `:`     | `;`     | `<`     | `=`     | `>`     | `?`     |
+| `4x` | `@`     | `A`     | `B`     | `C`     | `D`     | `E`     | `F`     | `G`     | `H`     | `I`     | `J`     | `K`     | `L`     | `M`     | `N`     | `O`     |
+| `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
+| `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
+| `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
+| `8x` | `€`     |        | `‚`     | `ƒ`     | `„`     | `…`     | `†`     | `‡`     | `ˆ`     | `‰`     | `Š`     | `‹`     | `Œ`     |        | `Ž`     |        |
+| `9x` |        | `‘`     | `’`     | `“`     | `”`     | `•`     | `–`     | `—`     | `˜`     | `™`     | `š`     | `›`     | `œ`     |        | `ž`     | `Ÿ`     |
+| `ax` | `¡`     | `¢`     | `£`     | `¤`     | `¥`     | `¦`     | `§`     | `¨`     | `©`     | `ª`     | `«`     | `¬`     | `­`     | `®`     | `¯`     | `°`     |
+| `bx` | `±`     | `²`     | `³`     | `´`     | `µ`     | `¶`     | `·`     | `¸`     | `¹`     | `º`     | `»`     | `¼`     | `½`     | `¾`     | `¿`     |
+| `cx` | `À`     | `Á`     | `Â`     | `Ã`     | `Ä`     | `Å`     | `Æ`     | `Ç`     | `È`     | `É`     | `Ê`     | `Ë`     | `Ì`     | `Í`     | `Î`     | `Ï`     |
+| `dx` | `Ð`     | `Ñ`     | `Ò`     | `Ó`     | `Ô`     | `Õ`     | `Ö`     | `×`     | `Ø`     | `Ù`     | `Ú`     | `Û`     | `Ü`     | `Ý`     | `Þ`     | `ß`     |
+| `ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
+| `fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
 
 ---
 ```
@@ -403,6 +406,11 @@ romanian
 ```
 
 ---
+![fit original](images/navajo.png)
+#`łééchąą’í`
+###`➜[b3 e9 e9 63 68 b9 b9 92 ed] (cp1250)`
+
+---
 ![fit original](images/vietnamese.png)
 #`chó`
 ###`➜[63 68 f3] (latin2)`
@@ -413,11 +421,6 @@ romanian
 #`šuo`
 ###`➜[b9 75 6f] (latin2)`
 ###`➜[9a 75 6f] (cp1250)`
-
----
-![fit original](images/navajo.png)
-#`łééchąą’í`
-###`➜[b3 e9 e9 63 68 b9 b9 92 ed] (cp1250)`
 
 ---
 
@@ -524,69 +527,24 @@ not an encoding
 
 
 ---
-#Unicode 1.0
-###Codepoint: `U+0000➜U+FFFF`
-
-^
-Major languages
-Modern world
+#Codepoint
 
 ---
-#Unicode 2.0+
-###Codepoint: `U+0000➜U+10FFFF`
+# `U+0000➜U+10ffff`
 
---- 
-| `U+`     | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
-| :--: | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| `000x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
-| `001x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>` | `<sub>` | `<esc>` | `<fs>` | `<gs>` | `<rs>` | `<us>` |
-| `002x` |         | `!` | `"` | **`#`** | `$` | `%` | `&` | `'` | `(` | `)` | `*` | `+` | `,` | `-` | `.` | `/` |
-| `003x` | `0`     | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `:` | `;` | `<` | `=` | `>` | `?` |
-| `004x` | `@`     | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `J` | `K` | `L` | `M` | `N` | `O` |
-| `005x` | `P`     | `Q` | `R` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | **`[`** | **`\`** | **`]`** | **`^`** | **`_`** |
-| `006x` | **`` ` ``** | `a` | `b` | `c` | `d` | `e` | `f` | `g` | `h` | `i` | `j` | `k` | `l` | `m` | `n` | `o` |
-| `007x` | `p` | `q` | `r` | `s` | `t` | `u` | `v` | `w` | `x` | `y` | `z` | **`{`** | `¦` | | **`}`** | **`~`** | `<del>` |
-
-^
-###Unicode U+0000 to U+007f
 
 ---
 
-| Range           | Block                    |
-| :---            | :---                     | 
-| `U+0000➜U+007F` | ASCII                    |
-| `U+0080➜U+00FF` | Latin Supplement         |
-| `U+0100➜U+024F` | Latin Extended           |
-| `U+0250➜U+02FF` | Phonetic Symbols         |
-| `U+0300➜U+05FF` | Greek, Cyrillic & Hebrew |
-| `U+0600➜U+0FFF` | Arabic & Indian          |
-| `U+1000➜U+17FF` | S & SE Asian             |
-| `U+1800➜U+24FF` | E Asian                  |
-| `U+2000➜U+27FF` | Symbols & Punctuation    |
-| `U+2800➜U+28FF` | Braille & Basic Shapes   |
-| `U+2E80➜U+9FFF` | Chinese                  |
-| `U+AC00➜U+D7AF` | Korean                   |
-| `U+D800➜U+DBFF` | High Surrogates          |
-| `U+DC00➜U+DFFF` | Low Surrogates           |
-
-^
-basic latin
-latin suppl: latin1, western europe
-latin extend: rest of europe, africa
-note surrogates 
-
----
-
-| Plane   |  Range              | Plane Name                          | Abbreviation | 
-|:---     |:---                 | :---                                | :--   |
-| `0`     | `U+0000➜U+FFFF`     | Basic Multilingual            |BMP    |
-| `1`     | `U+10000➜U+1FFFF`   | Supplementary Multilingual  |SMP    |
-| `2`     | `U+20000➜U+2FFFF`   | Supplementary Ideographic   |SIP    |
-| `3`     | `U+30000➜U+3FFFF`   | Tertiary Ideographic Plane     |TIP    | 
-| `4➜13`  | `U+40000➜U+DFFFF`   | Reserved                       |       |
-| `14`    | `U+E0000➜U+EFFFF`   | Supplementary Special-Purpose |SSP    |
-| `15`    | `U+F0000➜U+FFFFF`   | Private Use Area A                  |       |
-| `16`    | `U+100000➜U+10FFFF` | Private Use Area B                  |       |
+| Plane    |                       | Name                                      |
+|:---      |:---                   | :--                                       |
+| `0`      | `U+0000   ➜ U+ffff⠀⠀` | Basic Multilingual Plane             |
+| `1`      | `U+10000 ⠀➜ U+1ffff⠀` | Supplementary Multilingual Plane     |
+| `2`      | `U+20000 ⠀➜ U+2ffff⠀` | Supplementary Ideographic Plane      |
+| `3`      | `U+30000⠀ ➜ U+3ffff⠀` | Tertiary Ideographic Plane          | 
+| `4 ➜ 13` | `U+40000 ⠀➜ U+dffff⠀` | Reserved                                  |
+| `14`     | `U+e0000 ⠀➜ U+effff⠀` | Suppl.  Special-Purpose Plane  |
+| `15`     | `U+f0000⠀ ➜ U+fffff⠀` | Private Use Area A                        |
+| `16`     | `U+100000 ➜ U+10ffff` | Private Use Area B                        |
 
 
 ^
@@ -597,6 +555,58 @@ TIP very rare chinese
 Reserved - custom characters used in fonts, software, or private systems
 Future use
 SSP - Special-purpose codes for language tagging and fine-tuning character display
+
+
+--- 
+
+|   | ` 0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
+| :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| `U+000x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
+| `U+001x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
+| `U+002x` | ` `     | `!`     | `"`     | `#`     | `$`     | `%`     | `&`     | `'`     | `(`     | `)`     | `*`     | `+`     | `,`     | `-`     | `.`     | `/`     |
+| `U+003x` | `0`     | `1`     | `2`     | `3`     | `4`     | `5`     | `6`     | `7`     | `8`     | `9`     | `:`     | `;`     | `<`     | `=`     | `>`     | `?`     |
+| `U+004x` | `@`     | `A`     | `B`     | `C`     | `D`     | `E`     | `F`     | `G`     | `H`     | `I`     | `J`     | `K`     | `L`     | `M`     | `N`     | `O`     |
+| `U+005x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
+| `U+006x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
+| `U+007x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
+| `U+008x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| `U+009x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| `U+00ax` | `¡`     | `¢`     | `£`     | `¤`     | `¥`     | `¦`     | `§`     | `¨`     | `©`     | `ª`     | `«`     | `¬`     | `­`     | `®`     | `¯`     | `°`     |
+| `U+00bx` | `±`     | `²`     | `³`     | `´`     | `µ`     | `¶`     | `·`     | `¸`     | `¹`     | `º`     | `»`     | `¼`     | `½`     | `¾`     | `¿`     |        |
+| `U+00cx` | `À`     | `Á`     | `Â`     | `Ã`     | `Ä`     | `Å`     | `Æ`     | `Ç`     | `È`     | `É`     | `Ê`     | `Ë`     | `Ì`     | `Í`     | `Î`     | `Ï`     |
+| `U+00dx` | `Ð`     | `Ñ`     | `Ò`     | `Ó`     | `Ô`     | `Õ`     | `Ö`     | `×`     | `Ø`     | `Ù`     | `Ú`     | `Û`     | `Ü`     | `Ý`     | `Þ`     | `ß`     |
+| `U+00ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
+| `U+00fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
+
+^
+###Unicode U+0000 to U+007f
+
+
+--- 
+| Range           | Block                   |
+| :---            | :---                    | 
+| `U+0000➜U+007f` | ASCII                   |
+| `U+0080➜U+00ff` | Latin-1 Supplement        |
+| `U+0100➜U+024f` | Latin Extended          |
+| `U+0250➜U+02ff` | Phonetic Symbols        |
+| `U+0300➜U+05ff` | Greek, Cyrillic, Hebrew |
+| `U+0600➜U+0fff` | Arabic & Indian         |
+| `U+1000➜U+17ff` | S & SE Asian            |
+| `U+1800➜U+24ff` | E Asian                 |
+| `U+2000➜U+27ff` | Symbols, Punctuation    |
+| `U+2800➜U+28ff` | Braille, Shapes         |
+| `U+2e80➜U+9fff` | Chinese                 |
+| `U+ac00➜U+d7af` | Korean                  |
+| `U+d800➜U+dbff` | High Surrogates         |
+| `U+dc00➜U+dfff` | Low Surrogates          |
+
+^
+basic latin
+latin suppl: latin1, western europe
+latin extend: rest of europe, africa
+note surrogates 
+
+
 
 ---
 #Unicode Encodings
@@ -681,9 +691,9 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 | `U+1800➜U+24ff`     | E Asian                 |
 | `U+2000➜U+27ff`     | Symbols                 |
 | `U+2800➜U+28ff`     | Braille, Shapes         |
-| `U+2e80➜U+9Fff`     | Chinese                 |
-| `U+ac00➜U+D7af`     | Korean                  |
-| **`U+d800➜U+dBff`** | **High Surrogates**     |
+| `U+2e80➜U+9fff`     | Chinese                 |
+| `U+ac00➜U+d7af`     | Korean                  |
+| **`U+d800➜U+dbff`** | **High Surrogates**     |
 | **`U+dc00➜U+dfff`** | **Low Surrogates**      |
 | `U+e000➜U+f8ff`     | Private Use             |
 
@@ -703,8 +713,8 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 ---
 ![fit](images/emoji.png)
 #`🐶 = U+1f436`
-###`➜ ⠀U+d83d⠀⠀⠀⠀⠀U+dc36⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`
-###`➜ [72 ad  d8] [3d  dc 36 ] (utf-16)`
+###`➜  U+d83d  U+dc36⠀⠀⠀⠀⠀⠀⠀⠀`
+###`➜ [d8 3d] [dc 36 ] (utf-16)`
 
 ---
 #Unicode Encoding
@@ -751,16 +761,12 @@ others: 21 bits->4 bytes
 Same on big-little endian
 
 ---
-[.code-highlight: 1-2]
-[.code-highlight: 1-4,7]
-[.code-highlight: 1-5,7]
-[.code-highlight: 1-7]
-[.code-highlight: 1-8]
+[.code-highlight: 1,4]
+[.code-highlight: 1-2,4]
+[.code-highlight: 1-4]
+[.code-highlight: 1-5]
 [.code-highlight: all]
 ```
-➜ encode.py utf-8 Ł
-utf-8:   "Ł"=[c5 81]     
-
 U+0141 ('Ł') 
  =  00101000001
  =     00101   000001
@@ -802,9 +808,11 @@ self-synchonizing
 ###`➜[70 69 65 73] (utf-8)` 
 
 ---
-![fit original](images/portuguese.png)
-#`cão`
-###`➜[63 c3 a3 6f] (utf-8)` 
+![fit original](images/romanian.png)
+#`câine`
+###`➜[63 c3 a2 69 6e 65] (utf-8)` 
+
+
 
 ---
 ![fit original](images/chinese.png)

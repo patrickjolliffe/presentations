@@ -90,22 +90,22 @@ def main():
             
             if good_both:
                 print(f"✅ {enc1} ✅ {enc2}: {len(good_both)} good dogs")
-                for i in range(0, len(good_both), 8):
-                    print("  " + "  ".join(good_both[i:i+8]))
+                for i in range(0, len(good_both), 12):
+                    print("  " + "  ".join(good_both[i:i+12]))
 
             if bad_enc1_good_enc2:
                 print(f"❌ {enc1} ✅ {enc2}: {len(bad_enc1_good_enc2)} bad dogs turned good")
-                for i in range(0, len(bad_enc1_good_enc2), 8):
-                    print("  " + "  ".join(bad_enc1_good_enc2[i:i+8]))
+                for i in range(0, len(bad_enc1_good_enc2), 12):
+                    print("  " + "  ".join(bad_enc1_good_enc2[i:i+12]))
             if good_enc1_bad_enc2:
                 print(f"✅ {enc1} ❌ {enc2}: {len(good_enc1_bad_enc2)} good dogs gone bad")
-                for i in range(0, len(good_enc1_bad_enc2), 8):
-                    print("  " + "  ".join(good_enc1_bad_enc2[i:i+8]))
+                for i in range(0, len(good_enc1_bad_enc2), 12):
+                    print("  " + "  ".join(good_enc1_bad_enc2[i:i+12]))
 
             if bad_both:
                 print(f"❌ {enc1} ❌ {enc2}: {len(bad_both)} bad dogs")
-                for i in range(0, len(bad_both), 8):
-                    print("  " + "  ".join(bad_both[i:i+8]))
+                for i in range(0, len(bad_both), 12):
+                    print("  " + "  ".join(bad_both[i:i+12]))
 
             print(f"\n✅ {enc1}→{enc2}: {len(good_both)}→{len(good_both) + len(bad_enc1_good_enc2)} good dogs")
             print(f"✅ {enc1}: {char_count1} chars encoded in {byte_count1} bytes, {byte_count1 / char_count1:.2f} bytes per char")
@@ -117,21 +117,18 @@ def main():
             for dog in dogs:
                 try:
                     encoded_dog = dog.encode(enc1)
-                    hex_string = ' '.join(f"{b:02X}" for b in encoded_dog)
-                    print(f"✅ {enc1 + ':':<8} Good {dog} [{hex_string.lower()}] ({len(encoded_dog)} bytes)")                                
-
                     good.append(dog)
                 except UnicodeEncodeError:
                     bad.append(dog)
 
             if bad:
                 print(f"✅ {enc1}: {len(good)} good dogs")
-                for i in range(0, len(good), 8):
-                    print("  " + "  ".join(good[i:i+8]))
+                for i in range(0, len(good), 12):
+                    print("  " + "  ".join(good[i:i+12]))
 
                 print(f"❌ {enc1}: {len(bad)} bad dogs")
-                for i in range(0, len(bad), 8):
-                    print("  " + "  ".join(bad[i:i+8]))            
+                for i in range(0, len(bad), 12):
+                    print("  " + "  ".join(bad[i:i+12]))            
 
                 byte_count = sum(len(dog.encode(enc1)) for dog in good)
                 char_count = sum(len(dog) for dog in good)
