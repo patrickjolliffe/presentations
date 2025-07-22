@@ -318,109 +318,6 @@ latin2 filled others
 #`köpek`
 ###`➜[6b f6 70 65 6b] (latin2)`
 
----
-```
-➜ encode.py latin1 cp1252 < 80dogs.txt
-✅ latin1 ✅ cp1252: 62 good dogs
-  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
-  câine  câini  cão  dog  emba  ghaddu  gom  hond  hondur  hualp  huan  hund
-  imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
-  kutta  kutya  köpek  køter  mbula  mbwa  mbwagh  mbwene  mbwá  njau  njoka  pa
-  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns  szczeniak  ukudla  welpe
-  xolo  zwin
-❌ latin1 ✅ cp1252: 2 bad dogs turned good
-  tz’i’  šuo
-❌ latin1 ❌ cp1252: 16 bad dogs
-  köpeği  mbʉ  āso  āšun  łééchąą’í  אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  犬
-  狗  𐀠  𓃥  🐶
-
-✅ latin1→cp1252: 62→64 good dogs
-✅ latin1: 278 chars encoded in 278 bytes, 1.00 bytes per char
-✅ cp1252: 286 chars encoded in 286 bytes, 1.00 bytes per char
-```
-
----
-|`latin1`| ` 0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
-| :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
-| `2x` | ` `     | `!`     | `"`     | `#`     | `$`     | `%`     | `&`     | `'`     | `(`     | `)`     | `*`     | `+`     | `,`     | `-`     | `.`     | `/`     |
-| `3x` | `0`     | `1`     | `2`     | `3`     | `4`     | `5`     | `6`     | `7`     | `8`     | `9`     | `:`     | `;`     | `<`     | `=`     | `>`     | `?`     |
-| `4x` | `@`     | `A`     | `B`     | `C`     | `D`     | `E`     | `F`     | `G`     | `H`     | `I`     | `J`     | `K`     | `L`     | `M`     | `N`     | `O`     |
-| `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
-| `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
-| `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
-| `8x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
-| `9x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
-| `Ax` | `¡`     | `¢`     | `£`     | `¤`     | `¥`     | `¦`     | `§`     | `¨`     | `©`     | `ª`     | `«`     | `¬`     | `­`     | `®`     | `¯`     | `°`     |
-| `Bx` | `±`     | `²`     | `³`     | `´`     | `µ`     | `¶`     | `·`     | `¸`     | `¹`     | `º`     | `»`     | `¼`     | `½`     | `¾`     | `¿`     |        |
-| `Cx` | `À`     | `Á`     | `Â`     | `Ã`     | `Ä`     | `Å`     | `Æ`     | `Ç`     | `È`     | `É`     | `Ê`     | `Ë`     | `Ì`     | `Í`     | `Î`     | `Ï`     |
-| `Dx` | `Ð`     | `Ñ`     | `Ò`     | `Ó`     | `Ô`     | `Õ`     | `Ö`     | `×`     | `Ø`     | `Ù`     | `Ú`     | `Û`     | `Ü`     | `Ý`     | `Þ`     | `ß`     |
-| `Ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
-| `Fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
-
----
-
-
-|`win-1252`| `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `a`   | `b`   | `c`   | `d`   | `e`   | `f`   |
-| :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
-| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
-| `2x` | ` `     | `!`     | `"`     | `#`     | `$`     | `%`     | `&`     | `'`     | `(`     | `)`     | `*`     | `+`     | `,`     | `-`     | `.`     | `/`     |
-| `3x` | `0`     | `1`     | `2`     | `3`     | `4`     | `5`     | `6`     | `7`     | `8`     | `9`     | `:`     | `;`     | `<`     | `=`     | `>`     | `?`     |
-| `4x` | `@`     | `A`     | `B`     | `C`     | `D`     | `E`     | `F`     | `G`     | `H`     | `I`     | `J`     | `K`     | `L`     | `M`     | `N`     | `O`     |
-| `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
-| `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
-| `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
-| `8x` | `€`     |        | `‚`     | `ƒ`     | `„`     | `…`     | `†`     | `‡`     | `ˆ`     | `‰`     | `Š`     | `‹`     | `Œ`     |        | `Ž`     |        |
-| `9x` |        | `‘`     | `’`     | `“`     | `”`     | `•`     | `–`     | `—`     | `˜`     | `™`     | `š`     | `›`     | `œ`     |        | `ž`     | `Ÿ`     |
-| `ax` | `¡`     | `¢`     | `£`     | `¤`     | `¥`     | `¦`     | `§`     | `¨`     | `©`     | `ª`     | `«`     | `¬`     | `­`     | `®`     | `¯`     | `°`     |
-| `bx` | `±`     | `²`     | `³`     | `´`     | `µ`     | `¶`     | `·`     | `¸`     | `¹`     | `º`     | `»`     | `¼`     | `½`     | `¾`     | `¿`     |
-| `cx` | `À`     | `Á`     | `Â`     | `Ã`     | `Ä`     | `Å`     | `Æ`     | `Ç`     | `È`     | `É`     | `Ê`     | `Ë`     | `Ì`     | `Í`     | `Î`     | `Ï`     |
-| `dx` | `Ð`     | `Ñ`     | `Ò`     | `Ó`     | `Ô`     | `Õ`     | `Ö`     | `×`     | `Ø`     | `Ù`     | `Ú`     | `Û`     | `Ü`     | `Ý`     | `Þ`     | `ß`     |
-| `ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
-| `fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
-
----
-```
-➜ encode.py latin2 cp1250 < 80dogs.txt
-✅ latin2 ✅ cp1250: 60 good dogs
-  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane
-  chien  chó  cyn  câin  câine  câini  dog  emba
-  ghaddu  gom  hond  hondur  hualp  huan  hund  imba
-  imbua  imbwe  inu  it  jindo  kelb  khuy  koer
-  koira  kotta  kutta  kutya  köpek  mbula  mbwa  mbwagh
-  mbwene  mbwá  njau  njoka  pa  perro  pes  pies
-  qen  qeni  sag  sagol  sobaka  suns  szczeniak  ukudla
-  welpe  xolo  zwin  šuo
-❌ latin2 ✅ cp1250: 2 bad dogs turned good
-  tz’i’  łééchąą’í
-❌ latin2 ❌ cp1250: 18 bad dogs
-  cão  klèb  köpeği  køter  mbʉ  āso  āšun  אבו
-  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠
-  𓃥  🐶
-
-✅ latin2→cp1250: 60→62 good dogs
-✅ latin2: 269 chars encoded in 269 bytes, 1.00 bytes per char
-✅ cp1250: 283 chars encoded in 283 bytes, 1.00 bytes per char
-```
-
----
-![fit original](images/navajo.png)
-#`łééchąą’í`
-###`➜[b3 e9 e9 63 68 b9 b9 92 ed] (cp1250)`
-
----
-![fit original](images/vietnamese.png)
-#`chó`
-###`➜[63 68 f3] (latin2)`
-###`➜[63 68 f3] (cp1250)`
-
----
-![fit original](images/lithuanian.png)
-#`šuo`
-###`➜[b9 75 6f] (latin2)`
-###`➜[9a 75 6f] (cp1250)`
 
 ---
 
@@ -599,6 +496,7 @@ SSP - Special-purpose codes for language tagging and fine-tuning character displ
 | `U+ac00➜U+d7af` | Korean                  |
 | `U+d800➜U+dbff` | High Surrogates         |
 | `U+dc00➜U+dfff` | Low Surrogates          |
+| `U+e000➜U+f8ff`     | Private Use             |
 
 ^
 basic latin
@@ -812,8 +710,6 @@ self-synchonizing
 #`câine`
 ###`➜[63 c3 a2 69 6e 65] (utf-8)` 
 
-
-
 ---
 ![fit original](images/chinese.png)
 #`狗`
@@ -829,8 +725,8 @@ self-synchonizing
 |Encoding   |Good Dogs  | Bytes per Char |
 |:--        |:--:        |--:             |
 |`ascii`    |`53`       | `1.00`         |
+|`latin1`   |`62`       | `1.00`         |
 |`latin2`   |`60`       | `1.00`         |
-|`win-1250` |`62`       | `1.00`         |
 |`gb2312`   |`60`       | `1.03`         |
 |`utf-8`    |`80`       | `1.22`         |
 |`utf-16`   |`80`       | `2.02`         |
@@ -838,52 +734,38 @@ self-synchonizing
 
 ---
 ```
-⠀US7ASCII⠀
+create database piesek
+   characterset we8iso8859p1
+   national character set al16utf16
+...
 
- WE8ISO8859P1
- WE8ISO8859P2
+create table dogs ( name  nchar (10),
+                    breed  char (10) );
 
- WE8MSWIN1252
- EE8MSWIN1250
-
- ZHS16CGB231280
-
- AL16UTF16
- AL32UTF8
+insert into dogs (name,  breed)
+          values (n'犬', 'Shiba Inu');   
 ```
-
----
-```
-US   7 ASCII
-
-WE   8 ISO8859P1
-WE   8 ISO8859P2
-
-WE   8 MSWIN1252
-EE   8 MSWIN1250
-
-ZHS 16 CGB231280
-
-AL  16 UTF16
-AL  32 UTF8
-```
-
 ^
-Character Set-Bits-Encoding
-WE Western European 
-ZHS Simplified Chinese
-AL All Languages
+ historically any
+ now utf8 & al16utf16
+
+
+---
+#`we8iso8859p1`
+#`al16utf16`
+
+---
+#`we 8 iso8859p1`
+#`al 16 utf16`
 
 ---
 
-|Database Version|Character Set            |
-| :--      | :--                           |
-|Oracle 6  |`WE8ISO8859P1`                 | 
-|Oracle 7  |`WE8ISO8859P2,ZHS16CGB231280`  |
-|Oracle 8  |`EE8MSWIN1250`                 |
-|Oracle 8i |`UTF8`                         |
-|Oracle 9i |`AL32UTF8`                     |
-
+|Database Version|Character Set    |National Character Set     |
+| :--      | :--                   |:-- |
+|6  |`we8iso8859p1`                |  |
+|7  |`we8iso8859p2, zhs16cgb231280`                | |
+|8i |`utf8`                        |`utf8` |
+|9i |`al32utf8`                     |`al16utf16` |
 
 ^
 11g AL32UTF8 Recommended
@@ -921,79 +803,8 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 ###`➜ [ed a0 bc ed b3 a5]`
 
 ---
-```
-create database piesek
-   characterset we8iso8859p1
-   national character set al16utf16
-   ...
-```
-^
- historically any
- now utf8 & al16utf16
+What haven't covered
 
----
-```
-create table dogs ( name  nchar (10),
-                    breed char(10) );
-
-insert into dogs (name,  breed)
-          values (n'犬', 'Shiba Inu');
-```
-
----
-#Byte/Char Semantics
-
-`NLS_LENGTH_SEMANTICS = BYTE (default)| CHAR`
-
-^
-Oracle says don't set NLS_LENGTH_SEMANTICS parameter to CHAR
-Causes problems when existing installation scripts create columns with character length semantics
-
----
-```
-SQL> create table doggie(name nvarchar2(1 char));
-
-ORA-00907: missing right parenthesis
-
-SQL> create table doggie(name nvarchar2(1))
-
-SQL> Table DOGGIE created.
-
-SQL> insert into doggie values ('🐶');
-
-SQL Error: ORA-12899: value too large for column "PDBADMIN"."DOGGIE"."NAME" (actual: 2, maximum: 1)
-```
-
----
-```
-SQL> select length(n'🐶'), rawtohex(n'🐶');
-
-   LENGTH(U'\D83D\DC36') RAWTOHEX(U'\D83D\DC36')
-________________________ __________________________
-                       2 D83DDC36
-```
-
----
-```
-SQL> create table longdog (name varchar2(4001 byte));
-
-ORA-00910: specified length too long for its datatype
-
-SQL> create table longdog (name varchar2(4000 char));
-
-Table LONGDOG created.
-
-SQL> insert into longdog values (rpad('🐶', 4000, '🐶'));
-
-1 row inserted.
-
-SQL> select length(name), lengthb(name) from longdog;
-
-   LENGTH(NAME)    LENGTHB(NAME)
-_______________ ________________
-           1000             4000
-```
-
----
-
+* Windows Encodings
+* Byte/Char Semantics
 * Database Migration Assistant for Unicode (DMU)
