@@ -132,10 +132,19 @@ zwin
 ```
 
 ---
-* Before Unicode
-* Unicode Unleashed
-* Oracle Through The Ages
+* **Before Unicode**
+* Unicode
 * Oracle CharacterSet
+
+---
+
+|    | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|`0x`|     | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `0` | `#` | `@` | `:` | `>` | `√` |
+|`1x`| `␢` | `/` | `S` | `T` | `U` | `V` | `W` | `X` | `Y` | `Z` | `⧧` | `,` | `%` | `γ` | `\` | `⧻` |
+|`2x`| `-` | `J` | `K` | `L` | `M` | `N` | `O` | `P` | `Q` | `R` | `!` | `#` | `*` | `]` | `;` | `Δ` |
+|`3x`| `&` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `?` | `.` | `⌑` | `[` | `<` | `⯒` |
+
 
 
 ---
@@ -163,6 +172,11 @@ zwin
 ![fit original](images/elvish.png)
 #`Huan`
 ###`➜[48 75 61 6e] (ascii)`
+
+---
+![fit original](images/klingon.png)
+#Ha'DIbaH
+###`➜[48 61 27 44 49 62 61 48] (ascii)`
 
 
 ---
@@ -249,6 +263,42 @@ latin9 improved latin1 €
 ###`➜[63 e3 6f] (latin1)` 
 
 ---
+![fit original](images/romanian.png)
+#`câine`
+###`➜[63 e2 69 6e 65] (latin1)` 
+
+
+---
+```
+➜ encode.py ascii latin2 < 80dogs.txt
+✅ ascii ✅ latin2: 53 good dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
+  ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
+  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
+  njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
+  szczeniak  ukudla  welpe  xolo  zwin
+❌ ascii ✅ latin2: 7 bad dogs turned good
+  chó  câin  câine  câini  köpek  mbwá  šuo
+❌ ascii ❌ latin2: 20 bad dogs
+  cão  klèb  köpeği  køter  mbʉ  tz’i’  āso  āšun  łééchąą’í  אבו  כּלב  كلب
+  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
+
+✅ ascii→latin2: 53→60 good dogs
+✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
+✅ latin2: 269 chars encoded in 269 bytes, 1.00 bytes per char
+```
+
+---
+![fit original](images/turkish.png)
+#`köpek`
+###`➜[6b f6 70 65 6b] (latin2)`
+
+---
+![fit original](images/lithuanian.png)
+#`šuo`
+###`➜[b9 75 6f] (latin2)`
+
+---
 |`ascii`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
 | :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 | `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>` | `<tab>` | `<lf>` | `<vt>` | `<ff>` | `<cr>` | `<so>` | `<si>` |
@@ -293,47 +343,26 @@ latin9 improved latin1 €
 ^
 latin2 filled others
 
----
-```
-➜ encode.py ascii latin2 < 80dogs.txt
-✅ ascii ✅ latin2: 53 good dogs
-  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
-  ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
-  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
-  njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
-  szczeniak  ukudla  welpe  xolo  zwin
-❌ ascii ✅ latin2: 7 bad dogs turned good
-  chó  câin  câine  câini  köpek  mbwá  šuo
-❌ ascii ❌ latin2: 20 bad dogs
-  cão  klèb  köpeği  køter  mbʉ  tz’i’  āso  āšun  łééchąą’í  אבו  כּלב  كلب
-  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
-
-✅ ascii→latin2: 53→60 good dogs
-✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
-✅ latin2: 269 chars encoded in 269 bytes, 1.00 bytes per char
-```
 
 ---
-![fit original](images/turkish.png)
-#`köpek`
-###`➜[6b f6 70 65 6b] (latin2)`
-
-
----
-
-| Standard         | Alias        | Windows Equivalent     |
-|----------------  |-------------|--------------|
-| `iso-8859-1`     | `latin1`    | windows-1252 |
-| `iso-8859-2`     | `latin2`    | windows-1250 |
-| `iso-8859-5`     | `cyrillic`  | windows-1251 |
-| `iso-8859-6`     | `arabic`    | windows-1256 |
-| `iso-8859-7`     | `greek`     | windows-1253 |
-| `iso-8859-8`     | `hebrew`    | windows-1255 |
-| `iso-8859-9`     | `latin5`    | windows-1254 |
-| `iso-8859-11`    | `thai`      | windows-874  |
-| `iso-8859-13`    | `latin7`    | windows-1257 |
-| `iso-8859-15`    | `latin9`    | windows-1252 |
-
+|`latin2`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
+| :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| `0x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
+| `1x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
+| `2x` | ` `     | `!`     | `"`     | `#`     | `$`     | `%`     | `&`     | `'`     | `(`     | `)`     | `*`     | `+`     | `,`     | `-`     | `.`     | `/`     |
+| `3x` | `0`     | `1`     | `2`     | `3`     | `4`     | `5`     | `6`     | `7`     | `8`     | `9`     | `:`     | `;`     | `<`     | `=`     | `>`     | `?`     |
+| `4x` | `@`     | `A`     | `B`     | `C`     | `D`     | `E`     | `F`     | `G`     | `H`     | `I`     | `J`     | `K`     | `L`     | `M`     | `N`     | `O`     |
+| `5x` | `P`     | `Q`     | `R`     | `S`     | `T`     | `U`     | `V`     | `W`     | `X`     | `Y`     | `Z`     | `[`     | `\`     | `]`     | `^`     | `_`     |
+| `6x` | `` ` `` | `a`     | `b`     | `c`     | `d`     | `e`     | `f`     | `g`     | `h`     | `i`     | `j`     | `k`     | `l`     | `m`     | `n`     | `o`     |
+| `7x` | `p`     | `q`     | `r`     | `s`     | `t`     | `u`     | `v`     | `w`     | `x`     | `y`     | `z`     | `{`     | `|`     | `}`     | `~`     | `<del>` |
+| `8x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| `9x` |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| `ax` | ` `     | `Ą`     | `˘`     | `Ł`     | `¤`     | `Ľ`     | `Ś`     | `§`     | `¨`     | `Š`     | `Ş`     | `Ť`     | `Ź`     | `­`     | `Ž`     | `Ż`     |
+| `bx` | `°`     | `ą`     | `˛`     | `ł`     | `´`     | `ľ`     | `ś`     | `ˇ`     | `¸`     | `š`     | `ş`     | `ť`     | `ź`     | `˝`     | `ž`     | `ż`     |
+| `cx` | `Ŕ`     | `Á`     | `Â`     | `Ă`     | `Ä`     | `Ĺ`     | `Ć`     | `Ç`     | `Č`     | `É`     | `Ę`     | `Ë`     | `Ě`     | `Í`     | `Î`     | `Ď`     |
+| `dx` | `Đ`     | `Ń`     | `Ň`     | `Ó`     | `Ô`     | `Ő`     | `Ö`     | `×`     | `Ř`     | `Ů`     | `Ú`     | `Ű`     | `Ü`     | `Ý`     | `Ţ`     | `ß`     |
+| `ex` | `ŕ`     | `á`     | `â`     | `ă`     | `ä`     | `ĺ`     | `ć`     | `ç`     | `č`     | `é`     | `ę`     | `ë`     | `ě`     | `í`     | `î`     | `ď`     |
+| `fx` | `đ`     | `ń`     | `ň`     | `ó`     | `ô`     | `ő`     | `ö`     | `÷`     | `ř`     | `ů`     | `ú`     | `ű`     | `ü`     | `ý`     | `ţ`     | `˙`     |
 
 ---
 #gb2312 
@@ -415,7 +444,9 @@ Encoding is EUC-CN
 
 
 ---
-#Unicode
+* Before Unicode
+* **Unicode**
+* Oracle CharacterSet
 
 ^
 1991
@@ -503,15 +534,6 @@ basic latin
 latin suppl: latin1, western europe
 latin extend: rest of europe, africa
 note surrogates 
-
-
-
----
-#Unicode Encodings
-
-* `UTF-32`
-* `UTF-16`
-* `UTF-8`
 
 ---
 #Unicode Encodings
@@ -615,8 +637,11 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 ###`➜ [d8 3d] [dc 36 ] (utf-16)`
 
 ---
-#Unicode Encoding
-#UTF-8
+#Unicode Encodings
+
+* `UTF-32`
+* `UTF-16`
+* **`UTF-8`**
 
 ---
 
@@ -705,20 +730,24 @@ self-synchonizing
 ###`➜[70 69 65 73] (ascii)` 
 ###`➜[70 69 65 73] (utf-8)` 
 
+
+^
+Can't tell encoding from byte sequence
+
 ---
-![fit original](images/romanian.png)
-#`câine`
-###`➜[63 c3 a2 69 6e 65] (utf-8)` 
+![fit original](images/portuguese.png)
+#`cão`
+###`➜[63 c3 a3 6f] (utf-8)` 
 
 ---
 ![fit original](images/chinese.png)
 #`狗`
-###`➜[e7 8b 97]`
+###`➜[e7 8b 97] (utf-8)`
 
 ---
 ![fit](images/emoji.png)
 #`🐶`
-###`➜[f0 9f 90 b6]`
+###`➜[f0 9f 90 b6] (utf-8)`
 
 
 ---
@@ -731,6 +760,18 @@ self-synchonizing
 |`utf-8`    |`80`       | `1.22`         |
 |`utf-16`   |`80`       | `2.02`         |
 |`utf-32`   |`80`       | `4.00`         |
+
+---
+![fit](images/trend.avif)
+
+^
+98.7%
+
+---
+* Before Unicode
+* Unicode
+* **Oracle CharacterSet**
+
 
 ---
 ```
@@ -760,7 +801,7 @@ insert into dogs (name,  breed)
 
 ---
 
-|Database Version|Character Set    |National Character Set     |
+|Database Version|CharacterSet    |National CharacterSet     |
 | :--      | :--                   |:-- |
 |6  |`we8iso8859p1`                |  |
 |7  |`we8iso8859p2, zhs16cgb231280`                | |
@@ -803,8 +844,27 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
 ###`➜ [ed a0 bc ed b3 a5]`
 
 ---
+#In Summary
+
+* CharacterSet: AL32UTF8 (not UTF8)
+* National CharacterSet: AL16UTF16 (not UTF8)
+
+---
 What haven't covered
 
 * Windows Encodings
 * Byte/Char Semantics
 * Database Migration Assistant for Unicode (DMU)
+
+---
+
+
+###`[54 48 41 4e 4b 53] (ascii/utf-8)`
+###**`➜ THANKS⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`**
+###`⠀`
+###`[11110000 10011111 10011001 10001111] (utf-8)`
+###
+###`➜ U+1f64f ➜ 🙏`
+
+
+
