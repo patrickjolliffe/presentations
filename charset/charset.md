@@ -20,12 +20,18 @@ slidenumbers: true
 ###`⠀`
 ###`━••  ━━━  ━━•`
 
+^
+19th Century
+
 ---
 ![fit](images/english.png)
 #`dog`
 ###`↓`  
 ###`⠀`
 ###`⠙⠕⠛`
+
+^
+19th Century
 
 ---
 ![fit](images/english.png)
@@ -165,8 +171,8 @@ zwin
 
 ^
 1968
-53
-1 byte per char
+coverage
+efficiency
 
 ---
 ![fit original](images/elvish.png)
@@ -293,10 +299,17 @@ latin9 improved latin1 €
 #`köpek`
 ###`➜[6b f6 70 65 6b] (latin2)`
 
+^
+turkish
+
 ---
 ![fit original](images/lithuanian.png)
 #`šuo`
 ###`➜[b9 75 6f] (latin2)`
+
+
+^
+lithuanian
 
 ---
 |`ascii`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
@@ -340,9 +353,6 @@ latin9 improved latin1 €
 | `ex` | `à`     | `á`     | `â`     | `ã`     | `ä`     | `å`     | `æ`     | `ç`     | `è`     | `é`     | `ê`     | `ë`     | `ì`     | `í`     | `î`     | `ï`     |
 | `fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
 
-^
-latin2 filled others
-
 
 ---
 |`latin2`| `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
@@ -370,8 +380,6 @@ latin2 filled others
 ^
 Meanwhile in China
 1980
-Character Set
-Encoding is EUC-CN
 
 ---
 ```
@@ -412,6 +420,9 @@ Encoding is EUC-CN
 ###`➜ [48 75 6e 64] (gb2312)`
 ###`➜ [48 75 6e 64] (ascii)⠀`
 
+^
+Need encoding
+
 ---
 ![fit original](images/mystery.png)
 #`?`
@@ -442,6 +453,8 @@ Encoding is EUC-CN
 #`肮发`
 ###`➜ [b0 b9 b7 a2] (gb2312)`
 
+^
+dirty hair
 
 ---
 * Before Unicode
@@ -450,7 +463,7 @@ Encoding is EUC-CN
 
 ^
 1991
-set of standards including encodings
+set of standards includes encodings
 not an encoding
 
 
@@ -476,14 +489,8 @@ not an encoding
 
 
 ^
-BMP most chars used modern languages (Unicode 1.0)
-SMP ancient,emoji,music,special symbols
-SIP rare chinese
-TIP very rare chinese
-Reserved - custom characters used in fonts, software, or private systems
-Future use
-SSP - Special-purpose codes for language tagging and fine-tuning character display
-
+BMP most chars modern languages (vsn 1.0)
+SMP emoji
 
 --- 
 
@@ -507,14 +514,16 @@ SSP - Special-purpose codes for language tagging and fine-tuning character displ
 | `U+00fx` | `ð`     | `ñ`     | `ò`     | `ó`     | `ô`     | `õ`     | `ö`     | `÷`     | `ø`     | `ù`     | `ú`     | `û`     | `ü`     | `ý`     | `þ`     | `ÿ`     |
 
 ^
-###Unicode U+0000 to U+007f
+CodePoints U+0000 to U+00ff
+latin1
+
 
 
 --- 
 | Range           | Block                   |
 | :---            | :---                    | 
 | `U+0000➜U+007f` | ASCII                   |
-| `U+0080➜U+00ff` | Latin-1 Supplement        |
+| `U+0080➜U+00ff` | Latin1                  |
 | `U+0100➜U+024f` | Latin Extended          |
 | `U+0250➜U+02ff` | Phonetic Symbols        |
 | `U+0300➜U+05ff` | Greek, Cyrillic, Hebrew |
@@ -527,11 +536,11 @@ SSP - Special-purpose codes for language tagging and fine-tuning character displ
 | `U+ac00➜U+d7af` | Korean                  |
 | `U+d800➜U+dbff` | High Surrogates         |
 | `U+dc00➜U+dfff` | Low Surrogates          |
-| `U+e000➜U+f8ff`     | Private Use             |
+| `U+e000➜U+f8ff` | Private Use             |
 
 ^
 basic latin
-latin suppl: latin1, western europe
+latin1=western europe
 latin extend: rest of europe, africa
 note surrogates 
 
@@ -564,13 +573,6 @@ note surrogates
 * `UTF-32`
 * **`UTF-16`**
 * `UTF-8`
-
-^
-universal character set
-first unicode encodings
-fixed-length, 2 bytes per char
-allowing direct encoding of all code 
-remember ucs-2 for utf-16
 
 ---
 ```
@@ -620,8 +622,17 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 ---
 ![fit](images/emoji.png)
 
+[.code-highlight: 1]
+[.code-highlight: 1-2]
+[.code-highlight: 1-3]
+[.code-highlight: 1-4]
+[.code-highlight: 1-5]
+[.code-highlight: 1-6]
+[.code-highlight: 1-7]
+[.code-highlight: all]
 ```
-🐶 = U+1f436 - 0x10000 = 0x0f436                       
+🐶 = U+1f436
+     0x1f436 - 0x10000 = 0x0f436                       
                        = 0b00001111010000110110
                        = [0b0000111101][0b0000110110]
                        = [0x003d]     [0x0036]
@@ -629,6 +640,9 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 	                   = [0xd83d]     [0xdc36]
    ➜ U+d83d U+dc36 
 ```
+^
+20 bits
+10 + 10 bits
 
 ---
 ![fit](images/emoji.png)
@@ -765,7 +779,7 @@ Can't tell encoding from byte sequence
 ![fit](images/trend.avif)
 
 ^
-98.7%
+99%
 
 ---
 * Before Unicode
@@ -774,14 +788,17 @@ Can't tell encoding from byte sequence
 
 
 ---
+[.code-highlight: 1-4]
+[.code-highlight: all]
+
 ```
 create database piesek
    characterset we8iso8859p1
    national character set al16utf16
 ...
 
-create table dogs ( name  nchar (10),
-                    breed  char (10) );
+create table dogs ( name  nchar (2),
+                    breed  char (10 char) );
 
 insert into dogs (name,  breed)
           values (n'犬', 'Shiba Inu');   
@@ -815,17 +832,17 @@ insert into dogs (name,  breed)
 ---
 #`UTF8` (≠ `UTF-8`) 
 ```
-U+0000→U+007F              
-[0xxxxxxx]
+U+0000→U+007f              
+➜[0xxxxxxx]
 
-U+0080→U+07FF                       
-[110xxxxx 10xxxxxx]
+U+0080→U+07ff                       
+➜[110xxxxx 10xxxxxx]
 
-U+0800→U+FFFF                      
-[1110xxxx 10xxxxxx 10xxxxxx]
+U+0800→U+ffff                      
+➜[1110xxxx 10xxxxxx 10xxxxxx]
 
-U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶F̶F̶F̶F̶
-[̶1̶1̶1̶1̶0̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶]̶
+U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶f̶f̶f̶f̶
+➜̶ ̶[̶1̶1̶1̶1̶0̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶]̶
 ```
 
 ---
@@ -857,14 +874,19 @@ What haven't covered
 * Database Migration Assistant for Unicode (DMU)
 
 ---
-
-
-###`[54 48 41 4e 4b 53] (ascii/utf-8)`
-###**`➜ THANKS⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`**
-###`⠀`
+###`[54 48 41 4e 4b 53] (ascii/latin1/gb2312/utf-8)`
+#`⠀`
+#`⠀`
 ###`[11110000 10011111 10011001 10001111] (utf-8)`
-###
-###`➜ U+1f64f ➜ 🙏`
+#`⠀`
+
+---
+
+###`[54 48 41 4e 4b 53] (ascii/latin1/gb2312/utf-8)`
+#**`➜ THANKS`**
+#`⠀`
+###`[11110000 10011111 10011001 10001111] (utf-8)`
+#`➜ U+1f64f ➜ 🙏`
 
 
 
