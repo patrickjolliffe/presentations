@@ -254,3 +254,9 @@ win-1252=64
 | `iso-8859-13`    | `latin7`    | windows-1257 |
 | `iso-8859-15`    | `latin9`    | windows-1252 |
 
+---
+What haven't covered
+
+* Windows Encodings
+* Byte/Char Semantics
+* Database Migration Assistant for Unicode (DMU)

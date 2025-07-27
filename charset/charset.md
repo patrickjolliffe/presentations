@@ -15,20 +15,26 @@ slidenumbers: true
 ---
 ![fit](images/english.png)
 
-#`dog`
+#`dog` [^⠀⠀]
 ###`↓`
 ###`⠀`
 ###`━••  ━━━  ━━•`
 
 ^
 19th Century
+[^⠀⠀]:He asked what's 'S' in Morse?   I said ...
+
+
 
 ---
 ![fit](images/english.png)
 #`dog`
 ###`↓`  
 ###`⠀`
-###`⠙⠕⠛`
+###`⠙⠕⠛`[^⠀]
+
+
+[^⠀]: If any blind people have a problem with that joke you know where to find me!
 
 ^
 19th Century
@@ -41,7 +47,10 @@ slidenumbers: true
 ###`[64 6f 67]`
 
 ---
-###`🐈 80dogs.txt` 
+
+
+---
+####`~/github/patrickjolliffe/presentations/charset> 🐈 80dogs.txt` 
 [.column]
 ```
 Hund
@@ -677,16 +686,16 @@ very efficient
 [.code-highlight: all]
 [.code-highlight: 4-5]
 ```
-U+0000→U+007F              
+U+0000→U+007Ff              
 ➜[0xxxxxxx]
 
-U+0080→U+07FF                       
+U+0080→U+07ff                       
 ➜[110xxxxx 10xxxxxx]
 
-U+0800→U+FFFF                      
+U+0800→U+ffff                      
 ➜[1110xxxx 10xxxxxx 10xxxxxx]
 
-U+10000→U+10FFFF
+U+10000→U+10ffff
 ➜[11110xxx 10xxxxxx 10xxxxxx 10xxxxxx]
 ```
 
@@ -704,12 +713,12 @@ Same on big-little endian
 [.code-highlight: 1-5]
 [.code-highlight: all]
 ```
-U+0141 ('Ł') 
- =  00101000001
- =     00101   000001
+U+00e3 ('ã') 
+ =  00011100011
+ =     00011   100011
     110xxxxx 10xxxxxx
- ➜ [11000101 10000001]
-    =    [c5       81] 
+ ➜ [11000011 10100011]
+ = [c3       a3] 
 ```
 
 
@@ -848,6 +857,9 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶f̶f̶f̶f̶
 ---
 ![fit](images/egyptian.png)
 
+^
+Hieroglyph
+
 ---
 ![fit](images/egyptian.png)
 #`𓃥 = U+130e5`
@@ -865,13 +877,6 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶f̶f̶f̶f̶
 
 * CharacterSet: AL32UTF8 (not UTF8)
 * National CharacterSet: AL16UTF16 (not UTF8)
-
----
-What haven't covered
-
-* Windows Encodings
-* Byte/Char Semantics
-* Database Migration Assistant for Unicode (DMU)
 
 ---
 ###`[54 48 41 4e 4b 53] (ascii/latin1/gb2312/utf-8)`
