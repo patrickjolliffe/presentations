@@ -1,5 +1,11 @@
 slidenumbers: true
- slidecount: true 
+slidecount: true 
+![fit](images/title.jpg)
+
+---
+![fit](images/title.jpg)
+
+---
 ![](images/franck.jpg)
 
 ---
@@ -22,7 +28,7 @@ slidenumbers: true
 
 ^
 19th Century
-[^⠀⠀]:He asked what's 'S' in Morse?   I said ...
+[^⠀⠀]:Her: What's 'S' in Morse? Me: ...
 
 
 
@@ -34,7 +40,7 @@ slidenumbers: true
 ###`⠙⠕⠛`[^⠀]
 
 
-[^⠀]: If any blind people have a problem with that joke you know where to find me!
+[^⠀]: To any blind people offended by that joke, you know where to find me!
 
 ^
 19th Century
@@ -45,9 +51,6 @@ slidenumbers: true
 ###`↓`
 ###`⠀` 
 ###`[64 6f 67]`
-
----
-
 
 ---
 ####`~/github/patrickjolliffe/presentations/charset> 🐈 80dogs.txt` 
@@ -415,7 +418,7 @@ Meanwhile in China
 
 ---
 ![fit  original](images/chinese.png)
-#`犬`
+#`狗`
 ###`➜ [b9 b7]`
 
 ---
@@ -806,16 +809,51 @@ create database piesek
    national character set al16utf16
 ...
 
-create table dogs ( name  nchar (2),
-                    breed  char (10 char) );
+create table dogs (name     nchar(2),
+                   language char(10 char));
 
-insert into dogs (name,  breed)
-          values (n'犬', 'Shiba Inu');   
+insert into dogs (name,  language)
+          values (n'🐶', 'Emoji');   
 ```
 ^
  historically any
  now utf8 & al16utf16
 
+---
+[.code-highlight: 1-3]
+[.code-highlight: 1-13]
+[.code-highlight: 1-19]
+[.code-highlight: all]
+```
+SQL> create table t (nfilter nchar(2), padding varchar2(1000));
+
+Table T created.
+
+SQL> insert into t   
+  2  select case when mod(level, 1000) = 0 then 'A'
+  3              when mod(level, 1000) = 1 then 'B'
+  4              else 'X'
+  5          end,
+  6  rpad('X', 1000, 'X')
+  7* from dual connect by level <= 100000;
+
+100,000 rows inserted.
+
+SQL> select count(*) from t where nfilter in ('A','B');  
+
+   COUNT(*) 
+___________ 
+        200 
+
+SQL> select count(*) from t where nfilter in ('A','B'); 
+
+   COUNT(*) 
+___________ 
+          1 
+```
+
+^
+bug, fixed, underscore parameter
 
 ---
 #`we8iso8859p1`
