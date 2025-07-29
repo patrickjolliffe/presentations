@@ -1,9 +1,9 @@
 slidenumbers: true
 slidecount: true 
-![fit](images/title.jpg)
+![fit](images/title2.png)
 
 ---
-![fit](images/title.jpg)
+![fit](images/title2.png)
 
 ---
 ![](images/franck.jpg)
@@ -21,8 +21,8 @@ slidecount: true
 ---
 ![fit](images/english.png)
 
-#`dog` [^⠀⠀]
-###`↓`
+#`dog`
+###`↓`[^⠀⠀]
 ###`⠀`
 ###`━••  ━━━  ━━•`
 
@@ -155,7 +155,6 @@ zwin
 * Oracle CharacterSet
 
 ---
-
 |    | `0` | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `a` | `b` | `c` | `d` | `e` | `f` |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |`0x`|     | `1` | `2` | `3` | `4` | `5` | `6` | `7` | `8` | `9` | `0` | `#` | `@` | `:` | `>` | `√` |
@@ -164,6 +163,11 @@ zwin
 |`3x`| `&` | `A` | `B` | `C` | `D` | `E` | `F` | `G` | `H` | `I` | `?` | `.` | `⌑` | `[` | `<` | `⯒` |
 
 
+^
+BCD
+6 bits
+`##`
+not sequential
 
 ---
 ```
@@ -276,7 +280,7 @@ latin9 improved latin1 €
 ```
 
 ---
-![fit original](images/portuguese.png)
+![fit original](images/portuguese2.png)
 #`cão`
 ###`➜[63 e3 6f] (latin1)` 
 
